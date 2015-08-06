@@ -89,8 +89,10 @@ BEGIN { # {{{
    Ereignis('Lamech†'                  , nach=>'Lamech*'               , jahre=>  777, vers=>'1. Mo 5:31'        );
    Ereignis('Methusalah†'              , nach=>'Methusalah*'           , jahre=>  969, vers=>'1. Mo 5:27'        );
    Ereignis('Noah*'                    , nach=>'Lamech*'               , jahre=>  182, vers=>'1. Mo 5:28-29'     );
+   Ereignis('Noah 500 jährig'          , nach=>'Noah*'                 , jahre=>  500, vers=>'1. Mo 5:32'        );
    Ereignis('Flut Beginn'              , nach=>'Noah*'                 , jahre=>  600, vers=>'1. Mo 7:6'         );
    Ereignis('120 Jahre vor Flut'       , vor =>'Flut Beginn'           , jahre=>  120, vers=>'1. Mo 6:3'         );
+   Ereignis('Noah†'                    , nach=>'Noah*'                 , jahre=>  950, vers=>'1. Mo 9:29'        );
 
    Zeitspanne('Adam',                  , von=>'Adam*'                  , bis=>'Adam†'                  );
    Zeitspanne('Seth',                  , von=>'Seth*'                  , bis=>'Seth†'                  );
