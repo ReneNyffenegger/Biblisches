@@ -123,6 +123,15 @@ BEGIN { # {{{
    Ereignis('Isaak & Rebekka'          , nach=>'Isaak*'                    , jahre=>   40, vers=>'1. Mo 25:20'       );
    Ereignis('Esau*'                    , nach=>'Isaak*'                    , jahre=>   60, vers=>'1. Mo 25:25'       );
    Ereignis('Jakob*'                   , nach=>'Isaak*'                    , jahre=>   60, vers=>'1. Mo 25:26'       );
+   Ereignis('Jakob in Ägypten'         , nach=>'Jakob*'                    , jahre=>  130, vers=>'1. Mo 47:9'        );
+   Ereignis('1. Jahr der Hungersnot'   , vor =>'Jakob in Ägypten'          , jahre=>    1, vers=>'1. Mo 45:6'        );
+   Ereignis('7. Jahr der Hungersnot'   , nach=>'1. Jahr der Hungersnot'    , jahre=>    6                            );
+   Ereignis('1. Jahr des Überflusses'  , vor =>'1. Jahr der Hungersnot'    , jahre=>    7                            ); # TODO Hungersnot folgt Überfluss
+   Ereignis('7. Jahr des Überflusses'  , nach=>'1. Jahr des Überflusses'   , jahre=>    6                            ); # TODO Hungersnot folgt Überfluss
+   Ereignis('Joseph 30 jährig'         , vor =>'1. Jahr des Überflusses'   , jahre=>    1, vers=>'1. Mo 41:46'       );
+   Ereignis('Joseph*'                  , vor =>'Joseph 30 jährig'          , jahre=>   30                            );
+   Ereignis('Jakob†'                   , nach=>'Jakob*'                    , jahre=>  147, vers=>'1. Mo 47:28'       );
+#  Ereignis('Jakob verlässt Laban'     , nach=>'......'                    , jahre=>   20, vers=>'1. Mo 31:38'       );
 
 #  ---
 
