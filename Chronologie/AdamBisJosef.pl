@@ -30,6 +30,7 @@ say "Isaaks Geburt:                 " . BiblischeChronologie::Jahr('Isaak*'     
 say "Sarahs Tod:                    " . BiblischeChronologie::Jahr('Sarah†'            );
 say "Isaaks Hochzeit:               " . BiblischeChronologie::Jahr('Isaak & Rebekka'   );
 say "Sems Tod:                      " . BiblischeChronologie::Jahr('Sem†'              );
+say "Jakobs Geburt:                 " . BiblischeChronologie::Jahr('Jakob*'            );
 say "Abrahams Tod:                  " . BiblischeChronologie::Jahr('Abraham†'          );
 say "Ismaels Tod:                   " . BiblischeChronologie::Jahr('Ismael†'           );
 say "Isaaks Tod:                    " . BiblischeChronologie::Jahr('Isaak†'            );

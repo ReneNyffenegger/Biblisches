@@ -121,6 +121,8 @@ BEGIN { # {{{
    Ereignis('Sarah*'                   , vor =>'Isaak*'                    , jahre=>   90, vers=>'1. Mo 17:17'       );
    Ereignis('Sarah†'                   , nach=>'Sarah*'                    , jahre=>  127, vers=>'1. Mo 23:1'        );
    Ereignis('Isaak & Rebekka'          , nach=>'Isaak*'                    , jahre=>   40, vers=>'1. Mo 25:20'       );
+   Ereignis('Esau*'                    , nach=>'Isaak*'                    , jahre=>   60, vers=>'1. Mo 25:25'       );
+   Ereignis('Jakob*'                   , nach=>'Isaak*'                    , jahre=>   60, vers=>'1. Mo 25:26'       );
 
 #  ---
 
