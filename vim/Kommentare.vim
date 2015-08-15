@@ -11,13 +11,13 @@ fu! <SID>TabberSprache(sprache) " {
      \ ])
 
 
-   call TQ84_log_dedent()
+   call GUI#InsertModeInsertText("<span class='" . a:sprache . "'>")
 
-   return "<span class='" . a:sprache . "'>"
+   call TQ84_log_dedent()
 
 endfu " }
 
-inoremap <buffer> <expr> ,gr <SID>TabberSprache('gr')
-inoremap <buffer> <expr> ,he <SID>TabberSprache('he')
+inoremap <buffer> ,gr <ESC>:call <SID>TabberSprache('gr')<CR>
+inoremap <buffer> ,he <ESC>:call <SID>TabberSprache('he')<CR>
 
 call TQ84_log_dedent()
