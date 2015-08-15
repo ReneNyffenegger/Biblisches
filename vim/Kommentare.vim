@@ -1,10 +1,23 @@
-"
-" Sourced from
-"   alle_kapitel.vim and
-"   ftplugin/eigene_uebersetzung.vim
-"
 call TQ84_log_indent(expand("<sfile>"))
 
-map <buffer> ,pl :silent !cd \%git_work_dir\%\\biblisches\\kommentare & start alle_kapitel_local.pl
+so <sfile>:h/Kommentare-Perl.vim
+
+fu! <SID>TabberSprache(sprache) " {
+
+   call TQ84_log_indent(expand("<sfile>") . 'sprache: ' . a:sprache)
+
+   call Tabber#Add([
+     \ ['ins-const', '</span> ' ],
+     \ ])
+
+
+   call TQ84_log_dedent()
+
+   return "<span class='" . a:sprache . "'>"
+
+endfu " }
+
+inoremap <buffer> <expr> ,gr <SID>TabberSprache('gr')
+inoremap <buffer> <expr> ,he <SID>TabberSprache('he')
 
 call TQ84_log_dedent()
