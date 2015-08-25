@@ -4,8 +4,8 @@ package BiblischeChronologie;
 use warnings;
 use strict;
 
-my %Ereignisse;
-my %Zeitspannen;
+our %Ereignisse;
+our %Zeitspannen;
 
 
 
@@ -17,24 +17,58 @@ sub Ereignis { # {{{
   die "Ereignis $ereignis_name bereits erfasst!"                if exists $Ereignisse {$ereignis_name};
   die "Ereignis $ereignis_name bereits als Zeitspanne erfasst!" if exists $Zeitspannen{$ereignis_name};
 
-  if (my $nach_ereignis = $opts{nach}) {
+  if (my $nach_ereignis = $opts{nach}) { # {{{
 
     die "Ereignis $ereignis_name kann nicht bestimmt werden, da Ereignis $nach_ereignis nicht bekannt ist" if not exists $Ereignisse{$nach_ereignis};
     die "Bei Ereignis $ereignis_name wurden die Jahre nicht angegeben" unless exists $opts{jahre};
 
     $Ereignisse{$ereignis_name}{jahr} = $Ereignisse{$nach_ereignis}{jahr} + $opts{jahre};
-  }
-  elsif (my $vor_ereignis = $opts{vor}) {
+  } # }}}
+  elsif (my $vor_ereignis = $opts{vor}) { # {{{
 
     die "Ereignis $ereignis_name kann nicht bestimmt werden, da Ereignis $vor_ereignis nicht bekannt ist" if not exists $Ereignisse{$vor_ereignis};
     die "Bei Ereignis $ereignis_name wurden die Jahre nicht angegeben" unless exists $opts{jahre};
 
     $Ereignisse{$ereignis_name}{jahr} = $Ereignisse{$vor_ereignis}{jahr} - $opts{jahre};
-  }
+  } # }}}
+  elsif (my $jahr_ereignis = $opts{jahr}) { # {{{
+    die "Ereignis $ereignis_name kann nicht bestimmt werden, da Ereignis $jahr_ereignis nicht bekannt ist" if not exists $Ereignisse{$jahr_ereignis};
+    $Ereignisse{$ereignis_name}{jahr} = $Ereignisse{$jahr_ereignis}{jahr};
+  } # }}}
   else {
     die "weder Option 'nach' noch 'vor' für Ereignis $ereignis_name wurde angegeben\n";
   }
 
+
+} # }}}
+
+sub Pruefe { # {{{
+
+  my $ereignis_name = shift;
+  my %opts = @_;
+
+  if (exists $opts{vor}) { # {{{
+
+    if (exists $opts{jahre}) {
+       if ($Ereignisse{$ereignis_name}{jahr} + $opts{jahre} != $Ereignisse{$opts{vor}}{jahr}) {
+         die "$ereignis_name nicht $Ereignisse{$ereignis_name}{jahre} Jahre vor $opts{vor}";
+       }
+    }
+    else {
+      die;
+    }
+
+  } # }}}
+  elsif (exists $opts{jahr}) { # {{{
+
+    if ($Ereignisse{$ereignis_name}{jahr} != $Ereignisse{$opts{jahr}}{jahr}) {
+
+       die "$ereignis_name nicht im selben Jahr wie $opts{jahr}";
+    }
+  } # }}}
+  else { # {{{
+    die;
+  } # }}}
 
 } # }}}
 
@@ -110,7 +144,7 @@ BEGIN { # {{{
    Ereignis('Terach*'                  , nach=>'Nahor*'                    , jahre=>   29, vers=>'1. Mo 11:24'       );
    Ereignis('Nahor†'                   , nach=>'Terach*'                   , jahre=>  119, vers=>'1. Mo 11:25'       );
    Ereignis('Terach†'                  , nach=>'Terach*'                   , jahre=>  205, vers=>'1. Mo 11:32'       );
-   Ereignis('Abraham Haran -> Kanaan'  , nach=>'Terach†'                   , jahre=>    0, vers=>'Apg 7:4'           );
+   Ereignis('Abraham Haran -> Kanaan'  , jahr=>'Terach†'                                 , vers=>'Apg 7:4'           );
    Ereignis('Abraham*'                 , vor =>'Abraham Haran -> Kanaan'   , jahre=>   75, vers=>'1. Mo 12:4'        );
    Ereignis('Abraham†'                 , nach=>'Abraham*'                  , jahre=>  175, vers=>'1. Mo 25:7'        );
    Ereignis('Ismael gezeugt'           , nach=>'Abraham Haran -> Kanaan'   , jahre=>   10, vers=>'1. Mo 16:3'        );
@@ -127,10 +161,23 @@ BEGIN { # {{{
    Ereignis('1. Jahr der Hungersnot'   , vor =>'Jakob in Ägypten'          , jahre=>    1, vers=>'1. Mo 45:6'        );
    Ereignis('7. Jahr der Hungersnot'   , nach=>'1. Jahr der Hungersnot'    , jahre=>    6                            );
    Ereignis('1. Jahr des Überflusses'  , vor =>'1. Jahr der Hungersnot'    , jahre=>    7                            ); # TODO Hungersnot folgt Überfluss
-   Ereignis('7. Jahr des Überflusses'  , nach=>'1. Jahr des Überflusses'   , jahre=>    6                            ); # TODO Hungersnot folgt Überfluss
+   Ereignis('7. Jahr des Überflusses'  , nach=>'1. Jahr des Überflusses'   , jahre=>    6                            );
    Ereignis('Joseph 30 jährig'         , vor =>'1. Jahr des Überflusses'   , jahre=>    1, vers=>'1. Mo 41:46'       );
    Ereignis('Joseph*'                  , vor =>'Joseph 30 jährig'          , jahre=>   30                            );
    Ereignis('Jakob†'                   , nach=>'Jakob*'                    , jahre=>  147, vers=>'1. Mo 47:28'       );
+   Ereignis('Esaus Hochzeit'           , nach=>'Esau*'                     , jahre=>   40, vers=>'1. Mo 26:34'       );
+   Ereignis('Jakob 130 jährig'         , nach=>'Jakob*'                    , jahre=>  130, vers=>'1. Mo 47:9'        );
+   Ereignis('2. Jahr der Hungersnot'   , jahr=>'Jakob 130 jährig'          ,               vers=>'1. Mo 45:6'        );
+   Ereignis('Joseph vor dem Pharao'    , vor =>'1. Jahr des Überflusses'   , jahre=>    1                            ); # TODO Vers
+   Ereignis('Joseph†'                  , nach=>'Joseph*'                   , jahre=>  110, vers=>'1. Mo 50:26'       );
+   Ereignis('Exodus'                   , nach=>'Jakob in Ägypten'          , jahre=>  430, vers=>'2. Mo 12:40-41'    );
+   Ereignis('Gesetz'                   , jahr=>'Exodus'                                  , vers=>'2. Mo 19:1'        );
+   Ereignis('Auf Christus best. Test.' , vor =>'Gesetz'                    , jahre=>  430, vers=>'Gal 3:17/1. Mo 46:3');
+
+   Pruefe  ('2. Jahr der Hungersnot'   , vor =>'7. Jahr der Hungersnot'    , jahre=>    5);
+   Pruefe  ('Jakob 130 jährig'         , vor=> 'Jakob†'                    , jahre=> 17);
+   Pruefe  ('Joseph vor dem Pharao'    , jahr=>'Joseph 30 jährig');
+
 #  Ereignis('Jakob verlässt Laban'     , nach=>'......'                    , jahre=>   20, vers=>'1. Mo 31:38'       );
 
 #  ---
