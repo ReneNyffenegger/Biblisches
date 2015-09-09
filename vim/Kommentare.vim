@@ -91,6 +91,7 @@ fu! <SID>KommentarLink(analyzed_book_ch_v) " {
   return l:ret
 
 endfu " }
+
 fu! <SID>GeheZuVers() " {
   call TQ84_log_indent(expand('<sfile>')) 
   let l:vers = Input#BuchKapitelVers()
@@ -114,6 +115,28 @@ fu! <SID>GeheZuVers() " {
   normal z
 
   call TQ84_log_dedent()
+endfu " }
+fu! <SID>AktuellerVers() " {
+  call TQ84_log_indent(expand('<sfile>'))
+
+  let l:line_id = search("\\v\\<div class\\='v' id\\='", 'bn')
+
+  let l:line = getline(l:line_id)
+
+  call TQ84_log('l:line = ' . l:line . ' - l:line_id = ' . l:line_id) 
+
+  let l:m = matchlist(l:line, "\\v id\\='I([^-]+)-([^-]+)-([^']+)")
+
+  let l:vers = {
+  \     'buch'   : l:m[1],
+  \     'kapitel': l:m[2],
+  \     'vers'   : l:m[3]
+  \ }
+
+
+  call TQ84_log_dedent()
+
+  return l:vers
 endfu " }
 
 fu! <SID>TabberSprache(sprache) " {
@@ -158,5 +181,7 @@ nnoremap <buffer> ,akc  :call <SID>KapitelEinfuegen()<CR>
 nnoremap <buffer> ,akt  :call <SID>DivTEinfuegen()<CR>
 nnoremap <buffer> ,akgt :call <SID>GeheZuVers()<CR>
 inoremap <buffer> ,kl =<SID>KommentarLink(RN_InputAndAnalyzeBookChaperVerse())
+
+nnoremap <buffer> ,kom :call OpenUrl#Kommentar(<SID>AktuellerVers())<CR>
 
 call TQ84_log_dedent()
