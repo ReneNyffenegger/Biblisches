@@ -94,6 +94,8 @@ endfu " }
 fu! Kommentare_GeheZuVers(vers) " {
   call TQ84_log_indent(expand('<sfile>'))
 
+  call GUI#OpenFile($git_work_dir . '/biblisches/kommentare/alle_kapitel.html')
+
   let l:search_pattern_vers = "id='I" . a:vers['buch'] . '-' . a:vers['kapitel'] . '-' . a:vers['vers'] . "'"
 
   let l:line_no = search(l:search_pattern_vers)
@@ -113,12 +115,18 @@ fu! Kommentare_GeheZuVers(vers) " {
   normal z
   call TQ84_log_dedent()
 endfu " }
+fu! Kommentare_GeheZuVersMitEingabe() " {
+  call TQ84_log_indent(expand('<sfile>'))
+
+  call Kommentare_GeheZuVers(Bibel#EingabeBuchKapitelVers())
+  
+  call TQ84_log_dedent()
+endfu " }
 fu! <SID>GeheZuVers() " {
   call TQ84_log_indent(expand('<sfile>')) 
   let l:vers = Input#BuchKapitelVers()
 
   call Kommentare_GeheZuVers(l:vers)
-
 
   call TQ84_log_dedent()
 endfu " }
