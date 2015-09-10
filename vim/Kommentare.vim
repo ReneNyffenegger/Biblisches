@@ -91,12 +91,10 @@ fu! <SID>KommentarLink(analyzed_book_ch_v) " {
   return l:ret
 
 endfu " }
+fu! Kommentare_GeheZuVers(vers) " {
+  call TQ84_log_indent(expand('<sfile>'))
 
-fu! <SID>GeheZuVers() " {
-  call TQ84_log_indent(expand('<sfile>')) 
-  let l:vers = Input#BuchKapitelVers()
-
-  let l:search_pattern_vers = "id='I" . l:vers['buch'] . '-' . l:vers['kapitel'] . '-' . l:vers['vers'] . "'"
+  let l:search_pattern_vers = "id='I" . a:vers['buch'] . '-' . a:vers['kapitel'] . '-' . a:vers['vers'] . "'"
 
   let l:line_no = search(l:search_pattern_vers)
 
@@ -104,8 +102,8 @@ fu! <SID>GeheZuVers() " {
 
   if l:line_no == 0
 
-     let l:buch_name = Bibel#BuchnameAusAbkuerzung(l:vers['buch'])
-     let l:search_pattern_kapitel = '<h1>' . l:buch_name . ' ' . l:vers['kapitel'] . '</h1>'
+     let l:buch_name = Bibel#BuchnameAusAbkuerzung(a:vers['buch'])
+     let l:search_pattern_kapitel = '<h1>' . l:buch_name . ' ' . a:vers['kapitel'] . '</h1>'
      call TQ84_log('line no is 0, so searching for ' . l:search_pattern_kapitel)
      let l:line_no = search(l:search_pattern_kapitel)
 
@@ -113,6 +111,14 @@ fu! <SID>GeheZuVers() " {
 
   normal zv
   normal z
+  call TQ84_log_dedent()
+endfu " }
+fu! <SID>GeheZuVers() " {
+  call TQ84_log_indent(expand('<sfile>')) 
+  let l:vers = Input#BuchKapitelVers()
+
+  call Kommentare_GeheZuVers(l:vers)
+
 
   call TQ84_log_dedent()
 endfu " }
@@ -138,7 +144,6 @@ fu! <SID>AktuellerVers() " {
 
   return l:vers
 endfu " }
-
 fu! <SID>TabberSprache(sprache) " {
 
    call TQ84_log_indent(expand("<sfile>") . 'sprache: ' . a:sprache)
@@ -179,9 +184,9 @@ inoremap <buffer> ,S  =<SID>TabberStrongs()<CR>
 nnoremap <buffer> ,akv  :call <SID>VersEinfuegen()<CR>
 nnoremap <buffer> ,akc  :call <SID>KapitelEinfuegen()<CR>
 nnoremap <buffer> ,akt  :call <SID>DivTEinfuegen()<CR>
-nnoremap <buffer> ,akgt :call <SID>GeheZuVers()<CR>
+nnoremap <buffer> ,gtv :call <SID>GeheZuVers()<CR>
 inoremap <buffer> ,kl =<SID>KommentarLink(RN_InputAndAnalyzeBookChaperVerse())
 
-nnoremap <buffer> ,kom :call OpenUrl#Kommentar(<SID>AktuellerVers())<CR>
+nnoremap <buffer> ,gtk :call OpenUrl#Kommentar(<SID>AktuellerVers())<CR>
 
 call TQ84_log_dedent()
