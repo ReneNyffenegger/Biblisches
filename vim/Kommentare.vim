@@ -196,5 +196,6 @@ nnoremap <buffer> ,gtv :call <SID>GeheZuVers()<CR>
 inoremap <buffer> ,kl =<SID>KommentarLink(RN_InputAndAnalyzeBookChaperVerse())
 
 nnoremap <buffer> ,gtk :call OpenUrl#Kommentar(<SID>AktuellerVers())<CR>
+nnoremap <buffer> ,gtb :call OpenUrl#BlueLetter(<SID>AktuellerVers())<CR>
 
 call TQ84_log_dedent()
