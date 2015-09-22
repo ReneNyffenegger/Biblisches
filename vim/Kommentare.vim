@@ -124,7 +124,7 @@ fu! Kommentare_GeheZuVersMitEingabe() " {
 endfu " }
 fu! <SID>GeheZuVers() " {
   call TQ84_log_indent(expand('<sfile>')) 
-  let l:vers = Input#BuchKapitelVers()
+  let l:vers = Bibel#EingabeBuchKapitelVers()
 
   call Kommentare_GeheZuVers(l:vers)
 
