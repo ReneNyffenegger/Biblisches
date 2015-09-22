@@ -1,3 +1,6 @@
+#
+#   https://github.com/ReneNyffenegger/Biblisches/blob/master/vers.pl
+#
 use warnings;
 use strict;
 
