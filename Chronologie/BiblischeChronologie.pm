@@ -3,6 +3,7 @@ package BiblischeChronologie;
 
 use warnings;
 use strict;
+use Scalar::Util qw(looks_like_number);
 
 our %Ereignisse;
 our %Zeitspannen;
@@ -61,7 +62,15 @@ sub Pruefe { # {{{
   } # }}}
   elsif (exists $opts{jahr}) { # {{{
 
-    if ($Ereignisse{$ereignis_name}{jahr} != $Ereignisse{$opts{jahr}}{jahr}) {
+    my $year;
+    if (looks_like_number($opts{jahr})) {
+       $year = $opts{jahr};
+    }
+    else {
+       $year = $Ereignisse{$opts{jahr}}{jahr};
+    }
+
+    if ($Ereignisse{$ereignis_name}{jahr} != $year) {
 
        die "$ereignis_name nicht im selben Jahr wie $opts{jahr}";
     }
@@ -146,6 +155,7 @@ BEGIN { # {{{
    Ereignis('Terach†'                  , nach=>'Terach*'                   , jahre=>  205, vers=>'1. Mo 11:32'       );
    Ereignis('Abraham Haran -> Kanaan'  , jahr=>'Terach†'                                 , vers=>'Apg 7:4'           );
    Ereignis('Abraham*'                 , vor =>'Abraham Haran -> Kanaan'   , jahre=>   75, vers=>'1. Mo 12:4'        );
+   Ereignis('Bund mit Abraham'         , nach=>'Abraham*'                  , jahre=>   99, vers=>'1. Mo 17:1'        );
    Ereignis('Abraham†'                 , nach=>'Abraham*'                  , jahre=>  175, vers=>'1. Mo 25:7'        );
    Ereignis('Ismael gezeugt'           , nach=>'Abraham Haran -> Kanaan'   , jahre=>   10, vers=>'1. Mo 16:3'        );
    Ereignis('Ismael*'                  , nach=>'Abraham*'                  , jahre=>   86, vers=>'1. Mo 16:16'       );
@@ -163,7 +173,13 @@ BEGIN { # {{{
    Ereignis('1. Jahr des Überflusses'  , vor =>'1. Jahr der Hungersnot'    , jahre=>    7                            ); # TODO Hungersnot folgt Überfluss
    Ereignis('7. Jahr des Überflusses'  , nach=>'1. Jahr des Überflusses'   , jahre=>    6                            );
    Ereignis('Joseph 30 jährig'         , vor =>'1. Jahr des Überflusses'   , jahre=>    1, vers=>'1. Mo 41:46'       );
-   Ereignis('Joseph*'                  , vor =>'Joseph 30 jährig'          , jahre=>   30                            );
+   Ereignis('Joseph*'                  , vor =>'Joseph 30 jährig'          , jahre=>   30, vers=>'1. Mo 25:24'       );
+   Ereignis('Jakob bei Laban'          , vor =>'Joseph*'                   , jahre=>   14,                           ); # TODO: Verse
+   Ereignis('Jakob dient für Rahel (B)', jahr=>'Jakob bei Laban'                                                     ); # (B) steht für Beginn
+   Ereignis('Jakob dient für Lea (B)'  , nach=>'Jakob dient für Rahel (B)' , jahre=>    7, vers=>'1. Mo 29:18'       );
+   Ereignis('Ruben*'                   , jahr=>'Jakob dient für Lea (B)'   , jahre=>    0, vers=>'1. Mo 29:32'       ); # Geburtsjahr um 1 Jahr unsicher
+   Ereignis('Simeon*'                  , nach=>'Ruben*'                    , jahre=>    1, vers=>'1. Mo 29:33'       );
+   Ereignis('Levi*'                    , nach=>'Simeon*'                   , jahre=>    1, vers=>'1. Mo 29:34'       );
    Ereignis('Jakob†'                   , nach=>'Jakob*'                    , jahre=>  147, vers=>'1. Mo 47:28'       );
    Ereignis('Esaus Hochzeit'           , nach=>'Esau*'                     , jahre=>   40, vers=>'1. Mo 26:34'       );
    Ereignis('Jakob 130 jährig'         , nach=>'Jakob*'                    , jahre=>  130, vers=>'1. Mo 47:9'        );
@@ -173,10 +189,15 @@ BEGIN { # {{{
    Ereignis('Exodus'                   , nach=>'Jakob in Ägypten'          , jahre=>  430, vers=>'2. Mo 12:40-41'    );
    Ereignis('Gesetz'                   , jahr=>'Exodus'                                  , vers=>'2. Mo 19:1'        );
    Ereignis('Auf Christus best. Test.' , vor =>'Gesetz'                    , jahre=>  430, vers=>'Gal 3:17/1. Mo 46:3');
+   Ereignis('Beginn 400 Jahre Dienst'  , vor =>'Exodus'                    , jahre=>  400, vers=>'1. Mo 15:13'        );
+   Ereignis('Levi†'                    , nach=>'Levi*'                     , jahre=>  137, vers=>'2. Mo 6:16'         );
 
    Pruefe  ('2. Jahr der Hungersnot'   , vor =>'7. Jahr der Hungersnot'    , jahre=>    5);
+   Pruefe  ('Jakob in Ägypten'         , jahr=>'2. Jahr der Hungersnot');
    Pruefe  ('Jakob 130 jährig'         , vor=> 'Jakob†'                    , jahre=> 17);
    Pruefe  ('Joseph vor dem Pharao'    , jahr=>'Joseph 30 jährig');
+   Pruefe  ('Bund mit Abraham'         , jahr=> 43*49);
+   Pruefe  ('Levi*'                    , jahr=> 46*49);
 
 #  Ereignis('Jakob verlässt Laban'     , nach=>'......'                    , jahre=>   20, vers=>'1. Mo 31:38'       );
 
