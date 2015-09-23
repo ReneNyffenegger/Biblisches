@@ -191,6 +191,9 @@ BEGIN { # {{{
    Ereignis('Auf Christus best. Test.' , vor =>'Gesetz'                    , jahre=>  430, vers=>'Gal 3:17/1. Mo 46:3');
    Ereignis('Beginn 400 Jahre Dienst'  , vor =>'Exodus'                    , jahre=>  400, vers=>'1. Mo 15:13'        );
    Ereignis('Levi†'                    , nach=>'Levi*'                     , jahre=>  137, vers=>'2. Mo 6:16'         );
+   Ereignis('Mose 80 jährig'           , jahr=>'Exodus'                                  , vers=>'2. Mo 7:7'          );
+   Ereignis('Mose*'                    , vor =>'Mose 80 jährig'            , jahre=>   80                             );
+   Ereignis('Mose†'                    , nach=>'Mose*'                     , jahre=>  120, vers=>'5. Mo 34:5-7'       );
 
    Pruefe  ('2. Jahr der Hungersnot'   , vor =>'7. Jahr der Hungersnot'    , jahre=>    5);
    Pruefe  ('Jakob in Ägypten'         , jahr=>'2. Jahr der Hungersnot');
