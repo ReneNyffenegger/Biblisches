@@ -184,6 +184,23 @@ fu! <SID>TabberStrongs() " {
    return ''
 
 endfu " }
+fu! <SID>InsertGrundtextNotiz() " {
+
+   call TQ84_log_indent(expand("<sfile>"))
+
+   call Tabber#Add([
+     \ ['ins-const', "<span class='gt'>" ],
+     \ ['ins-const', '</span> ' ],
+     \ ])
+
+
+   call Tabber#TabPressed()
+
+   call TQ84_log_dedent()
+
+   return ''
+
+endfu " }
 
 inoremap <buffer> ,gr =<SID>TabberSprache('gr')<CR>
 inoremap <buffer> ,he =<SID>TabberSprache('he')<CR>
@@ -194,6 +211,7 @@ nnoremap <buffer> ,akc  :call <SID>KapitelEinfuegen()<CR>
 nnoremap <buffer> ,akt  :call <SID>DivTEinfuegen()<CR>
 nnoremap <buffer> ,gtv :call <SID>GeheZuVers()<CR>
 inoremap <buffer> ,kl =<SID>KommentarLink(RN_InputAndAnalyzeBookChaperVerse())
+inoremap <buffer> ,na =<SID>InsertGrundtextNotiz()<CR>
 
 nnoremap <buffer> ,gtk :call OpenUrl#Kommentar(<SID>AktuellerVers())<CR>
 nnoremap <buffer> ,gtb :call OpenUrl#BlueLetter(<SID>AktuellerVers())<CR>
