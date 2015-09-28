@@ -48,7 +48,6 @@ sub Buchname2Abkuerzung {
     return 'zeph'  if $buchname eq 'Zephaniah';
     return 'hag'   if $buchname eq 'Haggai';
     return 'sach'  if $buchname eq 'Zechariah';
-
     return 'mal'   if $buchname eq 'Malachi';
 
     die "Unbekannter Buchname $buchname";
