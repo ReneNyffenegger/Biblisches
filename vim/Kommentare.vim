@@ -215,5 +215,7 @@ inoremap <buffer> ,na =<SID>InsertGrundtextNotiz()<CR>
 
 nnoremap <buffer> ,gtk :call OpenUrl#Kommentar(<SID>AktuellerVers())<CR>
 nnoremap <buffer> ,gtb :call OpenUrl#BlueLetter(<SID>AktuellerVers())<CR>
+nnoremap <buffer> ,'< F'c «f'c »
+nnoremap <buffer> ,'i F'c <i>f'c </i>
 
 call TQ84_log_dedent()
