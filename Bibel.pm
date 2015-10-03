@@ -72,9 +72,15 @@ sub Link { # {{{
 
 sub LinkHref { # {{{
  
-   my $buch     = shift;
-   my $kapitel  = shift;
-   my $vers     = shift;
+   my $buch              = shift;
+   my $kapitel           = shift;
+   my $vers              = shift;
+   my $seperate_chapters = shift;
+
+
+   if ($seperate_chapters) {
+     return "href='${buch}_$kapitel.html#I$buch-$kapitel-$vers'";
+   }
  
    if ($buch eq 'ri' or $buch eq 'rt') {
      return "href='ri_rt.html#I$buch-$kapitel-$vers'";
