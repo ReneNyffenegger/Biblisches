@@ -58,6 +58,80 @@ sub Buchname2Abkuerzung { # {{{
 
 } # }}}
 
+sub AnzahlKapitel { # {{{
+
+  my $buch = shift;
+
+  return  10 if $buch eq 'esr';
+  return  21 if $buch eq 'ri';
+  return  14 if $buch eq 'sach';
+  return  13 if $buch eq 'hebr';
+  return  48 if $buch eq 'hes';
+  return  36 if $buch eq '2chr';
+  return  28 if $buch eq 'apg';
+  return   6 if $buch eq '1tim';
+  return   8 if $buch eq 'hl';
+  return   1 if $buch eq '2joh';
+  return   4 if $buch eq 'rt';
+  return  27 if $buch eq '3mo';
+  return   1 if $buch eq 'jud';
+  return  29 if $buch eq '1chr';
+  return   5 if $buch eq '1thes';
+  return   2 if $buch eq 'hag';
+  return  25 if $buch eq '2koe';
+  return  34 if $buch eq '5mo';
+  return   9 if $buch eq 'am';
+  return   3 if $buch eq 'zeph';
+  return  13 if $buch eq 'neh';
+  return   4 if $buch eq 'phil';
+  return   5 if $buch eq 'jak';
+  return   5 if $buch eq '1joh';
+  return  24 if $buch eq 'jos';
+  return  31 if $buch eq 'spr';
+  return   3 if $buch eq 'hab';
+  return  21 if $buch eq 'joh';
+  return  24 if $buch eq 'lk';
+  return  42 if $buch eq 'hi';
+  return   1 if $buch eq '3joh';
+  return 150 if $buch eq 'ps';
+  return   3 if $buch eq 'nah';
+  return  16 if $buch eq 'mk';
+  return  12 if $buch eq 'pred';
+  return  24 if $buch eq '2sam';
+  return  10 if $buch eq 'est';
+  return  31 if $buch eq '1sam';
+  return   1 if $buch eq 'ob';
+  return   5 if $buch eq 'kla';
+  return   1 if $buch eq 'phim';
+  return  14 if $buch eq 'hos';
+  return  22 if $buch eq 'offb';
+  return  52 if $buch eq 'jer';
+  return   4 if $buch eq 'kol';
+  return   5 if $buch eq '1petr';
+  return  22 if $buch eq '1koe';
+  return  50 if $buch eq '1mo';
+  return   6 if $buch eq 'eph';
+  return  12 if $buch eq 'dan';
+  return   3 if $buch eq 'tit';
+  return   4 if $buch eq 'jon';
+  return  16 if $buch eq 'roem';
+  return  13 if $buch eq '2kor';
+  return   3 if $buch eq '2thes';
+  return   6 if $buch eq 'gal';
+  return   3 if $buch eq 'mal';
+  return   4 if $buch eq '2tim';
+  return   7 if $buch eq 'mi';
+  return   4 if $buch eq 'joe';
+  return   3 if $buch eq '2petr';
+  return  40 if $buch eq '2mo';
+  return  28 if $buch eq 'mt';
+  return  16 if $buch eq '1kor';
+  return  36 if $buch eq '4mo';
+  return  66 if $buch eq 'jes';
+
+
+} # }}}
+
 sub Link { # {{{
 
   my $buch     = shift;
