@@ -140,7 +140,7 @@ sub Link { # {{{
   my $vers_bis = shift || '';
 
 
-  return '<a class="vrs" ' . LinkHref($buch, $kapitel, $vers) . '>' . VersMenschlich($buch, $kapitel, $vers, $vers_bis) . '</a>';
+  return '<a class="vrs" ' . LinkHref($buch, $kapitel, $vers, 'seperate chapters') . '>' . VersMenschlich($buch, $kapitel, $vers, $vers_bis) . '</a>';
 
 } # }}}
 
@@ -199,6 +199,7 @@ sub VersMenschlich { # {{{
   $ret =~ s/(\d)(\w)/$1 . ". " . ucfirst($2)/e;
 
   $ret =~ s/Roem/Röm/;
+  $ret =~ s/Koe/Kö/;
 
   $ret .= " $kapitel:$vers";
   $ret .= "-$vers_bis" if $vers_bis;
