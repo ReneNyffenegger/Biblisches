@@ -146,7 +146,7 @@ sub Link { # {{{
   }
 
   if ($opts->{vers}) {
-    return "<a$class " . LinkHref($buch, $kapitel, $vers, 'seperate chapters') . '>Vers ' . $vers  . '</a>';
+    return "<a$class " . LinkHref($buch, $kapitel, $vers, 'seperate chapters') . '>Vers ' . $vers . '</a>';
   }
   return "<a$class " . LinkHref($buch, $kapitel, $vers, 'seperate chapters') . '>' . VersMenschlich($buch, $kapitel, $vers, $opts->{vers_bis}) . '</a>';
 
