@@ -137,10 +137,18 @@ sub Link { # {{{
   my $buch     = shift;
   my $kapitel  = shift;
   my $vers     = shift;
-  my $vers_bis = shift || '';
 
+  my $opts     = shift || {};
 
-  return '<a class="vrs" ' . LinkHref($buch, $kapitel, $vers, 'seperate chapters') . '>' . VersMenschlich($buch, $kapitel, $vers, $vers_bis) . '</a>';
+  my $class='';
+  if (exists $opts->{class}) {
+    $class = ' class="' . $opts->{class} .'"';
+  }
+
+  if ($opts->{vers}) {
+    return "<a$class " . LinkHref($buch, $kapitel, $vers, 'seperate chapters') . '>Vers ' . $vers  . '</a>';
+  }
+  return "<a$class " . LinkHref($buch, $kapitel, $vers, 'seperate chapters') . '>' . VersMenschlich($buch, $kapitel, $vers, $opts->{vers_bis}) . '</a>';
 
 } # }}}
 
@@ -202,7 +210,15 @@ sub VersMenschlich { # {{{
   $ret =~ s/Koe/Kö/;
 
   $ret .= " $kapitel:$vers";
-  $ret .= "-$vers_bis" if $vers_bis;
+
+  if ($vers_bis) {
+    if ($vers_bis =~ /^\d+$/) {
+      $ret .= "-$vers_bis";
+    }
+    elsif ($vers_bis eq 'ff') {
+      $ret .= "ff";
+    }
+  }
 
   return $ret;
 
