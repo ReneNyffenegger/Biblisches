@@ -29,6 +29,8 @@ sub replace_link { # {{{ Almost same code as in alle_kapitel_local.pl (this on d
   my $chapter = shift;
   my $verse   = shift;
 
+  goto RET;
+
   if ($book eq 'ri' or $book eq 'rt') {
     return "ri_rt.html#I$book-$chapter-$verse";
   }
@@ -57,5 +59,6 @@ sub replace_link { # {{{ Almost same code as in alle_kapitel_local.pl (this on d
     return "jak_petr_joh_jud.html#I$book-$chapter-$verse";
   }
 
+RET:
    return "$book.html#I$book-$chapter-$verse";
 } # }}}
