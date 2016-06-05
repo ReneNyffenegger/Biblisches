@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <title>Der Zahlenwert der 22 Patriarchen</title>
+
+  <script type="text/javascript">
+
+    function numericValue(hebrLetter) {
+
+      if (hebrLetter == 'א') return   1;
+      if (hebrLetter == 'ב') return   2;
+      if (hebrLetter == 'ג') return   3;
+      if (hebrLetter == 'ד') return   4;
+      if (hebrLetter == 'ה') return   5;
+      if (hebrLetter == 'ו') return   6;
+      if (hebrLetter == 'ז') return   7;
+      if (hebrLetter == 'ח') return   8;
+      if (hebrLetter == 'ח') return   8;
+      if (hebrLetter == 'ט') return   9;
+
+      if (hebrLetter == 'י') return  10;
+      if (hebrLetter == 'כ') return  20;
+      if (hebrLetter == 'ל') return  30;
+      if (hebrLetter == 'מ') return  40;
+      if (hebrLetter == 'נ') return  50;
+      if (hebrLetter == 'ס') return  60;
+      if (hebrLetter == 'ע') return  70;
+      if (hebrLetter == 'פ') return  80;
+      if (hebrLetter == 'צ') return  90;
+
+      if (hebrLetter == 'ק') return 100;
+      if (hebrLetter == 'ר') return 200;
+      if (hebrLetter == 'ש') return 300;
+      if (hebrLetter == 'ת') return 400;
+      if (hebrLetter == 'ך') return  20; // 500;
+      if (hebrLetter == 'ם') return  40; // 600;
+      if (hebrLetter == 'ן') return  50; // 700;
+      if (hebrLetter == 'ף') return  80; // 800;
+      if (hebrLetter == 'ץ') return  90; // 900;
+
+      return 0;
+    }
+
+    function main() {
+
+      var tab=document.getElementById('tab');
+      var patriarchen = [
+
+        {name: 'Adam'         , hebr: 'אָדָם'   },
+        {name: 'Seth'         , hebr: 'שֵׁת'    },
+        {name: 'Enos'         , hebr: 'אֱנוֹשׁ'  },
+        {name: 'Kenan'        , hebr: 'קֵינָן'  },
+        {name: 'Mahalel'      , hebr: 'מַהֲלַלְאֵל'},
+        {name: 'Jered'        , hebr: 'יֶרֶד'   },
+        {name: 'Henoch'       , hebr: 'חֲנוֹךְ'  },
+        {name: 'Methusalah'   , hebr: 'מְתוּשֶׁלַח'},
+        {name: 'Lamech'       , hebr: 'לֶמֶךְ'   },
+        {name: 'Noah'         , hebr: 'נֹחַ'    },
+        {name: 'Sem'          , hebr: 'שֵׁם'    },
+        {name: 'Arpakschad'   , hebr: 'אַרְפַּכְשַׁד'},
+        {name: 'Schelach'     , hebr: 'שֶׁלַח'   },
+        {name: 'Heber'        , hebr: 'עֵבֶר'   },
+        {name: 'Peleg'        , hebr: 'פֶּלֶג'   },
+        {name: 'Reghu'        , hebr: 'רְעוּ'   },
+        {name: 'Serug'        , hebr: 'שְׂרוּג'  },
+        {name: 'Nahor'        , hebr: 'נָחוֹר'  },
+        {name: 'Terach'       , hebr: 'תֶּרַח'   },
+        {name: 'Abraham'      , hebr: 'אַבְרָהָם' },
+        {name: 'Isaak'        , hebr: 'יִצְחָק'  },
+        {name: 'Israel'       , hebr: 'יִשְׂרָאֵל'},
+
+      ];
+      
+
+      var grandTotal = 0;
+      patriarchen.forEach(function(patriarch) {
+          var row = tab.insertRow(tab.rows.length);
+
+          row.insertCell(row.cells.length).innerHTML = patriarch.name;
+          var cHebr = row.insertCell(row.cells.length);
+          cHebr.innerHTML = patriarch.hebr;
+          cHebr.style.textAlign='right';
+          cHebr.style.paddingLeft='4em';
+
+          var first = 1;
+          var total = 0;
+          var sumString = '';
+
+          for (var i=0; i<patriarch.hebr.length; i++) {
+            var value = numericValue(patriarch.hebr[i]);
+
+            if (value){
+
+              if (first) {
+                first = 0;
+                sumString = value;
+              }
+              else {
+                sumString = value + ' + ' + sumString;
+              }
+
+              sumString 
+              total += value;
+            }
+
+          }
+
+          sumString = sumString + ' = ';
+
+          grandTotal += total;
+
+          var cSumString = row.insertCell(row.cells.length);
+          cSumString.style.paddingLeft = '4em';
+          cSumString.innerHTML = sumString;
+
+          var cTotal = row.insertCell(row.cells.length);
+          cTotal.innerHTML = '<b>' + value + '</b>';
+          cTotal.style.textAlign = 'right';
+
+      });
+
+
+      var rGrandTotal = tab.insertRow(tab.rows.length);
+      rGrandTotal.insertCell(0);
+      rGrandTotal.insertCell(1);
+      rGrandTotal.insertCell(2);
+      var cGrandTotal = rGrandTotal.insertCell(3);
+      cGrandTotal.innerHTML = grandTotal;
+      cGrandTotal.style.textAlign = 'right';
+      cGrandTotal.style.textDecoration = 'underline';
+      cGrandTotal.style.borderBottom = '1px solid black';
+      cGrandTotal.style.fontWeight = 'bold';
+
+    }
+
+  </script>
+
+</head>
+<body onload='main()';>
+
+  Helmut Bodenstein hat herausgefunden, dass die Zahlenwerte der 22 Patriarchen (Adam - Abraham) 7000 ergibt
+  (<a href='http://www.ruediger-heinzerling.de/forts1.htm#Israel+und+El+Schaddai'>http://www.ruediger-heinzerling.de/forts1.htm#Israel+und+El+Schaddai</a>).
+  
+  <p>
+  Allerdings musste er für die fünf <i>Sofit</i>-Buchstaben denselben Wert wie für die <i>nicht-Sofit</i>-Buchstaben nehmen,
+  also 90 statt 900 für ץ&lrm;, 80 statt 800 für ף&lrm;, 50 statt 700 für ן&lrm;, 40 statt 600 für ם und 20 statt 500 für ך.
+
+  <p>
+  Interessant ist auch, dass alle Namen ausser Abraham und Israel (die ja von Gott selbst gegeben wurden) <i>nicht</i> fünf Buchstaben
+  enthalten.
+
+
+  <table id='tab' border='0'>
+  </table>
+
+</body>
+</html>
