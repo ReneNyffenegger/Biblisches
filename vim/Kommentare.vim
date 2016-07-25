@@ -126,6 +126,12 @@ fu! <SID>GeheZuVers() " {
   call TQ84_log_indent(expand('<sfile>')) 
   let l:vers = Bibel#EingabeBuchKapitelVers()
 
+  if l:vers == {} " {
+     call TQ84_log("Verseingabe abgebrochen")
+     call TQ84_log_dedent()
+     return
+  endif " }
+
   call Kommentare_GeheZuVers(l:vers)
 
   call TQ84_log_dedent()
