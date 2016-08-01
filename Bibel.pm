@@ -1,7 +1,9 @@
+package Bibel;
+
 use warnings;
 use strict;
 
-package Bibel;
+use utf8;
 
 sub Buchname2Abkuerzung { # {{{
 
