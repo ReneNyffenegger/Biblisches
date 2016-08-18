@@ -94,7 +94,9 @@ endfu " }
 fu! Kommentare_GeheZuVers(vers) " {
   call TQ84_log_indent(expand('<sfile>'))
 
-  call GUI#OpenFile($git_work_dir . '/biblisches/kommentare/alle_kapitel.html')
+" 2016-08-14
+" call GUI#OpenFile($git_work_dir . '/biblisches/kommentare/alle_kapitel.html')
+  call GUI#OpenFile($git_work_dir . 'biblisches/kommentare/alle_kapitel.html')
 
   let l:search_pattern_vers = "id='I" . a:vers['buch'] . '-' . a:vers['kapitel'] . '-' . a:vers['vers'] . "'"
 
