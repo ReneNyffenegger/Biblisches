@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <title>Vergleich der Zahlen in Esra 2 und Nehemia 7</title>
+
+  <script type="text/javascript">
+
+var tbl;
+var tbd;
+var data;
+
+function elem(n) {
+  return document.createElement(n);
+}
+function td(v) {
+  var td=elem('td');
+  td.innerHTML=v;
+  return td;
+}
+
+function style_num(e) {
+  e.style.fontFamily= 'Courier';
+  e.style.textAlign = 'right';
+}
+
+function initData() {
+
+  data = [
+
+            {  nm: 'Kinder der Landschaft Juda',      grp: 1                      },
+            {  nm: 'Parhosch',                        n_esr:   2172, n_neh:   2172},
+            {  nm: 'Schephatja',                      n_esr:    372, n_neh:    372},
+            {  nm: 'Arach',                           n_esr:    775, n_neh:    652},
+            {  nm: 'Pachath-Moab ...',                n_esr:   2812, n_neh:   2818},
+            {  nm: 'Elam',                            n_esr:   1254, n_neh:   1254},
+            {  nm: 'Sattu',                           n_esr:    945, n_neh:    845},
+            {  nm: 'Sakkais',                         n_esr:    760, n_neh:    760},
+            {  nm: 'Banis',                           n_esr:    642, n_neh:    648},
+            {  nm: 'Bebais',                          n_esr:    623, n_neh:    628},
+            {  nm: 'Asgads',                          n_esr:   1222, n_neh:   2322},
+            {  nm: 'Adonikam',                        n_esr:    666, n_neh:    667},
+            {  nm: 'Bigwai',                          n_esr:   2056, n_neh:   2067},
+            {  nm: 'Adin',                            n_esr:    454, n_neh:    655},
+            {  nm: 'Söhne Aters, von Hiskia',         n_esr:     98, n_neh:     98},
+            {  nm: 'Bezai',                           n_esr:    323, n_neh:    324},
+            {  nm: 'Jorah',                           n_esr:    112, n_neh:    112},
+            {  nm: 'Haschum',                         n_esr:    223, n_neh:    328},
+            {  nm: 'Gibbar',                          n_esr:     95, n_neh:     95},
+            {  nm: 'Bethlehem',                       n_esr:    123, n_neh:    188},  // Nehemia weist Bethlehem und Netopha als
+            {  nm: 'Netopha',                         n_esr:     56, n_neh:      0},  // eine Zahl aus.
+            {  nm: 'Anatot',                          n_esr:    128, n_neh:    128},
+            {  nm: 'Asmawet',                         n_esr:     42, n_neh:     42},
+            {  nm: 'Kirjat-Arim, Kephira und Beerot', n_esr:    743, n_neh:    743},
+            {  nm: 'Rama und Geba',                   n_esr:    621, n_neh:    621},
+            {  nm: 'Michma',                          n_esr:    122, n_neh:    122},
+            {  nm: 'Bethel und Ai',                   n_esr:    223, n_neh:    123},
+            {  nm: 'Nebo',                            n_esr:     52, n_neh:     52},
+            {  nm: 'Magbisch',                        n_esr:    156, n_neh:      0},
+            {  nm: 'anderes Elam',                    n_esr:   1254, n_neh:   1254},
+            {  nm: 'Harim',                           n_esr:    320, n_neh:    320},
+            {  nm: 'Lod, Hadid, Ono',                 n_esr:    725, n_neh:    721},
+            {  nm: 'Jericho',                         n_esr:    345, n_neh:    345},
+            {  nm: 'Senaas',                          n_esr:   3630, n_neh:   3930},
+            {  nm: '',                                grtot: 1                    },
+
+            {  nm: 'Priester',                        grp  : 1                    },
+            {  nm: 'Jedaja, vom Haus Jeschua',        n_esr:    973, n_neh:    973},
+            {  nm: 'Immer',                           n_esr:   1052, n_neh:   1052},
+            {  nm: 'Paschhur',                        n_esr:   1247, n_neh:   1247},
+            {  nm: 'Harim',                           n_esr:   1017, n_neh:   1017},
+            {  nm: '',                                grtot: 1                    },
+
+            {  nm: 'Leviten: Jeschua …',              n_esr:     74, n_neh:     74},
+            {  nm: 'Sänger: Söhne Asaph',             n_esr:    128, n_neh:    148},
+            {  nm: 'Torhüter: …',                     n_esr:    139, n_neh:    138},
+            {  nm: 'Tempeldiener: …',                 n_esr:    392, n_neh:    329},
+
+            {  nm: 'Ohne Angabe d. Vaterhauses',      n_esr:    652, n_neh:    652},
+
+  
+  ];
+
+}
+
+function createTable() {
+
+  tbl = document.getElementById('tbl');
+  tbd = elem('tbody'); // document.createElement('tbody');
+
+  tbl.appendChild(tbd);
+
+  document.getElementsByTagName('body')[0].appendChild(tbl);
+
+}
+
+
+function fillTable() {
+
+  var sum_esr    = 0;
+  var sum_neh    = 0;
+
+  var sum_esr_gr;
+  var sum_neh_gr;
+
+  for (var r in data) {
+
+    var tr=elem('tr');
+    var td_=td(data[r].nm);
+
+    tr.appendChild(td_);
+
+    if (data[r].grp) {
+
+      td_.style.fontWeight = 'bold';
+      td_.style.fontSize   = '140%';
+      td_.style.colSpan    = '4';
+
+      sum_esr_gr = 0;
+      sum_neh_gr = 0;
+
+    }
+    else if (data[r].grtot) {
+
+
+      var td_tot_esr = td(sum_esr_gr);
+      style_num(td_tot_esr);
+      td_tot_esr.style.fontWeight = 'bold';
+      tr.appendChild(td_tot_esr);
+  
+      var td_tot_neh = td(sum_neh_gr);
+      style_num(td_tot_neh);
+      td_tot_neh.style.paddingLeft = '3em';
+      td_tot_neh.style.fontWeight = 'bold';
+      tr.appendChild(td_tot_neh);
+
+      var diff = sum_esr_gr - sum_neh_gr;
+
+      var td_diff = td(diff);
+      style_num(td_diff);
+      td_diff.style.paddingLeft = '3em';
+      if (diff) {
+        td_diff.style.color = 'red';
+      }
+      td_diff.style.fontWeight = 'bold';
+      tr.appendChild(td_diff);
+
+    }
+    else {
+
+      var td_n_esr = td(data[r].n_esr);
+      style_num(td_n_esr);
+      tr.appendChild(td_n_esr);
+  
+      var td_n_neh = td(data[r].n_neh);
+      style_num(td_n_neh);
+      td_n_neh.style.paddingLeft = '3em';
+      tr.appendChild(td_n_neh);
+  
+  
+      var diff = data[r].n_esr - data[r].n_neh;
+  
+      var td_diff = td(diff);
+      style_num(td_diff);
+      td_diff.style.paddingLeft = '3em';
+      if (diff) {
+        td_diff.style.color = 'red';
+      }
+      tr.appendChild(td_diff);
+
+      sum_esr_gr += data[r].n_esr;
+      sum_neh_gr += data[r].n_neh;
+      sum_esr    += data[r].n_esr;
+      sum_neh    += data[r].n_neh;
+
+    }
+
+    tbd.appendChild(tr);
+
+  }
+
+  var tr=elem('tr');
+  var td_=td('<b>Total</b>');
+  tr.appendChild(td_);
+
+  var td_tot_esr = td(sum_esr);
+  style_num(td_tot_esr);
+  td_tot_esr.style.fontWeight = 'bold';
+  tr.appendChild(td_tot_esr);
+  
+  var td_tot_neh = td(sum_neh);
+  style_num(td_tot_neh);
+  td_tot_neh.style.paddingLeft = '3em';
+  td_tot_neh.style.fontWeight = 'bold';
+  tr.appendChild(td_tot_neh);
+
+      var diff = sum_esr - sum_neh;
+
+      var td_diff = td(diff);
+      style_num(td_diff);
+      td_diff.style.paddingLeft = '3em';
+      if (diff) {
+        td_diff.style.color = 'red';
+      }
+      td_diff.style.fontWeight = 'bold';
+      tr.appendChild(td_diff);
+    tbd.appendChild(tr);
+
+}
+
+function main() {
+
+  initData   ();
+  createTable();
+  fillTable  ()
+
+}
+
+
+  </script>
+
+</head>
+<body onload='main()'>
+
+  <h1>Vergleich der Zahlen in Esra 2 und Nehemia 7</h1>
+
+   <table id='tbl' />
+
+</body>
+</html>
