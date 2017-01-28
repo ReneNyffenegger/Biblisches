@@ -60,5 +60,5 @@ sub replace_link { # {{{ Almost same code as in alle_kapitel_local.pl (this on d
   }
 
 RET:
-   return "$book.html#I$book-$chapter-$verse";
+   return "${book}_$chapter.html#I$book-$chapter-$verse";
 } # }}}
