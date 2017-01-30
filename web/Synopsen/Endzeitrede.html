@@ -15,6 +15,74 @@
       .col_4 {color:DarkOrchid}
 
       .vgl, .vgl a   {color: grey; font-size: 14px}
+
+      /* Table with fixed header { 
+       
+         https://github.com/ReneNyffenegger/about-css/blob/master/tables/fixed-header.html
+
+      */
+
+    /* body {                           needed, if .container-1's height is given as a percentage, not in pixels
+         height: 100%;
+         position: absolute;
+       } */
+
+       td {
+         border-bottom: 1px solid #a24;
+         padding: 0.2em;
+       }
+       td + td {
+         border-left: 1px dotted #9ac;
+       }
+       th {
+         padding: 0 0.2em; /* top right */
+       }
+       
+       body {
+         height: 100%;
+         position: absolute;
+       }
+       .container-1 {
+         width: 100%;
+         height: 80%;
+         border: 1px solid black;
+         position: relative;
+         padding-top: 2.5em; /* height of header */
+       }
+       .container-2 {
+         overflow-y: auto;   
+         height: 100%;
+       }
+        
+       .header-bg {
+         border-bottom: 1px solid black;
+         background-color:#eef;
+         height: 2.5em; /* height of header */
+         position: absolute;
+         top:   0;
+         right: 0;
+         left:  0;
+       }
+       
+       table {
+         width: 100%;
+       }
+       .th-inner {
+         position: absolute;
+         top: 0;
+         line-height: 2.5em; /* height of header */
+         text-align: left;
+         border-left: 1px dotted #9ac;
+         padding-left: 0.2em;
+         margin-left: -0.2em;
+       }
+       .first-col .th-inner {
+           border-left: none;
+         }
+
+      /* } */
+
+
    </style>
 </head>
 <body>
@@ -25,7 +93,34 @@
   Vergleich (Synopse) von Matthäus 24, Markus 13 und Lukas 21.
   </p>
 
-  <table summary='Endzeitrede' border=0>
+  <div class='container-1'>
+   <div class="header-bg"> </div>
+  <div class="container-2">
+  <table summary='Endzeitrede' border=0><!--{-->
+    <thead>
+      <tr>
+      <th class='first-col'>  <!-- Was { -->
+      </th> <!-- } -->
+      <th>  <!-- Mt 24 { -->
+        <div class='th-inner'>Matthäus 24</div>
+      </th> <!-- } -->
+      <th>  <!-- Mk { -->
+        <div class='th-inner'>Markus 13</div>
+      </th> <!-- } -->
+      <th>  <!-- Lk { -->
+        <div class='th-inner'>Lukas 21</div>
+      </th> <!-- } -->
+      <th>  <!-- Mt 10 { -->
+        <div class='th-inner'>Matthäus 10</div>
+      <th>  <!-- Lk 17 { -->
+        <div class='th-inner'>Lukas 17</div>
+      </th> <!-- } -->
+      <th>  <!-- Misc  { -->
+        <div class='th-inner'>Andere</div>
+      </th> <!-- } -->
+      </tr>
+    </thead>
+    <tbody><!--{-->
     <tr><!-- { -->
       <td>  <!-- Was { -->
         Auf Ölberg
@@ -1320,8 +1415,12 @@
       <td>  <!-- Misc  { -->
       </td> <!-- } -->
     </tr><!-- } -->
+    </tbody><!--}-->
+  </table><!--}-->
+  </div>
+  </div>
 
-  </table>
+  <p><a href='http://renenyffenegger.ch/Biblisches/index.html'>Biblisches</a></p>
 
 </body>
 </html>
