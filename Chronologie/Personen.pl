@@ -20,7 +20,7 @@ DOT
 
   my $ruben    = person('Ruben');
   my $simeon   = person('Simeon');
-  my $levi     = person('Levi');
+  my $levi     = person('Levi', i_chr_6_1_ff=>'1');
   my $juda     = person('Juda');
   my $joseph   = person('Joseph');
   my $benjamin = person('Benjamin');
@@ -36,9 +36,9 @@ DOT
 print $dot "  {rank=same  $ruben $simeon $levi $juda $joseph $benjamin } /* Söhne Jakobs  */\n";
 
 # 1mo-46-11 _{ vgl  2mo 6 16
-my $gerson  = person('Gerson');
-my $kahat   = person('Kahat' );
-my $merari  = person('Merari');
+my $gerson  = person('Gerson', i_chr_6_1_ff=>'1', rem=>'gen. Gersom in 1. Chr 6:1');
+my $kahat   = person('Kahat' , i_chr_6_1_ff=>'1');
+my $merari  = person('Merari', i_chr_6_1_ff=>'1');
 
 rel($levi, $gerson);
 rel($levi, $kahat);
@@ -62,22 +62,23 @@ print $dot "  {rank=same
   $gerson $kahat $merari
   $schela $perez $serach } /* 1. Generation nach Söhnen Jakobs  */\n";
 
+#_{ 2. Mo 
 
 #_{ 2. Generation nach den Söhnen Jakobs
 
  #_{ 2. Mo 6:17 Levi -> Gerson -> 
-my $libni = person('Libni');
-my $simei = person('Simei');
+my $libni = person('Libni', i_chr_6_1_ff=>'2');
+my $simei = person('Simei', i_chr_6_1_ff=>'2');
 
 rel($gerson, $libni);
 rel($gerson, $simei);
  #_}
  #_{ 2. Mo 6:18 Levi -> Kahat -> 
 
- my $amram   = person('Amram');
- my $jitzhar = person('Jitzhar');
- my $hebron  = person('Hebron');
- my $ussiel  = person('Ussiel');
+ my $amram   = person('Amram', i_chr_6_1_ff=>'3');
+ my $jitzhar = person('Ji(t)zhar', i_chr_6_1_ff=>'3', verse=>'2. Mo 6:18', i_chr_6_1_ff=>'7', rem=>'gen. Amminadab in 1. Chr 6:7');
+ my $hebron  = person('Hebron', i_chr_6_1_ff=>'3');
+ my $ussiel  = person('Ussiel', i_chr_6_1_ff=>'3');
 
  rel($kahat, $amram);
  rel($kahat, $jitzhar);
@@ -86,8 +87,8 @@ rel($gerson, $simei);
 
  #_}
  #_{ 2. Mo 6:19 Levi -> Merari
- my $machli = person('Machli');
- my $muschi = person('Muschi');
+ my $machli = person('Machli', i_chr_6_1_ff=>'4');
+ my $muschi = person('Muschi', i_chr_6_1_ff=>'4');
 
  rel($merari, $machli);
  rel($merari, $muschi);
@@ -102,23 +103,50 @@ print $dot "  {rank=same
 
 #_}
 #_{ 3. Generation nach den Söhnen Jakobs
-
+ #_{ 2. Mo 6:20
   my $aaron = person('Aaron', i_chr_6_35_ff=>'35');
   my $mose  = person('Mose' );
 
   rel($amram, $aaron);
   rel($amram, $mose);
 
+ #_}
+ #_{ 2. Mo 6:21
+ 
+ my $korah  = person('Korah' , verse=>'2. Mo 6:21', i_chr_6_1_ff=>'7');
+ my $nepheg = person('Nepheg', verse=>'2. Mo 6:21');
+ my $sichri = person('Sichri', verse=>'2. Mo 6:21');
+
+ rel($jitzhar, $korah);
+ rel($jitzhar, $nepheg);
+ rel($jitzhar, $sichri);
+
+#_}
+ #_{ 2. Mo 6:22
+ 
+ my $misael   = person('Misael'  , verse=>'2. Mo 6:22');
+ my $elzaphan = person('Elzaphan', verse=>'2. Mo 6:22');
+ my $sitri    = person('Sitri'   , verse=>'2. Mo 6:22');
+
+ rel($ussiel, $misael);
+ rel($ussiel, $elzaphan);
+ rel($ussiel, $sitri);
+ 
+
+ 
+ #_}
 print $dot "  {rank=same  
   $aaron $mose
+  $korah $nepheg $sichri
+  $misael $elzaphan $sitri
 
   } /* 3. Generation nach Söhnen Jakobs  */\n";
 
-#_}
 
-#_{ 2. Mo 
-  
- #_{ 2. Mose 6:23
+
+
+ #_}
+ #_{ 2. Mo 6:23
  
  my $nadab   = person('Nadab');
  my $abihu   = person('Abihu');
@@ -131,12 +159,25 @@ print $dot "  {rank=same
  rel($aaron, $itamar);
 
  #_}
- #_{ 2. Mose 6:25
+ #_{ 2. Mo 6:24
+ 
+ my $assir    = person('Assir'   , verse => '2. Mo 6:24', i_chr_6_1_ff=>'7');
+ my $elkana   = person('Elkana'  , verse => '2. Mo 6:24', i_chr_6_1_ff=>'8');
+ my $abiasaph = person('Abiasaph', verse => '2. Mo 6:24', i_chr_6_1_ff=>'8', rem=>'gen. Ebjasaph in 1. Chr 6:8');
+
+ rel($korah, $assir); rel($assir, $elkana); rel($elkana, $abiasaph);
+#rel($korah, $elkana);
+#rel($korah, $abiasaph);
+
+
+ #_}
+ #_{ 2. Mo 6:25
  
  my $pinehas = person('Pinehas', i_chr_6_35_ff=>'35');
  rel($eleasar, $pinehas);
 
  #_}
+ #
 #_}
 
  #_{ 1. Chr 5:30 ff
@@ -174,8 +215,25 @@ print $dot "  {rank=same
 
  
  #_}
+ #_{ 1. Chr 6:5 ff
 
-# _{ 1. Chronik 9
+ my $jachath = person('Jachath', i_chr_6_1_ff=>'5'); rel($libni  ,$jachath);
+ my $simma   = person('Simma'  , i_chr_6_1_ff=>'5'); rel($jachath,$simma  );
+
+ my $joach           = person('Joach'   , i_chr_6_1_ff=>'6'); rel($simma, $joach);
+ my $iddo_1chr_6_6   = person('Iddo'    , i_chr_6_1_ff=>'6'); rel($joach, $iddo_1chr_6_6);
+ my $serach_1chr_6_6 = person('Serach'  , i_chr_6_1_ff=>'6'); rel($iddo_1chr_6_6, $serach_1chr_6_6);
+ my $jeathrai        = person('Jeathrai', i_chr_6_1_ff=>'6'); rel($serach_1chr_6_6, $jeathrai);
+
+ my $assir_1_chr_6_7 = person('Assir'   , i_chr_6_1_ff=>'8'); rel($abiasaph, $assir_1_chr_6_7);
+
+ my $tachath         = person('Tachath', i_chr_6_1_ff=>'9'); rel($assir_1_chr_6_7, $tachath);
+ my $uriel           = person('Uriel'  , i_chr_6_1_ff=>'9'); rel($tachath, $uriel);
+ my $ussija_1chr_6_9 = person('Ussija' , i_chr_6_1_ff=>'9'); rel($uriel, $ussija_1chr_6_9);
+ my $saul_1chr_6_9   = person('Saul'   , i_chr_6_1_ff=>'9'); rel($ussija_1chr_6_9, $saul_1chr_6_9);
+
+ #_}
+ #_{ 1. Chronik 9
  #_{ 1. Chr 9:4
 my $bani    = person('Bani'   , verse => '1. Chr 9:4');
 my $imri    = person('Imri'   , verse => '1. Chr 9:4');
@@ -316,11 +374,11 @@ rel($haschub, $schemaja, distant => 1);
  my $galal     = person('Galal', add => 'Levit');
  my $mattanja  = person('Mattanja', add => 'Levit');
  my $micha     = person('Micha');
- my $sichri    = person('Sichri');
+ my $sichri_1chr_9_15    = person('Sichri', verse => '1. Chr 9:15');
  my $asaph     = person('Asaph');
 
- rel($asaph , $sichri, distant => 1);
- rel($sichri, $micha , distant => 1);
+ rel($asaph , $sichri_1chr_9_15, distant => 1);
+ rel($sichri_1chr_9_15, $micha , distant => 1);
  rel($micha , $mattanja , distant => 1);
  #_}
  #_{ 1. Chr 9:16
@@ -336,9 +394,9 @@ rel($haschub, $schemaja, distant => 1);
 
  my $berekja = person('Berekja', add=>'Wohnt in D.d. Netophatiter');
  my $asa     = person('Asa');
- my $elkana  = person('Elkana');
+ my $elkana_1chr_9_16  = person('Elkana', verse=>'1. Chr 9:16');
 
- rel($elkana, $asa, distant => 1);
+ rel($elkana_1chr_9_16, $asa, distant => 1);
  rel($asa, $berekja, distant => 1);
 
  #_}
@@ -355,11 +413,11 @@ rel($haschub, $schemaja, distant => 1);
  my $schallum_1chr_9_19 = person('Schallum 1. Chr 9:19', add=>'Hüter d. Schwellen d. Zeltes');
  my $kore               = person('Kore', is_it => 'Kore 2. Chr 31:14');
  my $ebjasaph           = person('Ebjasaph');
- my $korah              = person('Korah');
+ my $korah_1chr_9_19    = person('Korah', verse=>'1. Chr 9:19');
 
  rel($kore, $schallum_1chr_9_19, distant => 1);
  rel($ebjasaph, $kore, distant => 1);
- rel($korah, $ebjasaph, distant => 1);
+ rel($korah_1chr_9_19, $ebjasaph, distant => 1);
 
  #_}
 
@@ -477,8 +535,8 @@ sub person {
 
   state %ids_seen;
 
-  my $id = lc($name) . ($opts{verse} // '');
-  $id =~ s/[.\- :\/]//g;
+  my $id = lc($name) . ($opts{verse} // '') . ($opts{i_chr_6_1_ff} // '') . ($opts{i_chr_6_35_ff} // '');
+  $id =~ s/[.\- :\/()]//g;
   die "$name $id" if exists $ids_seen{$id};
   $ids_seen{$id}=undef;
 
@@ -503,12 +561,17 @@ sub person {
     my $i_chr_6_35_ff_txt = '1. Chr 6:' . $opts{i_chr_6_35_ff};
     $tr_i_chr_6_35_ff = "\n    <tr><td align=\"left\"><font color=\"#994433\">$i_chr_6_35_ff_txt</font></td></tr>";
   }
+  my $tr_i_chr_6_1_ff="";
+  if ($opts{i_chr_6_1_ff}) {
+    my $i_chr_6_1_ff_txt = '1. Chr 6:' . $opts{i_chr_6_1_ff};
+    $tr_i_chr_6_1_ff = "\n    <tr><td align=\"left\"><font color=\"#336699\">$i_chr_6_1_ff_txt</font></td></tr>";
+  }
 
   print $dot <<"DOT";
 
   $id [ label=<
   <table border="1" cellborder="0" cellspacing="1">
-    <tr><td align="left"><b>$name</b></td></tr>$tr_add$tr_is_it$tr_rem$tr_verse$tr_i_chr_6_35_ff
+    <tr><td align="left"><b>$name</b></td></tr>$tr_add$tr_is_it$tr_rem$tr_verse$tr_i_chr_6_1_ff$tr_i_chr_6_35_ff
   </table>>];
 
 DOT
