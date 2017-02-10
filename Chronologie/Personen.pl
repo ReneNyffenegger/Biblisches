@@ -10,7 +10,8 @@ open (my $dot, '>', 'Personen.dot') or die;
 
 print $dot <<DOT;
 digraph P {
-  node [shape=plaintext fontname="Sans serif" fontsize="8"];
+//node [shape=plaintext fontname="Sans serif" fontsize="8"];
+  node [shape=plaintext fontname="Open Sans" fontsize="8"];
 
 DOT
 
@@ -102,7 +103,7 @@ print $dot "  {rank=same
 #_}
 #_{ 3. Generation nach den Söhnen Jakobs
 
-  my $aaron = person('Aaron');
+  my $aaron = person('Aaron', i_chr_6_35_ff=>'35');
   my $mose  = person('Mose' );
 
   rel($amram, $aaron);
@@ -121,7 +122,7 @@ print $dot "  {rank=same
  
  my $nadab   = person('Nadab');
  my $abihu   = person('Abihu');
- my $eleasar = person('Eleasar');
+ my $eleasar = person('Eleasar', i_chr_6_35_ff=>'35');
  my $itamar  = person('Itamar');
 
  rel($aaron, $nadab);
@@ -132,7 +133,7 @@ print $dot "  {rank=same
  #_}
  #_{ 2. Mose 6:25
  
- my $pinehas = person('Pinehas');
+ my $pinehas = person('Pinehas', i_chr_6_35_ff=>'35');
  rel($eleasar, $pinehas);
 
  #_}
@@ -140,26 +141,26 @@ print $dot "  {rank=same
 
  #_{ 1. Chr 5:30 ff
  
- my $abischua            = person('Abischua'); rel($pinehas, $abischua);
- my $bukki               = person('Bukki'   ); rel($abischua, $bukki);
- my $ussi_1chr_5_32      = person('Ussi', verse => '1. Chr 5:32'    ); rel($bukki, $ussi_1chr_5_32    );
- my $serachja            = person('Serachja'); rel($ussi_1chr_5_32, $serachja);
- my $merajoth_1chr_5_32  = person('Merajoth', verse=>'1. Chr 5:32'); rel($serachja, $merajoth_1chr_5_32);
+ my $abischua            = person('Abischua', i_chr_6_35_ff=>'35'); rel($pinehas, $abischua);
+ my $bukki               = person('Bukki'   , i_chr_6_35_ff=>'36'); rel($abischua, $bukki);
+ my $ussi_1chr_5_32      = person('Ussi'    , i_chr_6_35_ff=>'36', verse => '1. Chr 5:32'    ); rel($bukki, $ussi_1chr_5_32    );
+ my $serachja            = person('Serachja', i_chr_6_35_ff=>'36'); rel($ussi_1chr_5_32, $serachja);
+ my $merajoth_1chr_5_32  = person('Merajoth', i_chr_6_35_ff=>'37', verse=>'1. Chr 5:32'); rel($serachja, $merajoth_1chr_5_32);
  
  #  Einschub aus Esra 7:3
 #my $asarja_esr_7_3 = person('Asarja', verse=>'Esr 7:3', rem=>'Fehlt in 1 Chr 5:33 ff');
 #rel($merajoth_1chr_5_32, $asarja_esr_7_3);
 # rel($asarja_esr_7_3, $amarja); #
 
- my $amarja              = person('Amarja');  rel($merajoth_1chr_5_32, $amarja);
- my $ahitub_1chr_5_33    = person('Ahitub', verse => '1. Chr 5:33'); rel($amarja, $ahitub_1chr_5_33);
- my $zadok_1chr_5_34     = person('Zadok', verse => '1. Chr 5:34'); rel($ahitub_1chr_5_33, $zadok_1chr_5_34);
- my $achimaaz            = person('Achimaaz'); rel($zadok_1chr_5_34, $achimaaz);
+ my $amarja              = person('Amarja', i_chr_6_35_ff=>'37', verse => '1. Chr 5:37');  rel($merajoth_1chr_5_32, $amarja);
+ my $ahitub_1chr_5_33    = person('Ahitub', i_chr_6_35_ff=>'37', verse => '1. Chr 5:33'); rel($amarja, $ahitub_1chr_5_33);
+ my $zadok_1chr_5_34     = person('Zadok', i_chr_6_35_ff=>'38', verse => '1. Chr 5:34'); rel($ahitub_1chr_5_33, $zadok_1chr_5_34);
+ my $achimaaz            = person('Achimaaz', i_chr_6_35_ff=>'38'); rel($zadok_1chr_5_34, $achimaaz);
  my $asarja_1chr_5_35    = person('Asarja', verse => '1. Chr 5:35'); rel($achimaaz, $asarja_1chr_5_35);
  my $jochanan            = person('Jochanan'); rel($asarja_1chr_5_35, $jochanan);
  my $asarja_1chr_5_36    = person('Asarja', verse => '1. Chr 5:36', add=>'Priester in Salomos Tempel'); rel($jochanan, $asarja_1chr_5_36);
- my $amarja_1chr_5_37    = person('Amarja', verse => '1. Chr 5:37'); rel($asarja_1chr_5_36, $amarja_1chr_5_37);
- my $ahitub_1chr_5_37    = person('Ahitub', verse => '1. Chr 5:37', is_it=>'Ahitub 1. Chr 9:11'); rel($amarja_1chr_5_37, $ahitub_1chr_5_37);
+ my $amarja_1chr_5_37    = person('Amarja'); rel($asarja_1chr_5_36, $amarja_1chr_5_37);
+ my $ahitub_1chr_5_37    = person('Ahitub', i_chr_6_35_ff=>'37', verse => '1. Chr 5:37', is_it=>'Ahitub 1. Chr 9:11'); rel($amarja_1chr_5_37, $ahitub_1chr_5_37);
 
  my $merajoth_1chr_9_11  = person('Merajoth', verse=>'1. Chr 9:11', rem=>'Fehlt in 1. Chr 5:33 ff?'); rel($ahitub_1chr_5_37, $merajoth_1chr_9_11);
 
@@ -497,12 +498,17 @@ sub person {
   if ($opts{rem}) {
     $tr_rem = "\n    <tr><td align=\"left\"><font color=\"#229933\">$opts{rem}</font></td></tr>";
   }
+  my $tr_i_chr_6_35_ff="";
+  if ($opts{i_chr_6_35_ff}) {
+    my $i_chr_6_35_ff_txt = '1. Chr 6:' . $opts{i_chr_6_35_ff};
+    $tr_i_chr_6_35_ff = "\n    <tr><td align=\"left\"><font color=\"#994433\">$i_chr_6_35_ff_txt</font></td></tr>";
+  }
 
   print $dot <<"DOT";
 
   $id [ label=<
   <table border="1" cellborder="0" cellspacing="1">
-    <tr><td align="left"><b>$name</b></td></tr>$tr_add$tr_is_it$tr_rem$tr_verse
+    <tr><td align="left"><b>$name</b></td></tr>$tr_add$tr_is_it$tr_rem$tr_verse$tr_i_chr_6_35_ff
   </table>>];
 
 DOT
