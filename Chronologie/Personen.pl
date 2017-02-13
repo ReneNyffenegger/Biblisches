@@ -105,7 +105,7 @@ print $dot "  {rank=same
 #_}
 #_{ 3. Generation nach den Söhnen Jakobs
  #_{ 2. Mo 6:20
-  my $aaron = person('Aaron', i_chr_5_27_ff=>'29', i_chr_6_35_ff=>'35');
+  my $aaron = person('Aaron', i_chr_5_27_ff=>'29', i_chr_6_35_ff=>'35', esr_7_1_ff=>'5');
   my $mose  = person('Mose' , i_chr_5_27_ff=>'29');
 
   rel($amram, $aaron);
@@ -151,7 +151,7 @@ print $dot "  {rank=same
  
  my $nadab   = person('Nadab', i_chr_5_27_ff=>'29');
  my $abihu   = person('Abihu', i_chr_5_27_ff=>'29');
- my $eleasar = person('Eleasar', i_chr_5_27_ff=>'29', i_chr_6_35_ff=>'35');
+ my $eleasar = person('Eleasar', i_chr_5_27_ff=>'29', i_chr_6_35_ff=>'35', esr_7_1_ff=>'5');
  my $itamar  = person('Itamar', i_chr_5_27_ff=>'29');
 
  rel($aaron, $nadab);
@@ -174,7 +174,7 @@ print $dot "  {rank=same
  #_}
  #_{ 2. Mo 6:25
  
- my $pinehas = person('Pinehas', i_chr_5_27_ff=>'30', i_chr_6_35_ff=>'35');
+ my $pinehas = person('Pinehas', i_chr_5_27_ff=>'30', i_chr_6_35_ff=>'35', esr_7_1_ff=>'5');
  rel($eleasar, $pinehas);
 
  #_}
@@ -320,11 +320,11 @@ print $dot "  {rank=same
  #_}
  #_{ 1. Chr 5:30 ff
  
- my $abischua            = person('Abischua', i_chr_5_27_ff=>'30', i_chr_6_35_ff=>'35'); rel($pinehas, $abischua);
- my $bukki               = person('Bukki'   , i_chr_5_27_ff=>'31', i_chr_6_35_ff=>'36'); rel($abischua, $bukki);
- my $ussi_1chr_5_32      = person('Ussi'    , i_chr_5_27_ff=>'31', i_chr_6_35_ff=>'36', verse => '1. Chr 5:32'    ); rel($bukki, $ussi_1chr_5_32    );
- my $serachja            = person('Serachja', i_chr_5_27_ff=>'32', i_chr_6_35_ff=>'36'); rel($ussi_1chr_5_32, $serachja);
- my $merajoth_1chr_5_32  = person('Merajoth', i_chr_5_27_ff=>'32', i_chr_6_35_ff=>'37', verse=>'1. Chr 5:32'); rel($serachja, $merajoth_1chr_5_32);
+ my $abischua            = person('Abischua', i_chr_5_27_ff=>'30', i_chr_6_35_ff=>'35', esr_7_1_ff=>'5'); rel($pinehas, $abischua);
+ my $bukki               = person('Bukki'   , i_chr_5_27_ff=>'31', i_chr_6_35_ff=>'36', esr_7_1_ff=>'4'); rel($abischua, $bukki);
+ my $ussi_1chr_5_32      = person('Ussi'    , i_chr_5_27_ff=>'31', i_chr_6_35_ff=>'36', verse => '1. Chr 5:32', esr_7_1_ff=>'4'); rel($bukki, $ussi_1chr_5_32    );
+ my $serachja            = person('Serachja', i_chr_5_27_ff=>'32', i_chr_6_35_ff=>'36', esr_7_1_ff=>'4'); rel($ussi_1chr_5_32, $serachja);
+ my $merajoth_1chr_5_32  = person('Merajoth', i_chr_5_27_ff=>'32', i_chr_6_35_ff=>'37', verse=>'1. Chr 5:32', esr_7_1_ff=>'3'); rel($serachja, $merajoth_1chr_5_32);
  
  #  Einschub aus Esra 7:3
 #my $asarja_esr_7_3 = person('Asarja', verse=>'Esr 7:3', rem=>'Fehlt in 1 Chr 5:33 ff');
@@ -337,16 +337,16 @@ print $dot "  {rank=same
  my $achimaaz            = person('Achimaaz', i_chr_5_27_ff=>'34', i_chr_6_35_ff=>'38'); rel($zadok_1chr_5_34, $achimaaz);
  my $asarja_1chr_5_35    = person('Asarja'  , i_chr_5_27_ff=>'35'); rel($achimaaz, $asarja_1chr_5_35);
  my $jochanan            = person('Jochanan', i_chr_5_27_ff=>'35'); rel($asarja_1chr_5_35, $jochanan);
- my $asarja_1chr_5_36    = person('Asarja'  , i_chr_5_27_ff=>'36', verse => '1. Chr 5:36', add=>'Priester in Salomos Tempel'); rel($jochanan, $asarja_1chr_5_36);
- my $amarja_1chr_5_37    = person('Amarja'  , i_chr_5_27_ff=>'37'); rel($asarja_1chr_5_36, $amarja_1chr_5_37);
- my $ahitub_1chr_5_37    = person('Ahitub'  , i_chr_5_27_ff=>'37', i_chr_6_35_ff=>'37', verse => '1. Chr 5:37', is_it=>'Ahitub 1. Chr 9:11'); rel($amarja_1chr_5_37, $ahitub_1chr_5_37);
+ my $asarja_1chr_5_36    = person('Asarja'  , i_chr_5_27_ff=>'36', verse => '1. Chr 5:36', esr_7_1_ff=>'3', add=>'Priester in Salomos Tempel'); rel($jochanan, $asarja_1chr_5_36);
+ my $amarja_1chr_5_37    = person('Amarja'  , i_chr_5_27_ff=>'37', esr_7_1_ff=>'3'); rel($asarja_1chr_5_36, $amarja_1chr_5_37);
+ my $ahitub_1chr_5_37    = person('Ahitub'  , i_chr_5_27_ff=>'37', i_chr_6_35_ff=>'37', verse => '1. Chr 5:37', is_it=>'Ahitub 1. Chr 9:11', esr_7_1_ff=>'2'); rel($amarja_1chr_5_37, $ahitub_1chr_5_37);
 
- my $merajoth_1chr_9_11  = person('Merajoth', verse=>'1. Chr 9:11', rem=>'Fehlt in 1. Chr 5:33 ff?'); rel($ahitub_1chr_5_37, $merajoth_1chr_9_11);
+ my $merajoth_1chr_9_11  = person('Merajoth', verse=>'1. Chr 9:11', rem=>'Fehlt in 1. Chr 5:33 ff/Esr 7:1 ff'); rel($ahitub_1chr_5_37, $merajoth_1chr_9_11);
 
- my $zadok_1chr_5_38     = person('Zadok'    , i_chr_5_27_ff=>'38', is_it=>'Zadok 1. Chr 9:11'); rel($merajoth_1chr_9_11, $zadok_1chr_5_38); # rel($ahitub_1chr_5_37, $zadok_1chr_5_38);
- my $schallum_1chr_5_38  = person('Schallum' , i_chr_5_27_ff=>'38', verse =>'1. Chr 9:11', is_it=>'Meschullam 1. Chr 9:11', rem=>'gen. Meschallum in  1. Chr 9:11'); rel($zadok_1chr_5_38, $schallum_1chr_5_38);
- my $hilkija_1chr_5_39   = person('Hilkija'  , i_chr_5_27_ff=>'39', is_it=>'Hilkija 1. Chr 9:11'); rel($schallum_1chr_5_38, $hilkija_1chr_5_39);
- my $asarja_1chr_5_39    = person('Asarja'   , i_chr_5_27_ff=>'39'); rel($hilkija_1chr_5_39, $asarja_1chr_5_39);
+ my $zadok_1chr_5_38     = person('Zadok'    , i_chr_5_27_ff=>'38', is_it=>'Zadok 1. Chr 9:11', esr_7_1_ff=>'2'); rel($merajoth_1chr_9_11, $zadok_1chr_5_38); # rel($ahitub_1chr_5_37, $zadok_1chr_5_38);
+ my $schallum_1chr_5_38  = person('Schallum' , i_chr_5_27_ff=>'38', esr_7_1_ff=>'2', verse =>'1. Chr 9:11', is_it=>'Meschullam 1. Chr 9:11', rem=>'gen. Meschallum in  1. Chr 9:11'); rel($zadok_1chr_5_38, $schallum_1chr_5_38);
+ my $hilkija_1chr_5_39   = person('Hilkija'  , i_chr_5_27_ff=>'39', esr_7_1_ff=>'1', is_it=>'Hilkija 1. Chr 9:11'); rel($schallum_1chr_5_38, $hilkija_1chr_5_39);
+ my $asarja_1chr_5_39    = person('Asarja'   , i_chr_5_27_ff=>'39', esr_7_1_ff=>'1'); rel($hilkija_1chr_5_39, $asarja_1chr_5_39);
  my $seraja_1chr_5_40    = person('Seraja'   , i_chr_5_27_ff=>'40'); rel($asarja_1chr_5_39, $seraja_1chr_5_40); 
  my $jehozadak           = person('Jehozadak', i_chr_5_27_ff=>'41', add=>'Ging nach Babel'); rel($seraja_1chr_5_40, $jehozadak);
 
@@ -553,10 +553,12 @@ rel($haschub, $schemaja, distant => 1);
 # _}
  #_{ Esra
 
- my $esra = person('Esra', verse=>'Esr 7:1');
+ #_{ Esr 7:1-5
+
+ my $esra = person('Esra', esr_7_1_ff=>'1');
 
  rel($seraja_1chr_5_40, $esra);
-
+ #_}
  #_}
  #_{ Nehemia
 
@@ -736,6 +738,12 @@ sub person { #_{
     $tr_i_chr_6_35_ff = "\n    <tr><td align=\"left\"><font color=\"#994433\">$i_chr_6_35_ff_txt</font></td></tr>";
     delete $opts{i_chr_6_35_ff};
   }
+  my $tr_esr_7_1_ff="";
+  if ($opts{esr_7_1_ff}) {
+    my $esr_7_1_ff_txt = 'Esr 7:' . $opts{esr_7_1_ff};
+    $tr_esr_7_1_ff = "\n    <tr><td align=\"left\"><font color=\"#bb7718\">$esr_7_1_ff_txt</font></td></tr>";
+    delete $opts{esr_7_1_ff};
+  }
 
   die join " - ", keys %opts if %opts;
 
@@ -743,7 +751,7 @@ sub person { #_{
 
   $id [ label=<
   <table border="1" cellborder="0" cellspacing="1">
-    <tr><td align="left"><b>$name</b></td></tr>$tr_add$tr_is_it$tr_rem$tr_verse$tr_i_chr_5_27_ff$tr_i_chr_6_1_ff$tr_i_chr_6_18_ff$tr_i_chr_6_24_ff$tr_i_chr_6_29_ff$tr_i_chr_6_35_ff
+    <tr><td align="left"><b>$name</b></td></tr>$tr_add$tr_is_it$tr_rem$tr_verse$tr_i_chr_5_27_ff$tr_i_chr_6_1_ff$tr_i_chr_6_18_ff$tr_i_chr_6_24_ff$tr_i_chr_6_29_ff$tr_i_chr_6_35_ff$tr_esr_7_1_ff
   </table>>];
 
 DOT
