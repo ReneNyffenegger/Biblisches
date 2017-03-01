@@ -15,8 +15,146 @@ digraph P {
 
 DOT
 
+  my $adam       = person('Adam');
+
+ #_{ 1. Mo 4 + 5
+  my $kain       = person('Kain'       , sonof=>$adam       , verse=>'1. Mo 4:1');
+  my $abel       = person('Abel'       , sonof=>$adam       , verse=>'1. Mo 4:1');
+
+  my $hanoch     = person('Hanoch'     , sonof=>$kain       , verse=>'1. Mo 4:17');
+  my $irad       = person('Irad'       , sonof=>$hanoch     , verse=>'1. Mo 4:18');
+  my $mehujael   = person('Mehujael'   , sonof=>$irad       , verse=>'1. Mo 4:18');
+  my $methusael  = person('Methusael'  , sonof=>$mehujael   , verse=>'1. Mo 4:18');
+  my $lamech_1mo4= person('Lamech'     , sonof=>$methusael  , verse=>'1. Mo 4:18');
+
+  my $jabal      = person('Jabal'      , sonof=>$lamech_1mo4, verse=>'1. Mo 4:20', add=>'V. der Zeltbew. und Herdenbes.');
+  my $jubal      = person('Jubal'      , sonof=>$lamech_1mo4, verse=>'1. Mo 4:21', add=>'V., die mit Laute u. Orgel u.');
+  my $tubalkain  = person('Tubalkain'  , sonof=>$lamech_1mo4, verse=>'1. Mo 4:22', add=>'Hämmerer …');
+  my $naama      = person('Naama'      , sonof=>$lamech_1mo4, verse=>'1. Mo 4:23');
+
+  my $seth       = person('Seth'       , sonof=>$adam       , verse=>'1. Mo 5:3');
+  my $enos       = person('Enos'       , sonof=>$seth       , verse=>'1. Mo 5:6');
+  my $kenan      = person('Kenan'      , sonof=>$enos       , verse=>'1. Mo 5:9');
+  my $mahalel    = person('Mahalel'    , sonof=>$kenan      , verse=>'1. Mo 5:12');
+  my $jered      = person('Jered'      , sonof=>$mahalel    , verse=>'1. Mo 5:15');
+  my $henoch     = person('Henoch'     , sonof=>$jered      , verse=>'1. Mo 5:18');
+  my $methusalah = person('Methusalah' , sonof=>$henoch     , verse=>'1. Mo 5:21');
+  my $lamech     = person('Lamech'     , sonof=>$methusalah , verse=>'1. Mo 5:25');
+  my $noah       = person('Noah'       , sonof=>$lamech     , verse=>'1. Mo 5:29');
+
+  my $sem        = person('Sem'        , sonof=>$noah      , verse=>'1. Mo 5:32', add=>'ältester Bruder Japhets');
+  my $ham        = person('Ham'        , sonof=>$noah      , verse=>'1. Mo 5:32');
+  my $japhet     = person('Japhet'     , sonof=>$noah      , verse=>'1. Mo 5:32');
+
+ #_}
+
+# 1m-9
+
+  my $kanaan = person('Kanaan', sonof=>$ham, verse=>'1. Mo 9:18');
+
+
+#_{ 1mo-10
+  
+  my $gomer      = person('Gomer'     , sonof=>$japhet, verse=>'1. Mo 10:2');
+  my $magog      = person('Magog'     , sonof=>$japhet, verse=>'1. Mo 10:2');
+  my $madai      = person('Madai'     , sonof=>$japhet, verse=>'1. Mo 10:2');
+  my $jawan      = person('Jawan'     , sonof=>$japhet, verse=>'1. Mo 10:2');
+  my $tubal      = person('Tubal'     , sonof=>$japhet, verse=>'1. Mo 10:2');
+  my $mesech     = person('Mesech'    , sonof=>$japhet, verse=>'1. Mo 10:2');
+  my $tiras      = person('Tiras'     , sonof=>$japhet, verse=>'1. Mo 10:2');
+
+  my $askenas    = person('Askenas'   , sonof=>$gomer  , verse=>'1. Mo 10:3');
+  my $riphat     = person('Riphat'    , sonof=>$gomer  , verse=>'1. Mo 10:3');
+  my $togarma    = person('Togarma'   , sonof=>$gomer  , verse=>'1. Mo 10:3');
+
+  my $elisa      = person('Elisa'     , sonof=>$jawan  , verse=>'1. Mo 10:4');
+  my $tarsis     = person('Tarsis'    , sonof=>$jawan  , verse=>'1. Mo 10:4');
+  my $kittim     = person('Kittim'    , sonof=>$jawan  , verse=>'1. Mo 10:4');
+  my $dodanim    = person('Dodanim'   , sonof=>$jawan  , verse=>'1. Mo 10:4');
+
+  my $kusch      = person('Kusch'     , sonof=>$ham    , verse=>'1. Mo 10:6');
+  my $mizraim    = person('Mizraim'   , sonof=>$ham    , verse=>'1. Mo 10:6');
+  my $put        = person('Put'       , sonof=>$ham    , verse=>'1. Mo 10:6');
+
+  my $seba       = person('Seba'      , sonof=>$kusch  , verse=>'1. Mo 10:7');
+  my $hawila     = person('Hawila'    , sonof=>$kusch  , verse=>'1. Mo 10:7');
+  my $sabta      = person('Sabta'     , sonof=>$kusch  , verse=>'1. Mo 10:7');
+  my $ragma      = person('Ragma'     , sonof=>$kusch  , verse=>'1. Mo 10:7');
+  my $sabtecha   = person('Sabtecha'  , sonof=>$kusch  , verse=>'1. Mo 10:7');
+
+  my $scheba     = person('Scheba'    , sonof=>$ragma  , verse=>'1. Mo 10:7');
+  my $dedan      = person('Dedan'     , sonof=>$ragma  , verse=>'1. Mo 10:7');
+
+  my $nimrod     = person('Nimrod'    , sonof=>$kusch  , verse=>'1. Mo 10:8', add=>'Gewaltiger Jäger');
+
+  my $ludim      = person('Ludim'     , sonof=>$mizraim, verse=>'1. Mo 10:13');
+  my $anamim     = person('Anamim'    , sonof=>$mizraim, verse=>'1. Mo 10:13');
+  my $lehabim    = person('Lehabim'   , sonof=>$mizraim, verse=>'1. Mo 10:13');
+  my $naphtuchim = person('Naphtuchim', sonof=>$mizraim, verse=>'1. Mo 10:13');
+  my $pathrusim  = person('Pathrusim' , sonof=>$mizraim, verse=>'1. Mo 10:14');
+  my $kasluchim  = person('Kasluchim' , sonof=>$mizraim, verse=>'1. Mo 10:14', add=>'v.w.d. Philster ausgeg.');
+
+  my $zidon      = person('Zidon'     , sonof=>$kanaan , verse=>'1. Mo 10:15', add=>'Erstgeborener');
+  my $het        = person('Het'       , sonof=>$kanaan , verse=>'1. Mo 10:15');
+  my $jebusiter  = person('Jebusiter' , sonof=>$kanaan , verse=>'1. Mo 10:16');
+  my $amoriter   = person('Amoriter'  , sonof=>$kanaan , verse=>'1. Mo 10:16');
+  my $girgasiter = person('Girgasiter', sonof=>$kanaan , verse=>'1. Mo 10:16');
+  my $hewiter    = person('Hewiter'   , sonof=>$kanaan , verse=>'1. Mo 10:17');
+  my $arkiter    = person('Arkiter'   , sonof=>$kanaan , verse=>'1. Mo 10:17');
+  my $siniter    = person('Siniter'   , sonof=>$kanaan , verse=>'1. Mo 10:17');
+  my $arwaditer  = person('Arwaditer' , sonof=>$kanaan , verse=>'1. Mo 10:18');
+  my $zemariter  = person('Zemariter' , sonof=>$kanaan , verse=>'1. Mo 10:18');
+  my $hamathiter = person('Hamathiter', sonof=>$kanaan , verse=>'1. Mo 10:18');
+
+  my $elam       = person('Elam'      , sonof=>$sem    , verse=>'1. Mo 10:22');
+  my $assur      = person('Assur'     , sonof=>$sem    , verse=>'1. Mo 10:22');
+  my $arpaksad   = person('Arpaksad'  , sonof=>$sem    , verse=>'1. Mo 10:22');
+  my $lud        = person('Lud'       , sonof=>$sem    , verse=>'1. Mo 10:22');
+  my $aram       = person('Aram'      , sonof=>$sem    , verse=>'1. Mo 10:22');
+
+  my $uz         = person('Uz'        , sonof=>$aram   , verse=>'1. Mo 10:23');
+  my $hul        = person('Hul'       , sonof=>$aram   , verse=>'1. Mo 10:23');
+  my $gether     = person('Gether'    , sonof=>$aram   , verse=>'1. Mo 10:23');
+  my $masch      = person('Masch'     , sonof=>$aram   , verse=>'1. Mo 10:23');
+
+  my $schelach   = person('Schelach'  , sonof=>$arpaksad, verse=>'1. Mo 10:24');
+  my $heber      = person('Heber'     , sonof=>$schelach, verse=>'1. Mo 10:24');
+  my $peleg      = person('Peleg'     , sonof=>$heber   , verse=>'1. Mo 10:25', add=>'Erdteilung');
+  my $joktan     = person('Joktan'    , sonof=>$heber   , verse=>'1. Mo 10:25');
+
+  my $almodad     = person('Almodad'    , sonof=>$joktan  , verse=>'1. Mo 10:26');
+  my $Scheleph    = person('Scheleph'   , sonof=>$joktan  , verse=>'1. Mo 10:26');
+  my $Hazarmaweth = person('Hazarmaweth', sonof=>$joktan  , verse=>'1. Mo 10:26');
+  my $Jerach      = person('Jerach'     , sonof=>$joktan  , verse=>'1. Mo 10:26');
+  my $Hadoram     = person('Hadoram'    , sonof=>$joktan  , verse=>'1. Mo 10:27');
+  my $Usal        = person('Usal'       , sonof=>$joktan  , verse=>'1. Mo 10:27');
+  my $Dikla       = person('Dikla'      , sonof=>$joktan  , verse=>'1. Mo 10:27');
+  my $Obal        = person('Obal'       , sonof=>$joktan  , verse=>'1. Mo 10:28');
+  my $Abimael     = person('Abimael'    , sonof=>$joktan  , verse=>'1. Mo 10:28');
+  my $Schemba     = person('Schemba'    , sonof=>$joktan  , verse=>'1. Mo 10:28');
+  my $Ophir       = person('Ophir'      , sonof=>$joktan  , verse=>'1. Mo 10:29');
+  my $Hawila      = person('Hawila'     , sonof=>$joktan  , verse=>'1. Mo 10:29');
+  my $Jobab       = person('Jobab'      , sonof=>$joktan  , verse=>'1. Mo 10:29');
+
+  my $reghu       = person('Reghu'      , sonof=>$peleg   , verse=>'1. Mo 11:18');
+  my $serug       = person('Serug'      , sonof=>$reghu   , verse=>'1. Mo 11:20');
+  my $nahor       = person('Nahor'      , sonof=>$serug   , verse=>'1. Mo 11:22');
+  my $tarah       = person('Tarah'      , sonof=>$nahor   , verse=>'1. Mo 11:24');
+
+  my $abraham     = person('Abraham'    , sonof=>$tarah   , verse=>'1. Mo 11:26');
+  my $nahor_2     = person('Nahor'      , sonof=>$tarah   , verse=>'1. Mo 11:26');
+  my $haran       = person('Haran'      , sonof=>$tarah   , verse=>'1. Mo 11:26');
+
+#_}
+
+  my $isaak    = person('Isaak', sonof=>$abraham, verse => '1. Mo 21:3');
+
+  my $jakob    = person('Jakob', sonof=>$isaak  , verse => '1. Mo 25:26');
+
   my $lea      = person('Lea'  );
   my $rahel    = person('Rahel');
+
+  print $dot "  {rank=same  $jakob $lea $rahel}\n";
 
   my $ruben    = person('Ruben');
   my $simeon   = person('Simeon');
@@ -34,6 +172,9 @@ DOT
   rel($rahel, $joseph);
 
 print $dot "  {rank=same  $ruben $simeon $levi $juda $joseph $benjamin } /* Söhne Jakobs  */\n";
+
+
+
 
 # 1mo-46-11 _{ vgl  2mo 6 16
 my $gerson  = person('Gerson', i_chr_5_27_ff=>'27', i_chr_6_1_ff=>'1', i_chr_6_24_ff=>'28', rem=>'gen. Gersom in 1. Chr 5:27/6:1');
@@ -569,10 +710,10 @@ rel($haschub, $schemaja, distant => 1);
  my $sekarja = person('Sekarja', verse=>'Neh 11:4');
  my $amarja_neh_11_4 = person('Amarja', verse=>'Neh 11:4');
  my $schephatja_neh_11_4 = person('Schephatja', verse=>'Neh 11:4');
- my $mahalel = person('Mahalel', verse=>'Neh 11:4');
+ my $mahalel_neh_11_4 = person('Mahalel', verse=>'Neh 11:4');
 
- rel($perez, $mahalel, distant => 1);
- rel($mahalel, $schephatja_neh_11_4, distant => 1);
+ rel($perez, $mahalel_neh_11_4, distant => 1);
+ rel($mahalel_neh_11_4, $schephatja_neh_11_4, distant => 1);
  rel($schephatja_neh_11_4, $amarja_neh_11_4, distant => 1);
  rel($amarja_neh_11_4, $sekarja, distant => 1);
  rel($sekarja, $ussija_neh_11_4, distant => 1);
@@ -657,7 +798,7 @@ print $dot "}\n";
 close $dot;
 
 #dot('png');
-dot('gif');
+#dot('gif');
 dot('pdf');
 #dot('jpg');
 #dot('vml');
@@ -682,6 +823,11 @@ sub person { #_{
   $id =~ s/[.\- :\/()]//g;
   die "$name $id" if exists $ids_seen{$id};
   $ids_seen{$id}=undef;
+
+  if ($opts{sonof}) {
+    rel($opts{sonof}, $id);
+    delete $opts{sonof};
+  }
 
   my $tr_add = ''; # "\n   <tr><td>&nbsp;</td></tr>";
   if ($opts{add}) {
