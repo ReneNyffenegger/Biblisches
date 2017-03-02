@@ -42,8 +42,8 @@ DOT
   my $lamech     = person('Lamech'     , sonof=>$methusalah , verse=>'1. Mo 5:25');
   my $noah       = person('Noah'       , sonof=>$lamech     , verse=>'1. Mo 5:29');
 
-  my $sem        = person('Sem'        , sonof=>$noah      , verse=>'1. Mo 5:32', add=>'ältester Bruder Japhets');
   my $ham        = person('Ham'        , sonof=>$noah      , verse=>'1. Mo 5:32');
+  my $sem        = person('Sem'        , sonof=>$noah      , verse=>'1. Mo 5:32', add=>'ältester Bruder Japhets');
   my $japhet     = person('Japhet'     , sonof=>$noah      , verse=>'1. Mo 5:32');
 
  #_}
