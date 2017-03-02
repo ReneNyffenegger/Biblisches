@@ -3,12 +3,15 @@ use warnings;
 use strict;
 use 5.10.0;
 
+my $output_up_to_jakob = 1;
 
 #    <tr><td align="left"><font color="red">todo</font></td></tr>
 
-my @persons;
+my @person_order;
+my %persons;
 my @rels;
 my @ranks;
+
 
 open (my $dot, '>', 'Personen.dot') or die;
 
@@ -20,7 +23,7 @@ digraph P {
 DOT
 
   my $lea      = person('Lea'  );
-  my $adam       = person('Adam');
+  my $adam     = person('Adam', generation=>1);
 
  #_{ 1. Mo 4 + 5
   my $kain       = person('Kain'       , sonof=>$adam       , verse=>'1. Mo 4:1');
@@ -822,20 +825,24 @@ rel($haschub, $schemaja, distant => 1);
 # } /* 1. Chr 9 - Nehemia  */\n";
 #  #_}
  
-for my $person (@persons) {
-
-  print $dot "
-     $person->{id} $person->{text}
-  ";
-
+for my $person (@person_order) {
+  print $dot " $person $persons{$person}{text} " if is_person_outputted($person);
 }
 
 for my $rel (@rels) {
-  print $dot "$rel->{father} -> $rel->{child};\n";
+
+  if (is_person_outputted($rel->{father}) and
+      is_person_outputted($rel->{child }) ) {
+    print $dot "$rel->{father} -> $rel->{child};\n";
+  }
 }
 
 for my $rank (@ranks) {
- print $dot "  {rank=same  " . (join " ", @$rank) . "}\n";
+  my @persons_outputed = grep { is_person_outputted($_) } @$rank;
+
+  if (@persons_outputed) {
+    print $dot "  {rank=same  " . (join " ", @persons_outputed) . "}\n";
+  }
 }
 
 
@@ -865,10 +872,17 @@ sub person { #_{
 
   state %ids_seen;
 
+
   my $id = lc($name) . ($opts{verse} // '') . ($opts{i_chr_5_27_ff} // '') .($opts{i_chr_6_1_ff} // '') . ( $opts{i_chr_6_18_ff} // '') . ( $opts{i_chr_6_24_ff} // '') . ( $opts{i_chr_6_29_ff} // ''). ($opts{i_chr_6_35_ff} // '');
   $id =~ s/[.\- :\/()]//g;
   die "$name $id" if exists $ids_seen{$id};
   $ids_seen{$id}=undef;
+
+  $persons{$id} = {};
+
+  if (my $generation=delete $opts{generation}) {
+     $persons{$id}{generation} = $generation;
+  }
 
   if ($opts{sonof}) {
     rel($opts{sonof}, $id);
@@ -885,6 +899,8 @@ sub person { #_{
     $tr_verse = "\n    <tr><td align=\"left\"><font color=\"blue\">$opts{verse}</font></td></tr>";
     delete $opts{verse};
   }
+
+
   my $tr_is_it="";
   if ($opts{is_it}) {
     $tr_is_it = "\n    <tr><td align=\"left\"><font color=\"#ff7700\"><i>$opts{is_it}?</i></font></td></tr>";
@@ -952,23 +968,24 @@ sub person { #_{
 
   die join " - ", keys %opts if %opts;
 
-  push @persons, {
-    id => $id,
-    text => <<T};
-[ label=<
-  <table border="1" cellborder="0" cellspacing="1">
-    <tr><td align="left"><b>$name</b></td></tr>$tr_add$tr_is_it$tr_rem$tr_verse$tr_i_chr_5_27_ff$tr_i_chr_6_1_ff$tr_i_chr_6_18_ff$tr_i_chr_6_24_ff$tr_i_chr_6_29_ff$tr_i_chr_6_35_ff$tr_i_chr_9_11$tr_esr_7_1_ff$tr_neh_11_11
-  </table>> ];
+  $persons{$id}{text} = <<T;
+ [ label=<
+   <table border="1" cellborder="0" cellspacing="1">
+     <tr><td align="left"><b>$name</b></td></tr>$tr_add$tr_is_it$tr_rem$tr_verse$tr_i_chr_5_27_ff$tr_i_chr_6_1_ff$tr_i_chr_6_18_ff$tr_i_chr_6_24_ff$tr_i_chr_6_29_ff$tr_i_chr_6_35_ff$tr_i_chr_9_11$tr_esr_7_1_ff$tr_neh_11_11
+   </table>> ];
 T
 
-#  print $dot <<"DOT";
-#
-#  $id [ label=<
-#  <table border="1" cellborder="0" cellspacing="1">
-#    <tr><td align="left"><b>$name</b></td></tr>$tr_add$tr_is_it$tr_rem$tr_verse$tr_i_chr_5_27_ff$tr_i_chr_6_1_ff$tr_i_chr_6_18_ff$tr_i_chr_6_24_ff$tr_i_chr_6_29_ff$tr_i_chr_6_35_ff$tr_i_chr_9_11$tr_esr_7_1_ff$tr_neh_11_11
-#  </table>>];
-#
-#DOT
+  push @person_order, $id;
+
+#   push @persons, {
+#     id => $id,
+#     text => <<T};
+# [ label=<
+#   <table border="1" cellborder="0" cellspacing="1">
+#     <tr><td align="left"><b>$name</b></td></tr>$tr_add$tr_is_it$tr_rem$tr_verse$tr_i_chr_5_27_ff$tr_i_chr_6_1_ff$tr_i_chr_6_18_ff$tr_i_chr_6_24_ff$tr_i_chr_6_29_ff$tr_i_chr_6_35_ff$tr_i_chr_9_11$tr_esr_7_1_ff$tr_neh_11_11
+#   </table>> ];
+# T
+
 
   return $id;
   
@@ -981,12 +998,16 @@ sub rel { #_{
   my %opts = @_;
 
 
+
   my $add='';
   if ($opts{invisible}) {
     $add .= ' color=invis';
   }
   if ($opts{distant}) {
     $add .= ' style=dashed';
+  }
+  if (exists $persons{$father}{generation}) {
+    $persons{$child}{generation} = $persons{$father}{generation}++;
   }
 
   push @rels, {father=>$father, child=>$child};
@@ -1002,3 +1023,18 @@ sub dot {
   my $format = shift;
   system "dot Personen.dot -T$format -oPersonen.$format";
 }
+
+sub is_person_outputted { #_{
+  my $person_id = shift;
+
+  if ($output_up_to_jakob) {
+
+    if ($persons{$person_id}{generation} // 1000 <= 22) {
+       return 1;
+    }
+    return 0;
+
+  }
+  
+  return 1;
+} #_}
