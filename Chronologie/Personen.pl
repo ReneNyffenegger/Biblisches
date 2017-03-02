@@ -6,6 +6,10 @@ use 5.10.0;
 
 #    <tr><td align="left"><font color="red">todo</font></td></tr>
 
+my @persons;
+my @rels;
+my @ranks;
+
 open (my $dot, '>', 'Personen.dot') or die;
 
 print $dot <<DOT;
@@ -15,6 +19,7 @@ digraph P {
 
 DOT
 
+  my $lea      = person('Lea'  );
   my $adam       = person('Adam');
 
  #_{ 1. Mo 4 + 5
@@ -150,11 +155,10 @@ DOT
   my $isaak    = person('Isaak', sonof=>$abraham, verse => '1. Mo 21:3');
 
   my $jakob    = person('Jakob', sonof=>$isaak  , verse => '1. Mo 25:26');
-
-  my $lea      = person('Lea'  );
   my $rahel    = person('Rahel');
 
-  print $dot "  {rank=same  $jakob $lea $rahel}\n";
+  rank($lea, $jakob, $rahel);
+# print $dot "  {rank=same  $jakob $lea $rahel}\n";
 
   my $ruben    = person('Ruben');
   my $simeon   = person('Simeon');
@@ -171,7 +175,8 @@ DOT
   rel($rahel, $benjamin);
   rel($rahel, $joseph);
 
-print $dot "  {rank=same  $ruben $simeon $levi $juda $joseph $benjamin } /* Söhne Jakobs  */\n";
+  rank($ruben, $simeon, $levi, $juda, $joseph, $benjamin); # Söhne Jakobs
+#print $dot "  {rank=same  $ruben $simeon $levi $juda $joseph $benjamin } /* Söhne Jakobs  */\n";
 
 
 
@@ -199,9 +204,11 @@ rel($juda, $serach);
 
 # _}
 
-print $dot "  {rank=same  
-  $gerson $kahat $merari
-  $schela $perez $serach } /* 1. Generation nach Söhnen Jakobs  */\n";
+  rank($gerson, $kahat, $merari, $schela, $perez, $serach); # 1. Generation nach Söhnen Jakobs
+
+#print $dot "  {rank=same  
+#  $gerson $kahat $merari
+#  $schela $perez $serach } /* 1. Generation nach Söhnen Jakobs  */\n";
 
 #_{ 2. Mo 
 
@@ -236,12 +243,14 @@ rel($gerson, $simei);
 
  #_}
  
-print $dot "  {rank=same  
-  $libni $simei
-  $amram $jitzhar $hebron $ussiel
-  $machli $muschi
-
-  } /* 2. Generation nach Söhnen Jakobs  */\n";
+ rank($libni, $simei, $amram, $jitzhar, $hebron, $ussiel, $machli, $muschi); # 2. Generation nach Söhnen Jakobs
+ 
+# print $dot "  {rank=same  
+#   $libni $simei
+#   $amram $jitzhar $hebron $ussiel
+#   $machli $muschi
+# 
+#   } /* 2. Generation nach Söhnen Jakobs  */\n";
 
 #_}
 #_{ 3. Generation nach den Söhnen Jakobs
@@ -277,12 +286,14 @@ print $dot "  {rank=same
 
  
  #_}
-print $dot "  {rank=same  
-  $aaron $mose
-  $korah $nepheg $sichri
-  $misael $elzaphan $sitri
-
-  } /* 3. Generation nach Söhnen Jakobs  */\n";
+ 
+  rank($aaron, $mose, $korah, $nepheg, $sichri, $misael, $elzaphan, $sitri);
+# print $dot "  {rank=same  
+#   $aaron $mose
+#   $korah $nepheg $sichri
+#   $misael $elzaphan $sitri
+# 
+#   } /* 3. Generation nach Söhnen Jakobs  */\n";
 
 
 
@@ -495,10 +506,12 @@ print $dot "  {rank=same
  
  #_}
  
-print $dot "  {rank=same 
-  $heman $etan $asaph_1chr_6_24  // Sänger Heman, Etan zur Linken, Asaph zur Rechten
-}
-";
+  rank($heman, $etan, $asaph_1chr_6_24); # Sänger Heman, Etan zur Linken, Asaph zur Rechten
+
+#print $dot "  {rank=same 
+#  $heman $etan $asaph_1chr_6_24  // Sänger Heman, Etan zur Linken, Asaph zur Rechten
+#}
+#";
 
 
  #_{ 1. Chronik 9
@@ -780,20 +793,53 @@ rel($haschub, $schemaja, distant => 1);
  #_}
  #_}
  #_{ Rank Nehemia / Esra
-print $dot "  {rank=same 
-$esra
-$uthai $asaja $jeghuel $sallu $jibneja $ela $meschullam_1_chr_9_8 $jedaja 
-// $jehojarib 
-$jachin // asarja_1chr_9_11 
-$adaja $masai $schemaja
-$bakbakkar $heresch $galal $mattanja  /* 9:15 */
-$obadja $berekja
-$schallum $akkub $talmon $achiman
-$schallum_1chr_9_19
-$athaja $maaseja $sallu_neh_11_7 $gabbai_sallai $joel_neh_11_9 $juda_neh_11_9
-} /* 1. Chr 9 - Nehemia  */\n";
- #_}
  
+ rank(
+ $esra,
+ $uthai , $asaja , $jeghuel , $sallu , $jibneja , $ela , $meschullam_1_chr_9_8 , $jedaja,
+ # , $jehojarib 
+ $jachin, # asarja_1chr_9_11 
+ $adaja , $masai , $schemaja,
+ $bakbakkar , $heresch , $galal , $mattanja, # 9:15
+ $obadja , $berekja,
+ $schallum , $akkub , $talmon , $achiman,
+ $schallum_1chr_9_19,
+ $athaja , $maaseja , $sallu_neh_11_7 , $gabbai_sallai , $joel_neh_11_9 , $juda_neh_11_9
+ );
+
+ 
+# print $dot "  {rank=same 
+# $esra
+# $uthai $asaja $jeghuel $sallu $jibneja $ela $meschullam_1_chr_9_8 $jedaja 
+# // $jehojarib 
+# $jachin // asarja_1chr_9_11 
+# $adaja $masai $schemaja
+# $bakbakkar $heresch $galal $mattanja  /* 9:15 */
+# $obadja $berekja
+# $schallum $akkub $talmon $achiman
+# $schallum_1chr_9_19
+# $athaja $maaseja $sallu_neh_11_7 $gabbai_sallai $joel_neh_11_9 $juda_neh_11_9
+# } /* 1. Chr 9 - Nehemia  */\n";
+#  #_}
+ 
+for my $person (@persons) {
+
+  print $dot "
+     $person->{id} $person->{text}
+  ";
+
+}
+
+for my $rel (@rels) {
+  print $dot "$rel->{father} -> $rel->{child};\n";
+}
+
+for my $rank (@ranks) {
+ print $dot "  {rank=same  " . (join " ", @$rank) . "}\n";
+}
+
+
+
 print $dot "}\n";
 close $dot;
 
@@ -906,14 +952,23 @@ sub person { #_{
 
   die join " - ", keys %opts if %opts;
 
-  print $dot <<"DOT";
-
-  $id [ label=<
+  push @persons, {
+    id => $id,
+    text => <<T};
+[ label=<
   <table border="1" cellborder="0" cellspacing="1">
     <tr><td align="left"><b>$name</b></td></tr>$tr_add$tr_is_it$tr_rem$tr_verse$tr_i_chr_5_27_ff$tr_i_chr_6_1_ff$tr_i_chr_6_18_ff$tr_i_chr_6_24_ff$tr_i_chr_6_29_ff$tr_i_chr_6_35_ff$tr_i_chr_9_11$tr_esr_7_1_ff$tr_neh_11_11
-  </table>>];
+  </table>> ];
+T
 
-DOT
+#  print $dot <<"DOT";
+#
+#  $id [ label=<
+#  <table border="1" cellborder="0" cellspacing="1">
+#    <tr><td align="left"><b>$name</b></td></tr>$tr_add$tr_is_it$tr_rem$tr_verse$tr_i_chr_5_27_ff$tr_i_chr_6_1_ff$tr_i_chr_6_18_ff$tr_i_chr_6_24_ff$tr_i_chr_6_29_ff$tr_i_chr_6_35_ff$tr_i_chr_9_11$tr_esr_7_1_ff$tr_neh_11_11
+#  </table>>];
+#
+#DOT
 
   return $id;
   
@@ -934,8 +989,14 @@ sub rel { #_{
     $add .= ' style=dashed';
   }
 
-  print $dot "  $father -> $child [$add]\n";
+  push @rels, {father=>$father, child=>$child};
+
+# print $dot "  $father -> $child [$add]\n";
 } #_}
+
+sub rank { #_{
+  push @ranks, \@_;
+}
 
 sub dot {
   my $format = shift;
