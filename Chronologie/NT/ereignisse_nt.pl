@@ -57,10 +57,10 @@ while (my $line = <$in>) {
 close $in;
 close $out;
 
-system "dot -Gcharset=latin1 -Tpdf -o${temp_dir}ereignisse_nt.pdf $out_filename";
+system "dot -Gcharset=latin1 -Tpdf -oereignisse_nt.pdf $out_filename";
 if ($win) {
-  system "${temp_dir}ereignisse_nt.pdf";
+  system "ereignisse_nt.pdf";
 }
 else {
-  system "okular ${temp_dir}ereignisse_nt.pdf";
+  system "okular ereignisse_nt.pdf";
 }
