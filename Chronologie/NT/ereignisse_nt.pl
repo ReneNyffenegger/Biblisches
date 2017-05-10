@@ -3,7 +3,7 @@ use warnings;
 use strict;
 
 my $win = 0;
-if ($^O eq 'Win32') {
+if ($^O eq 'MSWin32') {
   $win = 1;
 }
 
