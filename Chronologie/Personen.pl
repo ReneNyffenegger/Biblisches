@@ -3,7 +3,11 @@ use warnings;
 use strict;
 use 5.10.0;
 
-my $output_up_to_jakob = 1;
+my $output_range = 
+# ''
+# 'up to Jakob'
+  '1. Mo. 46'
+;
 
 #    <tr><td align="left"><font color="red">todo</font></td></tr>
 
@@ -22,7 +26,8 @@ digraph P {
 
 DOT
 
-  my $lea      = person('Lea'  );
+  my $silpa    = person('Silpa');
+  my $lea      = person('Lea');
   my $adam     = person('Adam', generation=>1);
 
  #_{ 1. Mo 4 + 5
@@ -158,36 +163,69 @@ DOT
   my $isaak    = person('Isaak', sonof=>$abraham, verse => '1. Mo 21:3');
 
   my $jakob    = person('Jakob', sonof=>$isaak  , verse => '1. Mo 25:26');
-  my $rahel    = person('Rahel');
+  my $rahel    = person('Rahel', generation => $persons{$jakob}{generation});
+  my $bilha    = person('Bilha', generation => $persons{$jakob}{generation});
 
-  rank($lea, $jakob, $rahel);
+  $persons{$lea  }{generation} = $persons{$jakob}{generation};
+  $persons{$silpa}{generation} = $persons{$jakob}{generation};
+
+  rank($lea, $jakob, $rahel, $silpa, $bilha);
 # print $dot "  {rank=same  $jakob $lea $rahel}\n";
 
+  my $dina     = person('Dina');
   my $ruben    = person('Ruben');
   my $simeon   = person('Simeon');
   my $levi     = person('Levi', i_chr_5_27_ff=>'27', i_chr_6_1_ff=>'1', i_chr_6_18_ff=>'23', i_chr_6_24_ff=>'28', i_chr_6_29_ff=>'32');
   my $juda     = person('Juda');
   my $joseph   = person('Joseph');
   my $benjamin = person('Benjamin');
+  my $issaschar= person('Issaschar');
+  my $sebulon  = person('Sebulon');
 
+  rel($lea  , $dina);
   rel($lea  , $ruben);
   rel($lea  , $simeon);
   rel($lea  , $levi);
   rel($lea  , $juda);
+  rel($lea  , $issaschar);
+  rel($lea  , $sebulon  );
 
   rel($rahel, $benjamin);
   rel($rahel, $joseph);
 
-  rank($ruben, $simeon, $levi, $juda, $joseph, $benjamin); # Söhne Jakobs
+  my $gad   = person('Gad');
+  my $asser = person('Asser');
+  rel($silpa, $gad);
+  rel($silpa, $asser);
+
+  my $dan      = person('Dan');
+  my $naphtali = person('Naphtali');
+  rel($bilha, $dan);
+  rel($bilha, $naphtali);
+
+  rank($ruben, $simeon, $levi, $juda, $joseph, $benjamin, $issaschar, $sebulon, $gad, $asser, $dan, $naphtali); # Söhne Jakobs
 #print $dot "  {rank=same  $ruben $simeon $levi $juda $joseph $benjamin } /* Söhne Jakobs  */\n";
 
 
 
-
+# 1mo-46-9 _{
+my $henoch_1mo46  = person('Henoch', ii_mo_46_ff => '9', sonof => $ruben);
+my $pallu         = person('Pallu' , ii_mo_46_ff => '9', sonof => $ruben);
+my $hezron        = person('Hezron', ii_mo_46_ff => '9', sonof => $ruben);
+my $karmi         = person('Karmi' , ii_mo_46_ff => '9', sonof => $ruben);
+# _}
+# 1mo-46-10 _{
+my $jemuel        = person('Jemuel', ii_mo_46_ff => '10', sonof => $simeon);
+my $jamin         = person('Jamin' , ii_mo_46_ff => '10', sonof => $simeon);
+my $ohad          = person('Ohad'  , ii_mo_46_ff => '10', sonof => $simeon);
+my $jachin_1mo46  = person('Jachin', ii_mo_46_ff => '10', sonof => $simeon);
+my $zohar         = person('Zohar' , ii_mo_46_ff => '10', sonof => $simeon);
+my $saul_1mo46    = person('Saul'  , ii_mo_46_ff => '10', sonof => $simeon, rem=>'Sohn der Kanaaniterin');
+# _}
 # 1mo-46-11 _{ vgl  2mo 6 16
-my $gerson  = person('Gerson', i_chr_5_27_ff=>'27', i_chr_6_1_ff=>'1', i_chr_6_24_ff=>'28', rem=>'gen. Gersom in 1. Chr 5:27/6:1');
-my $kahat   = person('Kahat' , i_chr_5_27_ff=>'27', i_chr_6_1_ff=>'1', i_chr_6_18_ff=>'23');
-my $merari  = person('Merari', i_chr_5_27_ff=>'27', i_chr_6_1_ff=>'1', i_chr_6_29_ff=>'32');
+my $gerson  = person('Gerson', ii_mo_46_ff => '11', i_chr_5_27_ff=>'27', i_chr_6_1_ff=>'1', i_chr_6_24_ff=>'28', rem=>'gen. Gersom in 1. Chr 5:27/6:1');
+my $kahat   = person('Kahat' , ii_mo_46_ff => '11', i_chr_5_27_ff=>'27', i_chr_6_1_ff=>'1', i_chr_6_18_ff=>'23');
+my $merari  = person('Merari', ii_mo_46_ff => '11', i_chr_5_27_ff=>'27', i_chr_6_1_ff=>'1', i_chr_6_29_ff=>'32');
 
 rel($levi, $gerson);
 rel($levi, $kahat);
@@ -196,16 +234,96 @@ rel($levi, $merari);
 # 1mo-46-12 _{
 # my $gher =
 # my $onan =
-my $schela = person('Schela');
-my $perez  = person('Perez' );
-my $serach = person('Serach');
 
-rel($juda, $schela);
-rel($juda, $perez );
-rel($juda, $serach);
+my $gher   = person('Gher'  , ii_mo_46_ff => '12', sonof => $juda, rem => 'In Kanaan gestorben');
+my $onan   = person('Onan'  , ii_mo_46_ff => '12', sonof => $juda, rem => 'In Kanaan gestorben');
+my $schela = person('Schela', ii_mo_46_ff => '12', sonof => $juda);
+my $perez  = person('Perez' , ii_mo_46_ff => '12', sonof => $juda);
+my $serach = person('Serach', ii_mo_46_ff => '12', sonof => $juda);
+
+my $hezron_von_perez = person('Hezron', ii_mo_46_ff => '12', sonof => $perez  );
+my $hamul            = person('Hamul' , ii_mo_46_ff => '12', sonof => $perez  );
+
+
 
 
 # _}
+# 1mo-46-13 _{
+
+my $tola     = person('Tola'     , ii_mo_46_ff => '13', sonof => $issaschar);
+my $puwa     = person('Puwa'     , ii_mo_46_ff => '13', sonof => $issaschar);
+my $job      = person('Job'      , ii_mo_46_ff => '13', sonof => $issaschar);
+my $schimron = person('Schimron' , ii_mo_46_ff => '13', sonof => $issaschar);
+
+# _}
+# 1mo-46-14 _{
+
+my $sered    = person('Sered'    , ii_mo_46_ff => '14', sonof => $sebulon);
+my $elon     = person('elon'     , ii_mo_46_ff => '14', sonof => $sebulon);
+my $jachlel  = person('jachleel' , ii_mo_46_ff => '14', sonof => $sebulon);
+
+# _}
+# 1mo-46-16 _{
+
+my $ziphjon    = person('Ziphon'   , ii_mo_46_ff => '16', sonof => $gad);
+my $haggi      = person('Haggi'    , ii_mo_46_ff => '16', sonof => $gad);
+my $schuni     = person('Schuni'   , ii_mo_46_ff => '16', sonof => $gad);
+my $ezbon      = person('Ezbon'    , ii_mo_46_ff => '16', sonof => $gad);
+my $eri        = person('Eri'      , ii_mo_46_ff => '16', sonof => $gad);
+my $arodi      = person('Arodi'    , ii_mo_46_ff => '16', sonof => $gad);
+my $areli      = person('Areli'    , ii_mo_46_ff => '16', sonof => $gad);
+
+# _}
+# 1mo-46-17 _{
+#
+# Jimna und Jischwa und Jischwi und Beria, und Serach, ihre Schwester. 
+
+my $jimna         = person('Jimna'    , ii_mo_46_ff => '17', sonof => $asser);
+my $jischwa       = person('Jischwa'  , ii_mo_46_ff => '17', sonof => $asser);
+my $jischwi       = person('Jischwi'  , ii_mo_46_ff => '17', sonof => $asser);
+my $beria         = person('Beria'    , ii_mo_46_ff => '17', sonof => $asser);
+my $serach_1mo_46 = person('Serach'   , ii_mo_46_ff => '17', sonof => $asser, rem=>'Ihre Schwester');
+
+my $heber_1mo_46  = person('Heber'    , ii_mo_46_ff => '17', sonof => $beria);
+my $malkiiel      = person('Malkiel'  , ii_mo_46_ff => '17', sonof => $beria);
+
+# _}
+# 1mo-46-20 _{
+
+my $manasse  = person('Manasse', ii_mo_46_ff => '20', sonof => $joseph, rem=>'In Ägypten geboren');
+my $ephraim  = person('Ephraim', ii_mo_46_ff => '20', sonof => $joseph, rem=>'In Ägypten geboren');
+
+# _}
+# 1mo-46-21 _{
+
+my $bela     = person('Bela'   , ii_mo_46_ff => '21', sonof => $benjamin);
+my $beker    = person('Beker'  , ii_mo_46_ff => '21', sonof => $benjamin);
+my $aschbel  = person('Aschbel', ii_mo_46_ff => '21', sonof => $benjamin);
+my $gera     = person('Gera'   , ii_mo_46_ff => '21', sonof => $benjamin);
+my $naaman   = person('Naaman' , ii_mo_46_ff => '21', sonof => $benjamin);
+my $echi     = person('Echi'   , ii_mo_46_ff => '21', sonof => $benjamin);
+my $rosch    = person('Rosch'  , ii_mo_46_ff => '21', sonof => $benjamin);
+my $muppim   = person('Muppim' , ii_mo_46_ff => '21', sonof => $benjamin);
+my $huppim   = person('Huppim' , ii_mo_46_ff => '21', sonof => $benjamin);
+my $ard      = person('Ard'    , ii_mo_46_ff => '21', sonof => $benjamin);
+
+# _}
+# 1mo-46-23 _{
+
+my $huschim  = person('Huschim', ii_mo_46_ff => '23', sonof => $dan);
+
+# _}
+# 1mo-46-24 _{
+#
+# Jachzeel und Guni und Jezer und Schillem.
+
+my $jachzeel = person('Jachzeel', ii_mo_46_ff => '24', sonof => $naphtali);
+my $guni     = person('Guni'    , ii_mo_46_ff => '24', sonof => $naphtali);
+my $jezer    = person('Jezer'   , ii_mo_46_ff => '24', sonof => $naphtali);
+my $schillem = person('Schillem', ii_mo_46_ff => '24', sonof => $naphtali);
+
+# _}
+
 
   rank($gerson, $kahat, $merari, $schela, $perez, $serach); # 1. Generation nach Söhnen Jakobs
 
@@ -577,9 +695,9 @@ rel($jibnija            , $reguel              , distant => 1);
 rel($reguel             , $schephatja          , distant => 1);
 rel($schephatja         , $meschullam_1_chr_9_8, distant => 1);
 
-my $jedaja = person('Jedaja'   , add=>'Priester', verse=>'1. Chr 9:10');
+my $jedaja    = person('Jedaja'   , add=>'Priester', verse=>'1. Chr 9:10');
 my $jehojarib = person('Jehojarib', add=>'Priester', rem=>'Jojarib in Neh 11:10', verse=>'1. Chr 9:10');
-my $jachin = person('Jachin'   , add=>'Priester', verse=>'1. Chr 9:10');
+my $jachin    = person('Jachin'   , add=>'Priester', verse=>'1. Chr 9:10');
 
 # rel($aaron, $jedaja, distant => 1);
 rel($aaron, $jehojarib, distant => 1);
@@ -825,25 +943,25 @@ rel($haschub, $schemaja, distant => 1);
 # } /* 1. Chr 9 - Nehemia  */\n";
 #  #_}
  
-for my $person (@person_order) {
+for my $person (@person_order) { #_{
   print $dot " $person $persons{$person}{text} " if is_person_outputted($person);
-}
+} #_}
 
-for my $rel (@rels) {
+for my $rel (@rels) { #_{
 
   if (is_person_outputted($rel->{father}) and
       is_person_outputted($rel->{child }) ) {
     print $dot "$rel->{father} -> $rel->{child};\n";
   }
-}
+} #_}
 
-for my $rank (@ranks) {
+for my $rank (@ranks) { #_{
   my @persons_outputed = grep { is_person_outputted($_) } @$rank;
 
   if (@persons_outputed) {
     print $dot "  {rank=same  " . (join " ", @persons_outputed) . "}\n";
   }
-}
+} #_}
 
 
 
@@ -873,7 +991,7 @@ sub person { #_{
   state %ids_seen;
 
 
-  my $id = lc($name) . ($opts{verse} // '') . ($opts{i_chr_5_27_ff} // '') .($opts{i_chr_6_1_ff} // '') . ( $opts{i_chr_6_18_ff} // '') . ( $opts{i_chr_6_24_ff} // '') . ( $opts{i_chr_6_29_ff} // ''). ($opts{i_chr_6_35_ff} // '');
+  my $id = lc($name) . ($opts{verse} // '') . ($opts{ii_mo_46_ff} // '') . ($opts{i_chr_5_27_ff} // '') .($opts{i_chr_6_1_ff} // '') . ( $opts{i_chr_6_18_ff} // '') . ( $opts{i_chr_6_24_ff} // '') . ( $opts{i_chr_6_29_ff} // ''). ($opts{i_chr_6_35_ff} // '');
   $id =~ s/[.\- :\/()]//g;
   die "$name $id" if exists $ids_seen{$id};
   $ids_seen{$id}=undef;
@@ -910,6 +1028,13 @@ sub person { #_{
   if ($opts{rem}) {
     $tr_rem = "\n    <tr><td align=\"left\"><font color=\"#229933\">$opts{rem}</font></td></tr>";
     delete $opts{rem};
+  }
+  my $tr_ii_mo_46_ff="";
+  if ($opts{ii_mo_46_ff}) {
+    my $ii_mo_46_ff = '1. Mo 46:' . $opts{ii_mo_46_ff};
+    $tr_ii_mo_46_ff = "\n    <tr><td align=\"left\"><font color=\"#992266\">$ii_mo_46_ff</font></td></tr>";
+    $persons{$id}{ii_mo_46_ff} = $opts{ii_mo_46_ff}; # Ausnahme!
+    delete $opts{ii_mo_46_ff};
   }
   my $tr_i_chr_5_27_ff="";
   if ($opts{i_chr_5_27_ff}) {
@@ -971,7 +1096,7 @@ sub person { #_{
   $persons{$id}{text} = <<T;
  [ label=<
    <table border="1" cellborder="0" cellspacing="1">
-     <tr><td align="left"><b>$name</b></td></tr>$tr_add$tr_is_it$tr_rem$tr_verse$tr_i_chr_5_27_ff$tr_i_chr_6_1_ff$tr_i_chr_6_18_ff$tr_i_chr_6_24_ff$tr_i_chr_6_29_ff$tr_i_chr_6_35_ff$tr_i_chr_9_11$tr_esr_7_1_ff$tr_neh_11_11
+     <tr><td align="left"><b>$name</b></td></tr>$tr_add$tr_is_it$tr_rem$tr_verse$tr_ii_mo_46_ff$tr_i_chr_5_27_ff$tr_i_chr_6_1_ff$tr_i_chr_6_18_ff$tr_i_chr_6_24_ff$tr_i_chr_6_29_ff$tr_i_chr_6_35_ff$tr_i_chr_9_11$tr_esr_7_1_ff$tr_neh_11_11
    </table>> ];
 T
 
@@ -1007,7 +1132,7 @@ sub rel { #_{
     $add .= ' style=dashed';
   }
   if (exists $persons{$father}{generation}) {
-    $persons{$child}{generation} = $persons{$father}{generation}++;
+    $persons{$child}{generation} = $persons{$father}{generation} + 1;
   }
 
   push @rels, {father=>$father, child=>$child};
@@ -1027,14 +1152,27 @@ sub dot {
 sub is_person_outputted { #_{
   my $person_id = shift;
 
-  if ($output_up_to_jakob) {
+  if ($output_range eq 'up to Jakob') { #_{
 
-    if ($persons{$person_id}{generation} // 1000 <= 22) {
+    if ( ($persons{$person_id}{generation} // 1000) <= 22) {
+       print "$person_id is outputted ", ($persons{$person_id}{generation} // 1000), "\n";
+       return 1;
+    }
+       print "$person_id is not outputted\n";
+    return 0;
+
+  } #_}
+  if ($output_range eq '1. Mo. 46') { #_{
+
+    if (($persons{$person_id}{generation} //    0) >= 22 and
+        ($persons{$person_id}{generation} // 1000) <= 23) {
+       return 1;
+    }
+    if (defined $persons{$person_id}{ii_mo_46_ff}) {
        return 1;
     }
     return 0;
-
-  }
+  } #_}
   
   return 1;
 } #_}
