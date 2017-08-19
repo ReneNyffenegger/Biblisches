@@ -10,6 +10,11 @@ use Grid::Layout::Render;
 
 my $gl = Grid::Layout->new();
 
+my $von_suenden_eretten  = $gl->add_vertical_line();
+
+my $geboren_in_tagen_herodes     = $gl->add_vertical_line();
+my $wo_ist_der_koenig_der_juden  = $gl->add_vertical_line();
+
 my $joh_tut_busse       = $gl->add_vertical_line();
 # my $gap_0               = $gl->add_vertical_track();
 
@@ -20,7 +25,7 @@ my $jesus_tut_busse     = $gl->add_vertical_line(); # mt-4-17
 
 my $jesus_predigt_reich_start = $gl->add_vertical_line(); # mt-4-23
 
-my $bergpredigt_start   = $gl->add_vertical_line(); # mt-5-1
+my $bergpredigt_kap_5_start   = $gl->add_vertical_line(); # mt-5-1
 
 my $glueckselig         = $gl->add_vertical_line();
 my $glueckselig_2       = $gl->add_vertical_line();
@@ -29,7 +34,7 @@ my $betet               = $gl->add_vertical_line();
 my $trachtet_zuerst     = $gl->add_vertical_line();
 my $herr_herr           = $gl->add_vertical_line();
 
-my $bergpredigt_ende    = $gl->add_vertical_track();
+my $bergpredigt_kap_7_ende    = $gl->add_vertical_line();
 # $gap = $gl->add_vertical_track();
 
 my $aussaetziger_wird_geheilt = $gl->add_vertical_line();
@@ -57,7 +62,11 @@ my $ernte_gross_wenige_arbeiter = $gl->add_vertical_line(); # mt-9-37
 
 $gap = $gl->add_vertical_track();
 
+my $ende_kap_9 = $gl->add_vertical_line();
+
 my $sprecht_reich_nahe       = $gl->add_vertical_line(); # mt-10-7
+
+my $kap_11_beginn = $gl->add_vertical_line();
 
 my $wehe       = $gl->add_vertical_line(); # mt-11-21
 
@@ -70,7 +79,7 @@ my $reich_nahe          = $gl->add_vertical_line(); # mt-12-28
 
 my $kein_zeichen       = $gl->add_vertical_line(); # mt-12-39
 
-my $gleichnisse_start   = $gl->add_vertical_line(); # mt-13-1
+my $gleichnisse_kap_13_start   = $gl->add_vertical_line(); # mt-13-1
 
 my $ihr_versteht_gleichnisse = $gl->add_vertical_line(); # mt-13-11
 my $wort_vom_reich = $gl->add_vertical_line(); # mt-13-19
@@ -134,6 +143,7 @@ my $end_3                        = $gl->add_vertical_line ();
 
 my $gap_2               = $gl->add_vertical_track();
 
+my $tr_kapitel          = $gl->add_horizontal_track();
 my $grober_ablauf       = $gl->add_horizontal_track();
 my $v_gap_1             = $gl->add_horizontal_track();
 my $reich_big_pict      = $gl->add_horizontal_track();
@@ -168,20 +178,40 @@ my $tr_todo_2          = $gl->add_horizontal_track();
 my $tr_todo_3          = $gl->add_horizontal_track();
 
 my
+$area = $tr_kapitel->area($bergpredigt_kap_5_start, $bergpredigt_kap_7_ende);
+$area ->{text}="5-7 (Predigt d. Reiches)";
+
+$area = $tr_kapitel->area($bergpredigt_kap_7_ende, $ende_kap_9);
+$area ->{text}="8-9 (Glaube u. Unglaube)";
+
+$area = $tr_kapitel->area($kap_11_beginn, $gleichnisse_kap_13_start);
+$area ->{text}="11-12 (Verschärfung)";
+
 $area = $tr_reich_1        ->area($joh_tut_busse      , $joh_tut_busse->next_line(9)      );
 $area ->{text} = 'J.d.T: Tut Busse, Reich Nahe';
 $area->{point_in_time} = 1;
 
+$area = $tr_todo->area($von_suenden_eretten, $von_suenden_eretten->next_line(15)); # mt-1-21
+$area->{text} = 'Er wird Sein Volk von ihren Sünden eretten';
+$area->{point_in_time} = 1;
+
+$area = $tr_todo_2->area($geboren_in_tagen_herodes, $geboren_in_tagen_herodes->next_line(15)); # mt-2-1
+$area->{text} = 'In Tagen Herodes, des Königs, geboren';
+$area->{point_in_time} = 1;
+
+$area = $tr_todo_3->area($wo_ist_der_koenig_der_juden, $wo_ist_der_koenig_der_juden->next_line(15)); # mt-2-2
+$area->{text} = 'Wo ist der König der Juden';
+$area->{point_in_time} = 1;
 
 $area = $tr_reich_2        ->area($teufel_zeigt_reiche, $teufel_zeigt_reiche->next_line(7)         );
 $area ->{text} = 'Teufel zeigt Reiche';
 $area ->{point_in_time} = 1;
 
 $area = $tr_reich_3        ->area($jesus_tut_busse, $jesus_tut_busse->next_line(12));
-$area ->{text} = 'Jesus: Tut Busse, Reich Nahe (Mt 4:17)';
+$area ->{text} = 'Jesus: Tut Busse, Reich Nahe (Mt 4:17), vgl Mk 1:15, Lk 5:32';
 $area ->{point_in_time} = 1;
 
-$tr_gleichnis_1->area($bergpredigt_start, $bergpredigt_ende )->{text} = 'Bergpredigt (Mt 5-7)';
+$tr_gleichnis_1->area($bergpredigt_kap_5_start, $bergpredigt_kap_7_ende )->{text} = 'Bergpredigt (Mt 5-7)';
 
 $area  = $tr_gleichnis_2->area($glueckselig, $glueckselig->next_line(10));
 $area ->{text} = 'Glückselig, … denn ihrer ist das Reich (Mt 5:3)';
@@ -306,7 +336,7 @@ $area = $tr_gleichnis_1->area($feigenbaum_ohne_frucht, $feigenbaum_ohne_frucht->
 $area -> {text} = 'Feigenbaum ohne Frucht (Mt 21:19-43, Vgl Mt 24:32)';
 $area -> {point_in_time} = 1;
 
-$tr_gleichnis_1->area($gleichnisse_start, $gleichnisse_ende )->{text} = 'Gleichnisse (Mt 13)';
+$tr_gleichnis_1->area($gleichnisse_kap_13_start, $gleichnisse_ende )->{text} = 'Gleichnisse (Mt 13)';
 
 $area = $tr_gleichnis_2->area($ihr_versteht_gleichnisse, $ihr_versteht_gleichnisse->next_line(10));
 $area->{text} = 'Ihr versteht Gleichnisse (Mt 13:11)';
