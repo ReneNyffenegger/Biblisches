@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <title>Gematria</title>
+  <script type="text/javascript">
+
+     var hebrew_letters = [
+       { l: 'א' },
+       { l: 'ב' },
+       { l: 'ג' },
+       { l: 'ד' },
+       { l: 'ה' },
+       { l: 'ו' },
+       { l: 'ז' },
+       { l: 'ח' },
+       { l: 'ט' },
+       { l: 'י' },
+       { l: 'כ' },
+       { l: 'ל' },
+       { l: 'מ' },
+       { l: 'נ' },
+       { l: 'ס' },
+       { l: 'ע' },
+       { l: 'פ' },
+       { l: 'צ' },
+       { l: 'ק' },
+       { l: 'ר' },
+       { l: 'ש' },
+       { l: 'ת' },
+       { l: 'ך' },
+       { l: 'ם' },
+       { l: 'ן' },
+       { l: 'ף' },
+       { l: 'ץ' }
+     ];
+
+  function elem(el) {
+    return document.createElement(el);
+  }
+
+  function main() {
+
+    alert(hebrew_letters[0].l);
+
+    let table = elem('table');
+    for (let r=0; r<3; r++) {   let tr=elem('tr');
+    for (let c=0; c<9; c++) {
+      let td=elem('td');
+      td.innerHTML=hebrew_letters[r*3 + (8-c)].l;
+
+      tr.appendChild(td);
+
+    } table.appendChild(tr);
+    }
+    document.getElementsByTagName('body')[0].appendChild(table);
+
+  }
+
+  </script>
+</head>
+<body onload='main()'>
+
+</body>
+</html>
