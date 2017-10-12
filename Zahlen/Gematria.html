@@ -5,35 +5,80 @@
   <title>Gematria</title>
   <script type="text/javascript">
 
-     var hebrew_letters = [
-       { l: 'א' },
-       { l: 'ב' },
-       { l: 'ג' },
-       { l: 'ד' },
-       { l: 'ה' },
-       { l: 'ו' },
-       { l: 'ז' },
-       { l: 'ח' },
-       { l: 'ט' },
-       { l: 'י' },
-       { l: 'כ' },
-       { l: 'ל' },
-       { l: 'מ' },
-       { l: 'נ' },
-       { l: 'ס' },
-       { l: 'ע' },
-       { l: 'פ' },
-       { l: 'צ' },
-       { l: 'ק' },
-       { l: 'ר' },
-       { l: 'ש' },
-       { l: 'ת' },
-       { l: 'ך' },
-       { l: 'ם' },
-       { l: 'ן' },
-       { l: 'ף' },
-       { l: 'ץ' }
-     ];
+
+     var hebrew_letters_order_alefbet = [ 'א', 'ב', 'ג', 'ד', 'ה', 'ו', 'ז', 'ח', 'ט', 'י', 'כ', 'ל', 'מ', 'נ', 'ס', 'ע', 'פ', 'צ', 'ק', 'ר', 'ש', 'ת', 'ך', 'ם', 'ן', 'ף', 'ץ' ];
+
+     var hebrew_letters = {};
+
+    for (let r=0; r<3; r++) {
+    for (let c=0; c<9; c++) {
+
+      hebrew_letters[hebrew_letters_order_alefbet[r*9 + c]] = {
+        ragil:  (c+1) * Math.pow(10, r),
+        katan:  c+1,
+        ordinal: r*9+c + 1
+
+      };
+
+    }}
+
+
+    hebrew_letters.א.vim_digraph = 'A+';
+    hebrew_letters.ב.vim_digraph = 'B+';
+    hebrew_letters.ג.vim_digraph = 'G+';
+    hebrew_letters.ד.vim_digraph = 'D+';
+    hebrew_letters.ה.vim_digraph = 'H+';
+    hebrew_letters.ו.vim_digraph = 'W+';
+    hebrew_letters.ז.vim_digraph = 'Z+';
+    hebrew_letters.ח.vim_digraph = 'X+';
+    hebrew_letters.ט.vim_digraph = 'Tj';
+    hebrew_letters.י.vim_digraph = 'J+';
+    hebrew_letters.ך.vim_digraph = 'K%';
+    hebrew_letters.כ.vim_digraph = 'K+';
+    hebrew_letters.ל.vim_digraph = 'L+';
+    hebrew_letters.ם.vim_digraph = 'M%';
+    hebrew_letters.מ.vim_digraph = 'M+';
+    hebrew_letters.ן.vim_digraph = 'N%';
+    hebrew_letters.נ.vim_digraph = 'N+';
+    hebrew_letters.ס.vim_digraph = 'S+';
+    hebrew_letters.ע.vim_digraph = 'E+';
+    hebrew_letters.ף.vim_digraph = 'P%';
+    hebrew_letters.פ.vim_digraph = 'P+';
+    hebrew_letters.ץ.vim_digraph = 'Zj';
+    hebrew_letters.צ.vim_digraph = 'ZJ';
+    hebrew_letters.ק.vim_digraph = 'Q+';
+    hebrew_letters.ר.vim_digraph = 'R+';
+    hebrew_letters.ש.vim_digraph = 'Sh';
+    hebrew_letters.ת.vim_digraph = 'T+';
+
+    hebrew_letters.א.unicode = 1488
+    hebrew_letters.ב.unicode = 1489
+    hebrew_letters.ג.unicode = 1490
+    hebrew_letters.ד.unicode = 1491
+    hebrew_letters.ה.unicode = 1492
+    hebrew_letters.ו.unicode = 1493
+    hebrew_letters.ז.unicode = 1494
+    hebrew_letters.ח.unicode = 1495
+    hebrew_letters.ט.unicode = 1496
+    hebrew_letters.י.unicode = 1497
+    hebrew_letters.ך.unicode = 1498
+    hebrew_letters.כ.unicode = 1499
+    hebrew_letters.ל.unicode = 1500
+    hebrew_letters.ם.unicode = 1501
+    hebrew_letters.מ.unicode = 1502
+    hebrew_letters.ן.unicode = 1503
+    hebrew_letters.נ.unicode = 1504
+    hebrew_letters.ס.unicode = 1505
+    hebrew_letters.ע.unicode = 1506
+    hebrew_letters.ף.unicode = 1507
+    hebrew_letters.פ.unicode = 1508
+    hebrew_letters.ץ.unicode = 1509
+    hebrew_letters.צ.unicode = 1510
+    hebrew_letters.ק.unicode = 1511
+    hebrew_letters.ר.unicode = 1512
+    hebrew_letters.ש.unicode = 1513
+    hebrew_letters.ת.unicode = 1514
+     
 
   function elem(el) {
     return document.createElement(el);
@@ -41,13 +86,65 @@
 
   function main() {
 
-    alert(hebrew_letters[0].l);
+//  alert(hebrew_letters[0].l);
 
     let table = elem('table');
-    for (let r=0; r<3; r++) {   let tr=elem('tr');
-    for (let c=0; c<9; c++) {
-      let td=elem('td');
-      td.innerHTML=hebrew_letters[r*3 + (8-c)].l;
+    table.style.border='black 3px solid';
+    for (let r=0; r<3; r++) { let tr=elem('tr');
+    for (let c=0; c<9; c++) { let td=elem('td');
+
+      let table_= elem('table');
+      let tr_   = elem('tr');
+      let td_   = elem('td');
+
+      let cur_letter = hebrew_letters_order_alefbet[r*9 + (8-c)];
+
+      td_.innerHTML= cur_letter;
+      td_.style.fontSize = '50px';
+      tr_.appendChild(td_);
+      table_.appendChild(tr_);
+
+      tr_ = elem('tr');
+
+      td_ = elem('td');
+      td_.innerHTML = hebrew_letters[cur_letter].ragil;
+      tr_.appendChild(td_);
+
+      td_ = elem('td');
+      td_.innerHTML = hebrew_letters[cur_letter].ordinal;
+      tr_.appendChild(td_);
+
+      table_.appendChild(tr_);
+
+      tr_ = elem('tr');
+
+      td_ = elem('td');
+      td_.innerHTML = hebrew_letters[cur_letter].katan;
+      tr_.appendChild(td_);
+
+      td_ = elem('td');
+      td_.innerHTML = hebrew_letters[cur_letter].vim_digraph;
+      tr_.appendChild(td_);
+
+      table_.appendChild(tr_);
+
+      tr_ = elem('tr');
+
+      td_ = elem('td');
+      td_.innerHTML = hebrew_letters[cur_letter].unicode;
+      tr_.appendChild(td_);
+
+      td_ = elem('td');
+//    td_.innerHTML = hebrew_letters[cur_letter].unicode.toString(16);
+      td_.innerHTML = cur_letter.charCodeAt(0);
+      tr_.appendChild(td_);
+
+      table_.appendChild(tr_);
+
+      table_.style.border='#aaa 1px solid';
+      table_.style.width ='100%';
+
+      td.appendChild(table_);
 
       tr.appendChild(td);
 
