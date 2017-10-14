@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <title>1. Mose 1.1</title>
+  <script type='text/javascript' src='http://renenyffenegger.ch/development/web/js-html/js-aspect-ratio/aspect_ratio.js'></script>
+
+  <script type='text/javascript'>
+
+    var letterWidth;
+//  var words = [ 'בראשית', 'ברא', 'אלהים', 'את', 'השמים', 'ואת', 'הארץ' ];
+
+    var sentence = {};
+
+    function resized() {
+      tq84.aspect_ratio.resized();
+    }
+
+    function createObjectsFromText(text) {
+
+      sentence.words = [];
+
+      let word = {letters: []};
+      for (let letter of text) {
+
+        if (letter == ' ') {
+           sentence.words.push(word);
+           word = {letters: []};
+        }
+        else {
+          word.letters.push({val: letter, div: createLetterDiv(letter)});
+        }
+
+      }
+      sentence.words.push(word);
+
+    
+    }
+
+    function main() {
+
+       var text  = 'בראשית ברא אלהים את השמים ואת הארץ';
+
+    /* Ratio: 16: 9 */
+       var W = 16 * 25;
+       var H =  9 * 25;
+       letterWidth = W/34;
+
+       console.log('main -> createObjectsFromText()');
+       createObjectsFromText(text);
+
+
+       var canvas = document.getElementById('content');
+       tq84.aspect_ratio.init(
+            canvas,
+            W, H
+       );
+
+       window.onresize=resized;
+
+       console.log('main -> drawLetters');
+       drawLetters();
+
+       console.log('main -> highlightLetters');
+       highlightLetters('א');
+
+
+   }
+
+
+   function drawLetters() {
+       let pos_in_sentence = 0;
+       for (let word of sentence.words) {
+
+          if (pos_in_sentence) {
+            pos_in_sentence ++;
+          }
+          for (let letter of word.letters) {
+            drawLetter(letter, (33 - pos_in_sentence) * letterWidth);
+            pos_in_sentence ++;
+          }
+       }
+
+   }
+
+   function createLetterDiv(letter) {
+     var div = document.createElement('div');
+     div.innerHTML = letter;
+     div.style.position = 'absolute';
+     div.style.width    = letterWidth + 'px';
+     div.style.fontSize =    '18px';
+     div.style.fontFamily = 'SBL-Hebrew';
+//   div.style.border   = '1px solid #047';
+     div.style.textAlign= 'center';
+
+     return div;
+
+   }
+
+
+   function drawLetter(letter, x) {
+
+//   var div = createLetterDiv(letter);
+
+     letter.div.style.left     =  x + 'px';
+     letter.div.style.top      =    '2px';
+
+     document.getElementById('content').appendChild(letter.div);
+   
+   }
+
+   function highlightLetters(letterToHighlight) {
+     
+     console.log('highlightLetters');
+     
+     for (let word of sentence.words) {
+       console.log('highlightLetters, word = ' + word);
+
+        for (let letter of word.letters) {
+          console.log('highlightLetters, letter = ' + letter.val);
+          if (letter.val == letterToHighlight) {
+
+            letter.div.style.color = 'red';
+
+          }
+        }
+     }
+
+   }
+
+  </script>
+  <style type="text/css">
+
+    @font-face {
+      font-family: SBL-Hebrew;
+      src: url(http://renenyffenegger.ch/font/SBL_Hbrw.woff2) format('woff2'   );
+      src: url(http://renenyffenegger.ch/font/SBL_Hbrw.woff)  format('woff'    );
+      src: url(http://renenyffenegger.ch/font/SBL_Hbrw.ttf)   format('truetype');
+    }
+
+    *, html { margin: 0px; padding: 0px}
+
+
+     #content {
+        background-color: #6af;
+     }
+
+  </style>
+</head>
+<body onload='main()'>
+
+  <div id='content'>
+  </div>
+
+</body>
+</html>
