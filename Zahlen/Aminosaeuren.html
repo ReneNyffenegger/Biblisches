@@ -16,8 +16,6 @@ function flt2Str(f) {
 
 function main() {
 
-//https://de.wikipedia.org/wiki/
-
    let aspartic_acid  = {   m: 133.10 , ab_1: 'D', ab_3: 'Asp', grm: 'Asparaginsäure'  , wp: 'Asparagins%C3%A4ure'};
    let asparagine     = {   m: 132.12 , ab_1: 'N', ab_3: 'Asn', grm: 'Asparagin'       , wp: 'Asparagin'          };
    let alanine        = {   m:  89.09 , ab_1: '?', ab_3: '???', grm: 'Alanin'          , wp: 'Alanin'             }; /* de.wikipedia.org/wiki/Alanin: 89.10 */
@@ -78,7 +76,7 @@ function main() {
        m_col[c] += cur_amino_acid.m;
        m_tot    += cur_amino_acid.m;
 
-       td.innerHTML = cur_amino_acid.grm;
+       td.innerHTML = '<a href="https://de.wikipedia.org/wiki/' + cur_amino_acid.wp + '">' + cur_amino_acid.grm + '</a>';
        td.style.border='1px solid black';
        tr.appendChild(td);
 
