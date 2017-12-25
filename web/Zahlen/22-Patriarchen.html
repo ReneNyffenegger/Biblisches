@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<!--
+
+   https://github.com/ReneNyffenegger/Biblisches/blob/master/web/Zahlen/22-Patriarchen.html
+
+-->
 <html>
 <head>
   <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
@@ -66,9 +71,9 @@
         {name: 'Serug'        , hebr: 'שְׂרוּג'  },
         {name: 'Nahor'        , hebr: 'נָחוֹר'  },
         {name: 'Terach'       , hebr: 'תֶּרַח'   },
-        {name: 'Abraham'      , hebr: 'אַבְרָהָם' },
+        {name: 'Abraham'      , hebr: 'אַבְרָהָם' , notes:'biblisches/Personen/Abraham'},
         {name: 'Isaak'        , hebr: 'יִצְחָק'  },
-        {name: 'Israel'       , hebr: 'יִשְׂרָאֵל'},
+        {name: 'Israel'       , hebr: 'יִשְׂרָאֵל' },
 
       ];
       
@@ -77,7 +82,15 @@
       patriarchen.forEach(function(patriarch) {
           var row = tab.insertRow(tab.rows.length);
 
-          row.insertCell(row.cells.length).innerHTML = patriarch.name;
+          let patriarchCell = '';
+          if ('notes' in patriarch) {
+            patriarchCell = '<a href="http://renenyffenegger.ch/notes/' + patriarch.notes + '">' + patriarch.name + '</a>';
+          }
+          else{
+            patriarchCell = patriarch.name;
+          }
+          row.insertCell(row.cells.length).innerHTML = patriarchCell;
+
           var cHebr = row.insertCell(row.cells.length);
           cHebr.innerHTML = patriarch.hebr;
           cHebr.style.textAlign='right';
@@ -156,8 +169,12 @@
   <p>Verwendet man <i>Abram</i> statt Abraham und <i>Jakob</i> statt Israel, ist der Zahlenwert 6636.
 
 
+
   <table id='tab' border='0'>
   </table>
+
+  <hr>
+  Siehe auch: <a href='http://renenyffenegger.ch/notes/biblisches/Grundtext/Zahlen'>Zahlen in der Bibel</a>
 
 </body>
 </html>
