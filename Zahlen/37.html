@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <title>37</title>
+  <script type="text/javascript">
+
+function elem(el) {
+  return document.createElement(el);
+}
+function padTo3(n) {
+  return ('000'+n).slice(-3);
+}
+function main() {
+
+   let tab = document.getElementById('permutabilitaet');
+   tab.style.borderCollapse='collapse';
+   tab.style.border='3px solid #34f';
+
+   for (let r=0; r<3; r++) { let tr=elem('tr');
+     for (let c=0; c<9; c++) {
+       let tdProduct    =elem('td');
+       let tdCalculation=elem('td');
+
+       let multiplicator = (r*9 + c + 1);
+       let product = 37 * multiplicator ;
+
+       tdCalculation.innerHTML = multiplicator + ' * 37 = ';
+       tdProduct.innerHTML     = '<b>' + padTo3(product) + '</b>';
+       if (c) {
+         tdCalculation.style.borderLeft='1px solid #57f';
+       }
+       tr.appendChild(tdCalculation);
+       tr.appendChild(tdProduct    );
+     }
+     tab.appendChild(tr);
+   }
+
+}
+
+  </script>
+</head>
+<body onload='main()'>
+
+  <h1>Permutabilität</h1>
+  <table id='permutabilitaet'></table>
+
+  <p>Vgl. Nataša Ž. Mišić: <a href="https://www.neuroquantology.com/index.php/journal/article/download/489/453">Nested Numeric/Geometric/Arithmetic Properties of shCherbak’s Prime Quantum 037 as a Base of (Biological) Coding/Computing</a>,
+  Table 1 (Multiplicative table of number 037.), S. 703.
+
+
+<h1>Links</h1>
+
+  Biblische Zahlen: <a href='http://renenyffenegger.ch/notes/biblisches/Grundtext/Zahlen#n37'>37</a>.
+
+  
+
+</body>
+</html>
