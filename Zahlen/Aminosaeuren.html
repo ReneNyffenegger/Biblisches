@@ -3,6 +3,7 @@
 <head>
   <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
   <title>Aminosäuren</title>
+  <script type="text/javascript" src="Genetics.js"></script>
   <script type="text/javascript">
 
 function elem(el) {
@@ -16,48 +17,29 @@ function flt2Str(f) {
 
 function main() {
 
-   let aspartic_acid  = {   m: 133.10 , ab_1: 'D', ab_3: 'Asp', grm: 'Asparaginsäure'  , wp: 'Asparagins%C3%A4ure'};
-   let asparagine     = {   m: 132.12 , ab_1: 'N', ab_3: 'Asn', grm: 'Asparagin'       , wp: 'Asparagin'          };
-   let alanine        = {   m:  89.09 , ab_1: '?', ab_3: '???', grm: 'Alanin'          , wp: 'Alanin'             }; /* de.wikipedia.org/wiki/Alanin: 89.10 */
-   let leucine        = {   m: 131.17 , ab_1: 'L', ab_3: 'Leu', grm: 'Leucin'          , wp: 'Leucin'             }; /* de/en.wikipedia.org/wiki/Leucin: 131.18 */
-   let arginine       = {   m: 174.20 , ab_1: 'R', ab_3: 'Arg', grm: 'Arginin'         , wp: 'Arginin'            };
-   let phenyl_alanine = {   m: 165.19 , ab_1: 'F', ab_3: 'Phe', grm: 'Phenylalanin'    , wp: 'Phenylalanin'       };
-   let proline        = {   m: 115.13 , ab_1: 'P', ab_3: 'Pro', grm: 'Prolin'          , wp: 'Prolin'             };
-   let isoleucine     = {   m: 131.17 , ab_1: 'I', ab_3: 'Ile', grm: 'Isoleucin'       , wp: 'Isoleucin'          };
-   let lysine         = {   m: 146.19 , ab_1: 'K', ab_3: 'Lys', grm: 'Lysin'           , wp: 'Lysin'              };
-   let tyrosine       = {   m: 181.19 , ab_1: 'T', ab_3: 'Tyr', grm: 'Tyrosin'         , wp: 'Tyrosin'            };
-   let threonine      = {   m: 119.12 , ab_1: 'T', ab_3: 'Thr', grm: 'Threonin'        , wp: 'Threonin'           };
-   let methionine     = {   m: 149.21 , ab_1: 'M', ab_3: 'Met', grm: 'Methionin'       , wp: 'Methionin'          };
-   let histidine      = {   m: 155.15 , ab_1: 'H', ab_3: 'His', grm: 'Histidin'        , wp: 'Histidin'           }; /* de/en.wikipedia.org/wiki/Histidin: 155.16 */
-   let tryptophan     = {   m: 204.23 , ab_1: 'W', ab_3: 'Trp', grm: 'Tryptophan'      , wp: 'Tryptophan'         }; /* L- u. D-Tryptophan */
-   let serine         = {   m: 105.09 , ab_1: 'S', ab_3: 'Ser', grm: 'Serin'           , wp: 'Ser'                };
-   let cysteine       = {   m: 121.16 , ab_1: 'C', ab_3: 'Cys', grm: 'Cystein'         , wp: 'Cystein'            };
-   let glutamic_acid  = {   m: 147.13 , ab_1: 'E', ab_3: 'Glu', grm: 'Glutaminsäure'   , wp: 'Glutamins%C3%A4ure' };
-   let glutamine      = {   m: 146.14 , ab_1: 'Q', ab_3: 'Gln', grm: 'Glutamin'        , wp: 'Glutamin'           }; /* de/en.wikipedia.org/wiki/Glutamin: 146.15 */
-   let glycine        = {   m:  75.07 , ab_1: 'G', ab_3: 'Gly', grm: 'Glycin'          , wp: 'Glycin'             };
-   let valine         = {   m: 117.15 , ab_1: 'V', ab_3: 'Val', grm: 'Valin'           , wp: 'Valin'              };
+  alert(tq84.Genetics.Codons.ttt.aa.grm);
 
    let amino_acids_4x5 = [
-     aspartic_acid  ,
-     asparagine     ,
-     alanine        ,
-     leucine        ,
-     arginine       ,
-     phenyl_alanine ,
-     proline        ,
-     isoleucine     ,
-     lysine         ,
-     tyrosine       ,
-     threonine      ,
-     methionine     ,
-     histidine      ,
-     tryptophan     ,
-     serine         ,
-     cysteine       ,
-     glutamic_acid  ,
-     glutamine      ,
-     glycine        ,
-     valine
+     tq84.Genetics.AminoAcids.aspartic_acid  ,
+     tq84.Genetics.AminoAcids.asparagine     ,
+     tq84.Genetics.AminoAcids.alanine        ,
+     tq84.Genetics.AminoAcids.leucine        ,
+     tq84.Genetics.AminoAcids.arginine       ,
+     tq84.Genetics.AminoAcids.phenyl_alanine ,
+     tq84.Genetics.AminoAcids.proline        ,
+     tq84.Genetics.AminoAcids.isoleucine     ,
+     tq84.Genetics.AminoAcids.lysine         ,
+     tq84.Genetics.AminoAcids.tyrosine       ,
+     tq84.Genetics.AminoAcids.threonine      ,
+     tq84.Genetics.AminoAcids.methionine     ,
+     tq84.Genetics.AminoAcids.histidine      ,
+     tq84.Genetics.AminoAcids.tryptophan     ,
+     tq84.Genetics.AminoAcids.serine         ,
+     tq84.Genetics.AminoAcids.cysteine       ,
+     tq84.Genetics.AminoAcids.glutamic_acid  ,
+     tq84.Genetics.AminoAcids.glutamine      ,
+     tq84.Genetics.AminoAcids.glycine        ,
+     tq84.Genetics.AminoAcids.valine
    ];
 
    let tab = document.getElementById('tab');
