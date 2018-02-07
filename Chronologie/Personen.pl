@@ -1321,8 +1321,10 @@ sub rel { #_{
   if ($opts{distant}) {
     $add .= ' style=dashed';
   }
-  if (exists $persons{$father}{generation}) {
-    $persons{$child}{generation} = $persons{$father}{generation} + 1;
+  else {
+    if (exists $persons{$father}{generation}) {
+      $persons{$child}{generation} = $persons{$father}{generation} + 1;
+    }
   }
 
   push @rels, {father=>$father, child=>$child, add=>$add};
