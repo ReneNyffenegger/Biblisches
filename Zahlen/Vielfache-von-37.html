@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <title>Vielfache von 37</title>
+
+<style type='text/css'> 
+
+  table {border-collapse: collapse}
+
+  td { text-align: right ; padding: 2px}
+
+  td:nth-child(2), td:nth-child(4), td:nth-child(6) {padding-right: 20px}
+
+  td:nth-child(1), td:nth-child(2) { background-color: #eeeef3}
+  td:nth-child(3), td:nth-child(4) { background-color: #e9f7e1}
+  td:nth-child(5), td:nth-child(6) { background-color: #f8e9d1}
+
+</style>
+
+<script type="text/javascript">
+  function elem(el) {
+    return document.createElement(el);
+  }
+
+  function num2triplets(num) {
+    str=num.toString();
+
+//  lenTodo = str.length;
+
+    ret = [];
+
+    lenFirstPiece = str.length % 3;
+
+    let curPos = 0;
+    if (lenFirstPiece) {
+      ret.push(str.substr(curPos, lenFirstPiece));
+      curPos += lenFirstPiece;
+    }
+    while (curPos < str.length) {
+      ret.push(str.substr(curPos, 3));
+      curPos += 3;
+    }
+
+    return ret;
+  }
+
+  function main() {
+
+
+    
+
+    let tab = document.getElementById('tab');
+    for (let n=999/37+1; n< 500; n++) {
+      let tr               = elem('tr');
+      let td_n             = elem('td');
+//    let td_37xn          = elem('td');
+      let td_triplets      = elem('td');
+      let td_triplets_plus = elem('td');
+      let td_sumTriplets   = elem('td');
+      let td_sumTriplets_d = elem('td');
+      let td_dividedBy37   = elem('td');
+
+      nx37 = n*37; 
+      triplets = num2triplets(nx37);
+
+      td_n.innerHTML=n + ' × 37 = '
+//    td_37xn.innerHTML = nx37;
+      td_triplets     .innerHTML = triplets.join("'");
+      td_triplets_plus.innerHTML = triplets.join(" + ") + ' = ';
+
+      sumTriplets = 0;
+      for (let part of triplets) {
+        sumTriplets += parseInt(part);
+      }
+      td_sumTriplets.innerHTML = sumTriplets;
+      td_sumTriplets_d.innerHTML = sumTriplets + ' / 37 ='
+
+      td_dividedBy37.innerHTML = sumTriplets / 37;
+
+      tr .appendChild (td_n       );
+//    tr .appendChild (td_37xn    );
+      tr .appendChild (td_triplets);
+      tr .appendChild (td_triplets_plus);
+      tr .appendChild (td_sumTriplets);
+      tr .appendChild (td_sumTriplets_d);
+      tr .appendChild (td_dividedBy37);
+
+
+      tab.appendChild(tr     )
+    }
+
+  }
+
+</script>
+
+</head>
+<body onload='main()'>
+
+  Jedes Vielfache von <a href='https://renenyffenegger.ch/notes/biblisches/Grundtext/Zahlen/index#n37'>37</a> grösser als 999 hat die interessante Eigenschaft, die Summe ihrer dreiziffrigen Bestandteile wieder ein Vielfaches von 37 ist.
+
+  <p>
+
+  <table id='tab'></table>
+
+  <hr>
+
+  Siehe auch <a href='37.html'>37</a>
+
+</body>
+</html>
