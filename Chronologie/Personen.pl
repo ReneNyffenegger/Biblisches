@@ -394,9 +394,9 @@ rel($gerson, $simei);
 #_}
  #_{ 2. Mo 6:22
  
- my $misael   = person('Misael'  , verse=>'2. Mo 6:22');
- my $elzaphan = person('Elzaphan', verse=>'2. Mo 6:22');
- my $sitri    = person('Sitri'   , verse=>'2. Mo 6:22');
+ my $misael   = person('Misael'            , verse=>'2. Mo 6:22');
+ my $elzaphan = person('Elzaphan/Elizaphan', verse=>'2. Mo 6:22', rem=>'Fürst');
+ my $sitri    = person('Sitri'             , verse=>'2. Mo 6:22');
 
  rel($ussiel, $misael);
  rel($ussiel, $elzaphan);
@@ -406,15 +406,12 @@ rel($gerson, $simei);
  
  #_}
  
-
-
-
  #_}
  #_{ 2. Mo 6:23
  
- my $nadab   = person('Nadab', i_chr_5_27_ff=>'29');
- my $abihu   = person('Abihu', i_chr_5_27_ff=>'29');
- my $eleasar = person('Eleasar', i_chr_5_27_ff=>'29', i_chr_6_35_ff=>'35', esr_7_1_ff=>'5');
+ my $nadab   = person('Nadab', i_chr_5_27_ff=>'29', rem=>'Erstgeboren - getötet');
+ my $abihu   = person('Abihu', i_chr_5_27_ff=>'29', rem=>'getötet');
+ my $eleasar = person('Eleasar', i_chr_5_27_ff=>'29', i_chr_6_35_ff=>'35', esr_7_1_ff=>'5', rem=>'Fürst der Fürsten');
  my $itamar  = person('Itamar', i_chr_5_27_ff=>'29');
 
  rel($aaron, $nadab);
@@ -494,7 +491,7 @@ rel($gerson, $simei);
  rel ($okran, $pagiel);
  rel ($asser, $okran, distant=>1);
 
- my $deghuel = person('Deghuel');
+ my $deghuel = person('(Deghuel/Reguel');
  my $eljasaph = person('Eljasaph'  , iv_mo_1=>1);
  rel ($deghuel, $eljasaph);
  rel ($gad, $deghuel, distant=>1);
@@ -504,12 +501,25 @@ rel($gerson, $simei);
  rel ($enan, $achira);
  rel ($naphtali, $enan, distant=>1);
 
+
+ #_}
+ #_{ 4. Mo 3
+ 
+   my $lael           = person('Lael');
+   my $eljasaph_4mo_3 = person('Eljasaph', sonof=>$lael, rem=>'Fürst');
+   rel ($gerson, $lael, distant=>1);
+
+   my $abichail       = person('Abichail');
+   my $zuriel         = person('Zuriel', sonof=>$abichail, rem=>'Fürst');
+   rel ($merari, $abichail, distant=>1);
+
  rank(
       $aaron, $mose, $korah, $nepheg, $sichri, $misael, $elzaphan, $sitri, # 2mo-6-22
-      $elizur, $schelumiel, $nachschon, $nethaneel, $eliab, $elischama, $gamliel, $abidan, $achieser, $pagiel, $eljasaph, $achira
+      $elizur, $schelumiel, $nachschon, $nethaneel, $eliab, $elischama, $gamliel, $abidan, $achieser, $pagiel, $eljasaph, $achira,
+      $eljasaph_4mo_3
  );
 
- # }
+ #_}
 
 #_}
 
