@@ -892,6 +892,28 @@ rel($haschub, $schemaja, distant => 1);
 
  #_}
 
+# _}
+# _{ 1. Chronik 23
+
+  my $gersom  = person('Gersom' , sonof=>$mose, add=>'1. Chr 23:14');
+  my $elieser = person('Elieser', sonof=>$mose, add=>'1. Chr 23:14');
+
+  my $schebuel = person('Schebuel', sonof=>$gersom, rem=>'Das Haupt', add=>'1. Chr 23:16');
+  my $rechabja = person('Rechabja', sonof=>$elieser, rem=>'Das Haupt, einziger Sohn von Elieser, viele Söhne', add=>'1. Chr 23:17');
+
+  my $schelomith = person('Schelomith', sonof=>$jitzhar, rem=>'Das Haupt, nur in 1. Chr 23:18 erwähnt', add=>'1. Chr 23:18');
+
+  my $jerija    = person('Jerija', sonof=>$hebron, rem=>'Das Haupt', add=>'1. Chr 23:19');
+  my $amarja_1chr_23= person('Amarja', sonof=>$hebron, rem=>'Der zweite', add=>'1. Chr 23:19');
+  my $jachasiel = person('Jachasiel', sonof=>$hebron,rem=>'Der dritte', add=>'1. Chr 23:19'); 
+  my $jekamam   = person('Jekamam', sonof=>$hebron,rem=>'Der vierte', add=>'1. Chr 23:19'); 
+
+  my $eleasar_machli = person('Eleasar', sonof=>$machli, add=>'1. Chr 23:21'); 
+  my $kis_machli     = person('Kis'    , sonof=>$machli, add=>'1. Chr 23:21', rem=>'nur Töchter'); 
+
+  my $eder           = person('Eder'    , sonof=>$muschi, add=>'1. Chr 23:23'); 
+  my $jeremoth       = person('Jeremoth', sonof=>$muschi, add=>'1. Chr 23:23'); 
+
 
 
 # _}
