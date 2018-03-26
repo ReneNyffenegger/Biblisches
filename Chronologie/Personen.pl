@@ -516,7 +516,7 @@ rel($gerson, $simei);
  rank(
       $aaron, $mose, $korah, $nepheg, $sichri, $misael, $elzaphan, $sitri, # 2mo-6-22
       $elizur, $schelumiel, $nachschon, $nethaneel, $eliab, $elischama, $gamliel, $abidan, $achieser, $pagiel, $eljasaph, $achira,
-      $eljasaph_4mo_3
+      $eljasaph_4mo_3, $zuriel
  );
 
  #_}
