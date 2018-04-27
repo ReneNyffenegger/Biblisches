@@ -154,15 +154,15 @@ DOT
   my $nahor       = person('Nahor'      , sonof=>$serug   , verse=>'1. Mo 11:22');
   my $tarah       = person('Tarah'      , sonof=>$nahor   , verse=>'1. Mo 11:24');
 
-  my $abraham     = person('Abraham'    , sonof=>$tarah   , verse=>'1. Mo 11:26');
+  my $abraham     = person('Abraham'    , sonof=>$tarah   , verse=>'1. Mo 11:26', mt=> '2', anc_lord=>1);
   my $nahor_2     = person('Nahor'      , sonof=>$tarah   , verse=>'1. Mo 11:26');
   my $haran       = person('Haran'      , sonof=>$tarah   , verse=>'1. Mo 11:26');
 
 #_}
 
-  my $isaak    = person('Isaak', sonof=>$abraham, verse => '1. Mo 21:3');
+  my $isaak    = person('Isaak', sonof=>$abraham, verse => '1. Mo 21:3', mt=> '2', anc_lord=>1);
 
-  my $jakob    = person('Jakob', sonof=>$isaak  , verse => '1. Mo 25:26');
+  my $jakob    = person('Jakob', sonof=>$isaak  , verse => '1. Mo 25:26', mt=> '2', anc_lord=>1);
   my $rahel    = person('Rahel'); # , generation => $persons{$jakob}{generation});
   my $bilha    = person('Bilha'); # , generation => $persons{$jakob}{generation});
 
@@ -175,7 +175,7 @@ DOT
   my $ruben    = person('Ruben', generation=>$persons{$jakob}{generation}+1);
   my $simeon   = person('Simeon', generation=>$persons{$jakob}{generation}+1);
   my $levi     = person('Levi', i_chr_5_27_ff=>'27', i_chr_6_1_ff=>'1', i_chr_6_18_ff=>'23', i_chr_6_24_ff=>'28', i_chr_6_29_ff=>'32', generation=>$persons{$jakob}{generation}+1);
-  my $juda     = person('Juda', generation=>$persons{$jakob}{generation}+1);
+  my $juda     = person('Juda', generation=>$persons{$jakob}{generation}+1, mt=> '2', anc_lord=>1);
   my $joseph   = person('Joseph', generation=>$persons{$jakob}{generation}+1);
   my $benjamin = person('Benjamin', generation=>$persons{$jakob}{generation}+1);
   my $issaschar= person('Issaschar', generation=>$persons{$jakob}{generation}+1);
@@ -236,13 +236,18 @@ rel($levi, $merari);
 my $gher   = person('Gher'  , ii_mo_46_ff => '12', sonof => $juda, rem => 'In Kanaan gestorben');
 my $onan   = person('Onan'  , ii_mo_46_ff => '12', sonof => $juda, rem => 'In Kanaan gestorben');
 my $schela = person('Schela', ii_mo_46_ff => '12', sonof => $juda);
-my $perez  = person('Perez' , ii_mo_46_ff => '12', sonof => $juda);
-my $serach = person('Serach', ii_mo_46_ff => '12', sonof => $juda);
+my $perez  = person('Perez' , ii_mo_46_ff => '12', sonof => $juda, mt=> '3', anc_lord=>1);
+my $serach = person('Serach', ii_mo_46_ff => '12', sonof => $juda, mt=> '3');
 
-my $hezron_von_perez = person('Hezron', ii_mo_46_ff => '12', sonof => $perez  );
-my $hamul            = person('Hamul' , ii_mo_46_ff => '12', sonof => $perez  );
+my $hezron_von_perez = person('Hezron', ii_mo_46_ff => '12', sonof => $perez, mt=> '3', anc_lord=>1);
+my $hamul            = person('Hamul' , ii_mo_46_ff => '12', sonof => $perez);
 
 
+#_{ Matthäus
+
+ my $aram_mt            = person('Aram', mt=>'3', anc_lord=>1, sonof => $hezron_von_perez);
+
+#_}
 
 
 # _}
@@ -451,10 +456,50 @@ rel($gerson, $simei);
  rel ($zurischaddai, $schelumiel);
  rel ($simeon, $zurischaddai, distant=>1);
 
- my $amminadab = person('Ammindadab');
- my $nachschon   = person('Nachschon'  , iv_mo_1=>1);
+ my $amminadab = person('Amminadab', mt=>'4', anc_lord=>1, sonof => $aram_mt);
+
+
+
+ my $eliseba   = person('Eliseba', rem=>'Frau von Aaron', sonof => $amminadab);
+ my $nachschon   = person('Nachschon'  , iv_mo_1=>1, mt=>'4', anc_lord=>1);
  rel ($amminadab, $nachschon);
- rel ($juda, $amminadab, distant=>1);
+
+#_{ Matthäus
+
+ my $salmon   = person('Salmon'  , mt=> '4', anc_lord=>1, sonof => $nachschon);
+ my $boas     = person('Boas'    , mt=> '5', anc_lord=>1, sonof => $salmon   );
+ my $obed     = person('Obed'    , mt=> '5', anc_lord=>1, sonof => $boas);
+ my $isai     = person('Isai'    , mt=> '5', anc_lord=>1, sonof => $obed);
+ my $david    = person('David'   , mt=> '6', anc_lord=>1, sonof => $isai);
+ my $salomo   = person('Salomo'  , mt=> '6', anc_lord=>1, sonof => $david);
+ my $rehabeam = person('Rehabeam', mt=> '7', anc_lord=>1, sonof => $salomo);
+ my $abija    = person('Abija'   , mt=> '7', anc_lord=>1, sonof => $rehabeam);
+ my $asa_mt   = person('Asa'     , mt=> '7', anc_lord=>1, sonof => $abija);
+ my $josaphat = person('Josaphat', mt=> '8', anc_lord=>1, sonof => $asa_mt);
+ my $joram    = person('Joram'   , mt=> '8', anc_lord=>1, sonof => $josaphat); 
+ my $usija    = person('Usija'   , mt=> '8', anc_lord=>1, sonof => $joram); 
+ my $jotam    = person('Jotam'   , mt=> '9', anc_lord=>1, sonof => $usija); 
+ my $ahas     = person('Ahas'    , mt=> '9', anc_lord=>1, sonof => $jotam); 
+ my $hiskia   = person('Hiskia'  , mt=> '9', anc_lord=>1, sonof => $ahas); 
+ my $manasse_mt= person('Manasse' , mt=>'10', anc_lord=>1, sonof => $hiskia); 
+ my $amon     = person('Amon'    , mt=>'10', anc_lord=>1, sonof => $manasse_mt); 
+ my $josia    = person('Josia'   , mt=>'10', anc_lord=>1, sonof => $amon); 
+ my $jechonja = person('Jechonja', mt=>'11', anc_lord=>1, sonof => $josia, rem=>'Zur Zeit der Wegführung'); 
+ my $schealtiel=person('Schealtiel', mt=>'12', anc_lord=>1, sonof => $jechonja); 
+ my $serubbabel=person('Serubbabel', mt=>'12', anc_lord=>1, sonof => $schealtiel); 
+ my $abihud   = person('Abihud'  , mt=>'12', anc_lord=>1, sonof => $serubbabel); 
+ my $eljakam  = person('Eljakam' , mt=>'13', anc_lord=>1, sonof => $abihud); 
+ my $asor     = person('Asor'    , mt=>'13', anc_lord=>1, sonof => $eljakam); 
+ my $zadok    = person('Zadok'   , mt=>'14', anc_lord=>1, sonof => $asor); 
+ my $achim    = person('Achim'   , mt=>'14', anc_lord=>1, sonof => $zadok); 
+ my $eliud    = person('Eliud'   , mt=>'14', anc_lord=>1, sonof => $achim); 
+ my $eleasar_mt = person('Eleasar' , mt=>'15', anc_lord=>1, sonof => $eliud); 
+ my $mattan   = person('Mattan'  , mt=>'15', anc_lord=>1, sonof => $eleasar_mt); 
+ my $jakob_mt = person('Jakob'   , mt=>'15', anc_lord=>1, sonof => $mattan); 
+ my $joseph_mt= person('Joseph'  , mt=>'16', anc_lord=>1, sonof => $jakob_mt); 
+ my $jesus    = person('Jesus'   , mt=>'16', anc_lord=>1, sonof => $joseph_mt); 
+
+#_}
 
  my $zuar = person('Zuar');
  my $nethaneel   = person('Nethaneel'  , iv_mo_1=>1);
@@ -1033,6 +1078,7 @@ rel($haschub, $schemaja, distant => 1);
 # $athaja $maaseja $sallu_neh_11_7 $gabbai_sallai $joel_neh_11_9 $juda_neh_11_9
 # } /* 1. Chr 9 - Nehemia  */\n";
 #  #_}
+
  
 for my $person (@person_order) { #_{
 
@@ -1046,7 +1092,7 @@ for my $person (@person_order) { #_{
 #    delete $person->{sonof};
 #  }
  
-   my $tr_add = ''; # "\n   <tr><td>&nbsp;</td></tr>";
+   my $tr_add = '';
    if ($persons{$person}->{add}) {
      $tr_add = "\n    <tr><td align=\"left\">$persons{$person}->{add}</td></tr>";
      delete $persons{$person}->{add};
@@ -1136,6 +1182,17 @@ for my $person (@person_order) { #_{
      $tr_neh_11_11 = "\n    <tr><td align=\"left\"><font color=\"#77aa26\">$neh_11_11_txt</font></td></tr>";
      delete $persons{$person}->{neh_11_11};
    }
+   my $tr_mt="";
+   if ($persons{$person}->{mt}) {
+     my $mt_txt = "Mt 1:$persons{$person}->{mt}";
+     $tr_mt = "\n    <tr><td align=\"left\"><font color=\"#aa2677\">$mt_txt</font></td></tr>";
+     delete $persons{$person}->{mt};
+   }
+
+   my $tab_bgcolor = '';
+   if (delete $persons{$person}->{anc_lord}) {
+     $tab_bgcolor = ' bgcolor="#ffeeee"';
+   }
  
    my $name = delete $persons{$person}->{name};
  
@@ -1146,11 +1203,10 @@ for my $person (@person_order) { #_{
    }
    die join " - ", keys %{$persons{$person}} if %{$persons{$person}};
 
-#  $persons{$id}{text} = <<T;
    my $text = <<T;
   [ label=<
-    <table border="1" cellborder="0" cellspacing="1">
-      <tr><td align="left"><b>$name</b></td></tr>$tr_generation$tr_add$tr_is_it$tr_rem$tr_verse$tr_ii_mo_46_ff$tr_iv_mo_1$tr_i_chr_5_27_ff$tr_i_chr_6_1_ff$tr_i_chr_6_18_ff$tr_i_chr_6_24_ff$tr_i_chr_6_29_ff$tr_i_chr_6_35_ff$tr_i_chr_9_11$tr_esr_7_1_ff$tr_neh_11_11
+    <table border="1" cellborder="0" cellspacing="1"$tab_bgcolor>
+      <tr><td align="left"><b>$name</b></td></tr>$tr_generation$tr_add$tr_is_it$tr_rem$tr_verse$tr_ii_mo_46_ff$tr_iv_mo_1$tr_i_chr_5_27_ff$tr_i_chr_6_1_ff$tr_i_chr_6_18_ff$tr_i_chr_6_24_ff$tr_i_chr_6_29_ff$tr_i_chr_6_35_ff$tr_i_chr_9_11$tr_esr_7_1_ff$tr_neh_11_11$tr_mt
     </table>> ];
 T
 
@@ -1207,126 +1263,28 @@ sub person { #_{
   state %ids_seen;
 
 
-  my $id = lc($name) . ($opts{verse} // '') . ($opts{ii_mo_46_ff} // '') . ($opts{iv_mo_1} // '') . ($opts{i_chr_5_27_ff} // '') .($opts{i_chr_6_1_ff} // '') . ( $opts{i_chr_6_18_ff} // '') . ( $opts{i_chr_6_24_ff} // '') . ( $opts{i_chr_6_29_ff} // ''). ($opts{i_chr_6_35_ff} // '');
+  my $id = lc($name) .
+    ($opts{verse        } // '') .
+    ($opts{ii_mo_46_ff  } // '') .
+    ($opts{iv_mo_1      } // '') .
+    ($opts{i_chr_5_27_ff} // '') .
+    ($opts{i_chr_6_1_ff } // '') .
+    ($opts{i_chr_6_18_ff} // '') .
+    ($opts{i_chr_6_24_ff} // '') .
+    ($opts{i_chr_6_29_ff} // '') .
+    ($opts{i_chr_6_35_ff} // '') .
+    ($opts{mt           } // '')
+  ;
   $id =~ s/[.\- :\/()]//g;
   die "$name $id" if exists $ids_seen{$id};
   $ids_seen{$id}=undef;
 
-#q $persons{$id} = {};
 
 
-#q 
-#q   my $tr_add = ''; # "\n   <tr><td>&nbsp;</td></tr>";
-#q   if ($opts{add}) {
-#q     $tr_add = "\n    <tr><td align=\"left\">$opts{add}</td></tr>";
-#q     delete $opts{add};
-#q   }
-#q   my $tr_verse='';
-#q   if ($opts{verse}) {
-#q     $tr_verse = "\n    <tr><td align=\"left\"><font color=\"blue\">$opts{verse}</font></td></tr>";
-#q     delete $opts{verse};
-#q   }
-#q 
-#q 
-#q   my $tr_is_it="";
-#q   if ($opts{is_it}) {
-#q     $tr_is_it = "\n    <tr><td align=\"left\"><font color=\"#ff7700\"><i>$opts{is_it}?</i></font></td></tr>";
-#q     delete $opts{is_it};
-#q   }
-#q   my $tr_rem="";
-#q   if ($opts{rem}) {
-#q     $tr_rem = "\n    <tr><td align=\"left\"><font color=\"#229933\">$opts{rem}</font></td></tr>";
-#q     delete $opts{rem};
-#q   }
-#q   my $tr_ii_mo_46_ff="";
-#q   if ($opts{ii_mo_46_ff}) {
-#q     my $ii_mo_46_ff = '1. Mo 46:' . $opts{ii_mo_46_ff};
-#q     $tr_ii_mo_46_ff = "\n    <tr><td align=\"left\"><font color=\"#992266\">$ii_mo_46_ff</font></td></tr>";
-#q     $persons{$id}{ii_mo_46_ff} = $opts{ii_mo_46_ff}; # Ausnahme!
-#q     delete $opts{ii_mo_46_ff};
-#q   }
-#q   my $tr_iv_mo_1="";
-#q   if ($opts{iv_mo_1}) {
-#q     my $iv_mo_1 = '4. Mo:1';
-#q     $tr_iv_mo_1 = "\n    <tr><td align=\"left\"><font color=\"#ee4422\">$iv_mo_1</font></td></tr>";
-#q #   $persons{$id}{iv_mo_1} = $opts{iv_mo_1}; # Ausnahme!
-#q     delete $opts{iv_mo_1};
-#q   }
-#q   my $tr_i_chr_5_27_ff="";
-#q   if ($opts{i_chr_5_27_ff}) {
-#q     my $i_chr_5_27_ff_txt = '1. Chr 5:' . $opts{i_chr_5_27_ff};
-#q     $tr_i_chr_5_27_ff = "\n    <tr><td align=\"left\"><font color=\"#775544\">$i_chr_5_27_ff_txt</font></td></tr>";
-#q     delete $opts{i_chr_5_27_ff};
-#q   }
-#q   my $tr_i_chr_6_1_ff="";
-#q   if ($opts{i_chr_6_1_ff}) {
-#q     my $i_chr_6_1_ff_txt = '1. Chr 6:' . $opts{i_chr_6_1_ff};
-#q     $tr_i_chr_6_1_ff = "\n    <tr><td align=\"left\"><font color=\"#336699\">$i_chr_6_1_ff_txt</font></td></tr>";
-#q     delete $opts{i_chr_6_1_ff};
-#q   }
-#q   my $tr_i_chr_6_18_ff="";
-#q   if ($opts{i_chr_6_18_ff}) {
-#q     my $i_chr_6_18_ff_txt = '1. Chr 6:' . $opts{i_chr_6_18_ff};
-#q     $tr_i_chr_6_18_ff = "\n    <tr><td align=\"left\"><font color=\"#3377cc\">$i_chr_6_18_ff_txt</font></td></tr>";
-#q     delete $opts{i_chr_6_18_ff};
-#q   }
-#q   my $tr_i_chr_6_24_ff="";
-#q   if ($opts{i_chr_6_24_ff}) {
-#q     my $i_chr_6_24_ff_txt = '1. Chr 6:' . $opts{i_chr_6_24_ff};
-#q     $tr_i_chr_6_24_ff = "\n    <tr><td align=\"left\"><font color=\"#337722\">$i_chr_6_24_ff_txt</font></td></tr>";
-#q     delete $opts{i_chr_6_24_ff};
-#q   }
-#q   my $tr_i_chr_6_29_ff="";
-#q   if ($opts{i_chr_6_29_ff}) {
-#q     my $i_chr_6_29_ff_txt = '1. Chr 6:' . $opts{i_chr_6_29_ff};
-#q     $tr_i_chr_6_29_ff = "\n    <tr><td align=\"left\"><font color=\"#884488\">$i_chr_6_29_ff_txt</font></td></tr>";
-#q     delete $opts{i_chr_6_29_ff};
-#q   }
-#q   my $tr_i_chr_6_35_ff="";
-#q   if ($opts{i_chr_6_35_ff}) {
-#q     my $i_chr_6_35_ff_txt = '1. Chr 6:' . $opts{i_chr_6_35_ff};
-#q     $tr_i_chr_6_35_ff = "\n    <tr><td align=\"left\"><font color=\"#994433\">$i_chr_6_35_ff_txt</font></td></tr>";
-#q     delete $opts{i_chr_6_35_ff};
-#q   }
-#q   my $tr_i_chr_9_11="";
-#q   if ($opts{i_chr_9_11}) {
-#q     my $i_chr_9_11_txt = '1. Chr 9:11';
-#q     $tr_i_chr_9_11 = "\n    <tr><td align=\"left\"><font color=\"#6229c4\">$i_chr_9_11_txt</font></td></tr>";
-#q     delete $opts{i_chr_9_11};
-#q   }
-#q   my $tr_esr_7_1_ff="";
-#q   if ($opts{esr_7_1_ff}) {
-#q     my $esr_7_1_ff_txt = 'Esr 7:' . $opts{esr_7_1_ff};
-#q     $tr_esr_7_1_ff = "\n    <tr><td align=\"left\"><font color=\"#bb7718\">$esr_7_1_ff_txt</font></td></tr>";
-#q     delete $opts{esr_7_1_ff};
-#q   }
-#q   my $tr_neh_11_11="";
-#q   if ($opts{neh_11_11}) {
-#q     my $neh_11_11_txt = 'Neh 11:11';
-#q     $tr_neh_11_11 = "\n    <tr><td align=\"left\"><font color=\"#77aa26\">$neh_11_11_txt</font></td></tr>";
-#q     delete $opts{neh_11_11};
-#q   }
-#q 
-#q   die join " - ", keys %opts if %opts;
-#q 
-#q   my $tr_generation = '';
-#q   if (exists $persons{$id}{generation}) {
-#q     $tr_generation .= "<tr><td align='left'>$persons{$id}{generation}. Generation</td></tr>";
-#q   }
-#q   $persons{$id}{text} = <<T;
-#q  [ label=<
-#q    <table border="1" cellborder="0" cellspacing="1">
-#q      <tr><td align="left"><b>$name</b></td></tr>$tr_generation$tr_add$tr_is_it$tr_rem$tr_verse$tr_ii_mo_46_ff$tr_iv_mo_1$tr_i_chr_5_27_ff$tr_i_chr_6_1_ff$tr_i_chr_6_18_ff$tr_i_chr_6_24_ff$tr_i_chr_6_29_ff$tr_i_chr_6_35_ff$tr_i_chr_9_11$tr_esr_7_1_ff$tr_neh_11_11
-#q    </table>> ];
-#q T
 
   $persons{$id} = \%opts;
   $persons{$id}->{name} = $name;
 
-# if (my $generation=delete $opts{generation}) {
-#    print "generation = $generation, $name\n";
-#    $persons{$id}{generation} = $generation;
-# }
  
   if ($opts{sonof}) {
     rel($opts{sonof}, $id);
