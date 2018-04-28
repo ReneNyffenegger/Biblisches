@@ -28,7 +28,7 @@ DOT
 
   my $silpa    = person('Silpa');
   my $lea      = person('Lea');
-  my $adam     = person('Adam', generation=>1);
+  my $adam     = person('Adam', generation=>1, anc_lord => 1);
 
  #_{ 1. Mo 4 + 5
   my $kain       = person('Kain'       , sonof=>$adam       , verse=>'1. Mo 4:1');
@@ -45,18 +45,18 @@ DOT
   my $tubalkain  = person('Tubalkain'  , sonof=>$lamech_1mo4, verse=>'1. Mo 4:22', add=>'Hämmerer …');
   my $naama      = person('Naama'      , sonof=>$lamech_1mo4, verse=>'1. Mo 4:23');
 
-  my $seth       = person('Seth'       , sonof=>$adam       , verse=>'1. Mo 5:3');
-  my $enos       = person('Enos'       , sonof=>$seth       , verse=>'1. Mo 5:6');
-  my $kenan      = person('Kenan'      , sonof=>$enos       , verse=>'1. Mo 5:9');
-  my $mahalel    = person('Mahalel'    , sonof=>$kenan      , verse=>'1. Mo 5:12');
-  my $jered      = person('Jered'      , sonof=>$mahalel    , verse=>'1. Mo 5:15');
-  my $henoch     = person('Henoch'     , sonof=>$jered      , verse=>'1. Mo 5:18');
-  my $methusalah = person('Methusalah' , sonof=>$henoch     , verse=>'1. Mo 5:21');
-  my $lamech     = person('Lamech'     , sonof=>$methusalah , verse=>'1. Mo 5:25');
-  my $noah       = person('Noah'       , sonof=>$lamech     , verse=>'1. Mo 5:29');
+  my $seth       = person('Seth'       , sonof=>$adam       , verse=>'1. Mo 5:3' , anc_lord => 1);
+  my $enos       = person('Enos'       , sonof=>$seth       , verse=>'1. Mo 5:6' , anc_lord => 1);
+  my $kenan      = person('Kenan'      , sonof=>$enos       , verse=>'1. Mo 5:9' , anc_lord => 1);
+  my $mahalel    = person('Mahalel'    , sonof=>$kenan      , verse=>'1. Mo 5:12', anc_lord => 1);
+  my $jered      = person('Jered'      , sonof=>$mahalel    , verse=>'1. Mo 5:15', anc_lord => 1);
+  my $henoch     = person('Henoch'     , sonof=>$jered      , verse=>'1. Mo 5:18', anc_lord => 1);
+  my $methusalah = person('Methusalah' , sonof=>$henoch     , verse=>'1. Mo 5:21', anc_lord => 1);
+  my $lamech     = person('Lamech'     , sonof=>$methusalah , verse=>'1. Mo 5:25', anc_lord => 1);
+  my $noah       = person('Noah'       , sonof=>$lamech     , verse=>'1. Mo 5:29', anc_lord => 1);
 
   my $ham        = person('Ham'        , sonof=>$noah      , verse=>'1. Mo 5:32');
-  my $sem        = person('Sem'        , sonof=>$noah      , verse=>'1. Mo 5:32', add=>'ältester Bruder Japhets');
+  my $sem        = person('Sem'        , sonof=>$noah      , verse=>'1. Mo 5:32', add=>'ältester Bruder Japhets', anc_lord => 1);
   my $japhet     = person('Japhet'     , sonof=>$noah      , verse=>'1. Mo 5:32');
 
  #_}
@@ -121,7 +121,7 @@ DOT
 
   my $elam       = person('Elam'      , sonof=>$sem    , verse=>'1. Mo 10:22');
   my $assur      = person('Assur'     , sonof=>$sem    , verse=>'1. Mo 10:22');
-  my $arpaksad   = person('Arpaksad'  , sonof=>$sem    , verse=>'1. Mo 10:22');
+  my $arpaksad   = person('Arpaksad'  , sonof=>$sem    , verse=>'1. Mo 10:22', anc_lord => 1);
   my $lud        = person('Lud'       , sonof=>$sem    , verse=>'1. Mo 10:22');
   my $aram       = person('Aram'      , sonof=>$sem    , verse=>'1. Mo 10:22');
 
@@ -130,9 +130,9 @@ DOT
   my $gether     = person('Gether'    , sonof=>$aram   , verse=>'1. Mo 10:23');
   my $masch      = person('Masch'     , sonof=>$aram   , verse=>'1. Mo 10:23');
 
-  my $schelach   = person('Schelach'  , sonof=>$arpaksad, verse=>'1. Mo 10:24');
-  my $heber      = person('Heber'     , sonof=>$schelach, verse=>'1. Mo 10:24');
-  my $peleg      = person('Peleg'     , sonof=>$heber   , verse=>'1. Mo 10:25', add=>'Erdteilung');
+  my $schelach   = person('Schelach'  , sonof=>$arpaksad, verse=>'1. Mo 10:24', anc_lord => 1);
+  my $heber      = person('Heber'     , sonof=>$schelach, verse=>'1. Mo 10:24', anc_lord => 1);
+  my $peleg      = person('Peleg'     , sonof=>$heber   , verse=>'1. Mo 10:25', add=>'Erdteilung', anc_lord => 1);
   my $joktan     = person('Joktan'    , sonof=>$heber   , verse=>'1. Mo 10:25');
 
   my $almodad     = person('Almodad'    , sonof=>$joktan  , verse=>'1. Mo 10:26');
@@ -149,10 +149,10 @@ DOT
   my $Hawila      = person('Hawila'     , sonof=>$joktan  , verse=>'1. Mo 10:29');
   my $Jobab       = person('Jobab'      , sonof=>$joktan  , verse=>'1. Mo 10:29');
 
-  my $reghu       = person('Reghu'      , sonof=>$peleg   , verse=>'1. Mo 11:18');
-  my $serug       = person('Serug'      , sonof=>$reghu   , verse=>'1. Mo 11:20');
-  my $nahor       = person('Nahor'      , sonof=>$serug   , verse=>'1. Mo 11:22');
-  my $tarah       = person('Tarah'      , sonof=>$nahor   , verse=>'1. Mo 11:24');
+  my $reghu       = person('Reghu'      , sonof=>$peleg   , verse=>'1. Mo 11:18', anc_lord => 1);
+  my $serug       = person('Serug'      , sonof=>$reghu   , verse=>'1. Mo 11:20', anc_lord => 1);
+  my $nahor       = person('Nahor'      , sonof=>$serug   , verse=>'1. Mo 11:22', anc_lord => 1);
+  my $tarah       = person('Tarah'      , sonof=>$nahor   , verse=>'1. Mo 11:24', anc_lord => 1);
 
   my $abraham     = person('Abraham'    , sonof=>$tarah   , verse=>'1. Mo 11:26', mt=> '2', anc_lord=>1);
   my $nahor_2     = person('Nahor'      , sonof=>$tarah   , verse=>'1. Mo 11:26');
