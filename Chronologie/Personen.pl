@@ -4,9 +4,10 @@ use strict;
 use 5.10.0;
 
 my $output_range = 
-  ''
+# ''
 # 'up to Jakob'
 # '1. Mo. 46'
+  '1mo-10'
 ;
 
 #    <tr><td align="left"><font color="red">todo</font></td></tr>
@@ -26,8 +27,8 @@ digraph P {
 
 DOT
 
-  my $silpa    = person('Silpa');
-  my $lea      = person('Lea');
+my $lamech;
+if ($output_range ne '1mo-10') { #_{
   my $adam     = person('Adam', generation=>1, anc_lord => 1);
 
  #_{ 1. Mo 4 + 5
@@ -52,8 +53,17 @@ DOT
   my $jered      = person('Jered'      , sonof=>$mahalel    , verse=>'1. Mo 5:15', anc_lord => 1);
   my $henoch     = person('Henoch'     , sonof=>$jered      , verse=>'1. Mo 5:18', anc_lord => 1);
   my $methusalah = person('Methusalah' , sonof=>$henoch     , verse=>'1. Mo 5:21', anc_lord => 1);
-  my $lamech     = person('Lamech'     , sonof=>$methusalah , verse=>'1. Mo 5:25', anc_lord => 1);
-  my $noah       = person('Noah'       , sonof=>$lamech     , verse=>'1. Mo 5:29', anc_lord => 1);
+     $lamech     = person('Lamech'     , sonof=>$methusalah , verse=>'1. Mo 5:25', anc_lord => 1);
+} #_}
+
+my $noah;
+if ($output_range ne '1mo-10') {
+   $noah       = person('Noah'       , sonof=>$lamech     , verse=>'1. Mo 5:29', anc_lord => 1);
+}
+else {
+   $noah       = person('Noah'                            , verse=>'1. Mo 5:29', anc_lord => 1);
+}
+
 
   my $ham        = person('Ham'        , sonof=>$noah      , verse=>'1. Mo 5:32');
   my $sem        = person('Sem'        , sonof=>$noah      , verse=>'1. Mo 5:32', add=>'ältester Bruder Japhets', anc_lord => 1);
@@ -106,6 +116,7 @@ DOT
   my $naphtuchim = person('Naphtuchim', sonof=>$mizraim, verse=>'1. Mo 10:13');
   my $pathrusim  = person('Pathrusim' , sonof=>$mizraim, verse=>'1. Mo 10:14');
   my $kasluchim  = person('Kasluchim' , sonof=>$mizraim, verse=>'1. Mo 10:14', add=>'v.w.d. Philster ausgeg.');
+  my $kaphtorim  = person('Kaphtorim' , sonof=>$mizraim, verse=>'1. Mo 10:14');
 
   my $zidon      = person('Zidon'     , sonof=>$kanaan , verse=>'1. Mo 10:15', add=>'Erstgeborener');
   my $het        = person('Het'       , sonof=>$kanaan , verse=>'1. Mo 10:15');
@@ -149,6 +160,10 @@ DOT
   my $Hawila      = person('Hawila'     , sonof=>$joktan  , verse=>'1. Mo 10:29');
   my $Jobab       = person('Jobab'      , sonof=>$joktan  , verse=>'1. Mo 10:29');
 
+#_}
+
+if ($output_range ne '1mo-10') { #_{
+
   my $reghu       = person('Reghu'      , sonof=>$peleg   , verse=>'1. Mo 11:18', anc_lord => 1);
   my $serug       = person('Serug'      , sonof=>$reghu   , verse=>'1. Mo 11:20', anc_lord => 1);
   my $nahor       = person('Nahor'      , sonof=>$serug   , verse=>'1. Mo 11:22', anc_lord => 1);
@@ -158,9 +173,11 @@ DOT
   my $nahor_2     = person('Nahor'      , sonof=>$tarah   , verse=>'1. Mo 11:26');
   my $haran       = person('Haran'      , sonof=>$tarah   , verse=>'1. Mo 11:26');
 
-#_}
 
   my $isaak    = person('Isaak', sonof=>$abraham, verse => '1. Mo 21:3', mt=> '2', anc_lord=>1);
+
+  my $silpa    = person('Silpa');
+  my $lea      = person('Lea');
 
   my $jakob    = person('Jakob', sonof=>$isaak  , verse => '1. Mo 25:26', mt=> '2', anc_lord=>1);
   my $rahel    = person('Rahel'); # , generation => $persons{$jakob}{generation});
@@ -1079,6 +1096,7 @@ rel($haschub, $schemaja, distant => 1);
 # } /* 1. Chr 9 - Nehemia  */\n";
 #  #_}
 
+} #_}
  
 for my $person (@person_order) { #_{
 
