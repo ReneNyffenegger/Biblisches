@@ -4,11 +4,24 @@ use strict;
 use 5.10.0;
 
 my $output_range = 
-# ''
+  '*'
 # 'up to Jakob'
 # '1. Mo. 46'
-  '1mo-10'
+# '1mo-10'
+# 'ketura'
 ;
+
+my $show_keturas_descendents = 0;
+my $show_noah                = 0;
+
+if ($output_range eq '*') {
+  $show_keturas_descendents = 1;
+  $show_noah                = 1;
+}
+if ($output_range eq 'ketura') {
+  $show_keturas_descendents = 1;
+# $show_noah                = 1;
+}
 
 #    <tr><td align="left"><font color="red">todo</font></td></tr>
 
@@ -28,7 +41,38 @@ digraph P {
 DOT
 
 my $lamech;
-if ($output_range ne '1mo-10') { #_{
+my $peleg;
+my $ham;
+my $sem;
+my $japhet;
+my $abraham;
+
+my $ketura;
+if ($show_keturas_descendents) { #_{
+  $ketura = person('Ketura', verse=>'1. Mo 25:1', rem => 'Nebenfrau von Abraham'); 
+
+  my $simran    = person('Simran'   , sonof => $ketura, verse => '1. Mo 25:2');
+  my $jokschan  = person('Jokschan' , sonof => $ketura, verse => '1. Mo 25:2');
+  my $medan     = person('Medan'    , sonof => $ketura, verse => '1. Mo 25:2');
+  my $midian    = person('Midian'   , sonof => $ketura, verse => '1. Mo 25:2');
+  my $jischbak  = person('Jischbak' , sonof => $ketura, verse => '1. Mo 25:2');
+  my $schuach   = person('Schuach'  , sonof => $ketura, verse => '1. Mo 25:2');
+
+  my $scheba_k  = person('Scheba'   , sonof => $jokschan, verse => '1. Mo 25:3');
+  my $dedan     = person('Dedan'    , sonof => $jokschan, verse => '1. Mo 25:3');
+
+  my $assurim   = person('Assurim'  , sonof => $dedan   , verse => '1. Mo 25:3');
+  my $letuschim = person('Letuschim', sonof => $dedan   , verse => '1. Mo 25:3');
+  my $leummim   = person('Leummim'  , sonof => $dedan   , verse => '1. Mo 25:3');
+
+  my $epha      = person('Epha'     , sonof => $midian  , verse => '1. Mo 25:4');
+  my $epher     = person('Epher'    , sonof => $midian  , verse => '1. Mo 25:4');
+  my $henoch_k  = person('Henoch'   , sonof => $midian  , verse => '1. Mo 25:4');
+  my $abida     = person('Abida'    , sonof => $midian  , verse => '1. Mo 25:4');
+  my $eldaba    = person('Eldaba'   , sonof => $midian  , verse => '1. Mo 25:4');
+} #_}
+
+if ($output_range ne '1mo-10' and $output_range ne 'ketura') { #_{
   my $adam     = person('Adam', generation=>1, anc_lord => 1);
 
  #_{ 1. Mo 4 + 5
@@ -57,26 +101,31 @@ if ($output_range ne '1mo-10') { #_{
 } #_}
 
 my $noah;
-if ($output_range ne '1mo-10') {
+if ($show_noah) {
+  if ($lamech) {
    $noah       = person('Noah'       , sonof=>$lamech     , verse=>'1. Mo 5:29', anc_lord => 1);
-}
-else {
+  }
+  else {
    $noah       = person('Noah'                            , verse=>'1. Mo 5:29', anc_lord => 1);
+  }
+  $ham        = person('Ham'        , sonof=>$noah      , verse=>'1. Mo 5:32');
+  $sem        = person('Sem'        , sonof=>$noah      , verse=>'1. Mo 5:32', add=>'ältester Bruder Japhets', anc_lord => 1);
+  $japhet     = person('Japhet'     , sonof=>$noah      , verse=>'1. Mo 5:32');
 }
 
 
-  my $ham        = person('Ham'        , sonof=>$noah      , verse=>'1. Mo 5:32');
-  my $sem        = person('Sem'        , sonof=>$noah      , verse=>'1. Mo 5:32', add=>'ältester Bruder Japhets', anc_lord => 1);
-  my $japhet     = person('Japhet'     , sonof=>$noah      , verse=>'1. Mo 5:32');
 
  #_}
 
 # 1m-9
 
-  my $kanaan = person('Kanaan', sonof=>$ham, verse=>'1. Mo 9:18');
+my $kanaan;
+if ($output_range ne 'ketura')  { #_{
+   $kanaan = person('Kanaan', sonof=>$ham, verse=>'1. Mo 9:18');
+} #_}
 
 
-#_{ 1mo-10
+if ($output_range ne 'ketura') { #_{ 1mo-10
   
   my $gomer      = person('Gomer'     , sonof=>$japhet, verse=>'1. Mo 10:2');
   my $magog      = person('Magog'     , sonof=>$japhet, verse=>'1. Mo 10:2');
@@ -143,7 +192,7 @@ else {
 
   my $schelach   = person('Schelach'  , sonof=>$arpaksad, verse=>'1. Mo 10:24', anc_lord => 1);
   my $heber      = person('Heber'     , sonof=>$schelach, verse=>'1. Mo 10:24', anc_lord => 1);
-  my $peleg      = person('Peleg'     , sonof=>$heber   , verse=>'1. Mo 10:25', add=>'Erdteilung', anc_lord => 1);
+     $peleg      = person('Peleg'     , sonof=>$heber   , verse=>'1. Mo 10:25', add=>'Erdteilung', anc_lord => 1);
   my $joktan     = person('Joktan'    , sonof=>$heber   , verse=>'1. Mo 10:25');
 
   my $almodad     = person('Almodad'    , sonof=>$joktan  , verse=>'1. Mo 10:26');
@@ -160,19 +209,31 @@ else {
   my $Hawila      = person('Hawila'     , sonof=>$joktan  , verse=>'1. Mo 10:29');
   my $Jobab       = person('Jobab'      , sonof=>$joktan  , verse=>'1. Mo 10:29');
 
-#_}
+} #_}
 
-if ($output_range ne '1mo-10') { #_{
+
+if ($output_range ne '1mo-10' and $output_range ne 'ketura') { #_{
 
   my $reghu       = person('Reghu'      , sonof=>$peleg   , verse=>'1. Mo 11:18', anc_lord => 1);
   my $serug       = person('Serug'      , sonof=>$reghu   , verse=>'1. Mo 11:20', anc_lord => 1);
   my $nahor       = person('Nahor'      , sonof=>$serug   , verse=>'1. Mo 11:22', anc_lord => 1);
   my $tarah       = person('Tarah'      , sonof=>$nahor   , verse=>'1. Mo 11:24', anc_lord => 1);
 
-  my $abraham     = person('Abraham'    , sonof=>$tarah   , verse=>'1. Mo 11:26', mt=> '2', anc_lord=>1);
+     $abraham     = person('Abraham'    , sonof=>$tarah   , verse=>'1. Mo 11:26', mt=> '2', anc_lord=>1);
   my $nahor_2     = person('Nahor'      , sonof=>$tarah   , verse=>'1. Mo 11:26');
   my $haran       = person('Haran'      , sonof=>$tarah   , verse=>'1. Mo 11:26');
 
+} #_}
+
+if ($show_keturas_descendents) {
+
+  if ($abraham) {
+    rank($ketura, $abraham);
+  }
+
+}
+
+if ($output_range ne '1mo-10' and $output_range ne 'ketura') { #_{
 
   my $isaak    = person('Isaak', sonof=>$abraham, verse => '1. Mo 21:3', mt=> '2', anc_lord=>1);
 
@@ -1100,15 +1161,6 @@ rel($haschub, $schemaja, distant => 1);
  
 for my $person (@person_order) { #_{
 
-
-#  if (my $generation=delete $person->{generation}) {
-#     $persons{$id}{generation} = $generation;
-#  }
- 
-#  if ($person->{sonof}) {
-#    rel($person->{sonof}, $id);
-#    delete $person->{sonof};
-#  }
  
    my $tr_add = '';
    if ($persons{$person}->{add}) {
@@ -1219,7 +1271,10 @@ for my $person (@person_order) { #_{
      my $generation = delete $persons{$person}{generation};
      $tr_generation .= "<tr><td align='left'>$generation. Generation</td></tr>";
    }
-   die join " - ", keys %{$persons{$person}} if %{$persons{$person}};
+   if (%{$persons{$person}}) {
+     print "person = $person\n";
+     die join " - ", keys %{$persons{$person}} if %{$persons{$person}};
+   }
 
    my $text = <<T;
   [ label=<
