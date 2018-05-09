@@ -8,6 +8,7 @@
 <html>
 <head>
   <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Der Zahlenwert der 22 Patriarchen</title>
 
   <script type="text/javascript">
@@ -109,8 +110,6 @@
           for (var i=0; i<patriarchWithoutNikkud.length; i++) {
             var value = numericValue(patriarchWithoutNikkud[i]);
 
-//          if (value){
-
               if (first) {
                 first = 0;
                 sumString = value;
@@ -119,9 +118,7 @@
                 sumString = value + ' + ' + sumString;
               }
 
-//            sumString 
               total += value;
-//          }
 
           }
 
