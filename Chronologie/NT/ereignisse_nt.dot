@@ -400,7 +400,7 @@ digraph ereignisse_nt {
 
   philippi_gefaengnis -> ankunft_in_thessalonich [weight=10];
 
-  beroea [color=black label="{Paulus und Silas nach Beröa|Apg 17,10}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
+  beroea [color=black label="{Paulus und Silas nach Beröa\nWeg von Mazed. - Beg. des Evng? (Phil 4:15)|Apg 17,10}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
   ankunft_in_thessalonich -> beroea [weight=10];
 
   silas_timotheus_bleiben_in_beroea [color=black label="{Silas und Timotheus\nbleiben in Beröa|Apg 17,14}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#TIMOTHEUS_FC#"];
