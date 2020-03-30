@@ -1,4 +1,5 @@
 #!/usr/bin/perl
+
 use warnings;
 use strict;
 
@@ -416,7 +417,7 @@ $area->{text} = '… Sauerteig <span class="kap">13:33</span>';
 $area->{point_in_time} = 1;
 
 $area = $tr_gleichnis_7->area($reich_der_himmel_gleich_schatz, $reich_der_himmel_gleich_schatz->next_line(20));
-$area->{text} = '… Sauerteig <span class="kap">13:44</span>';
+$area->{text} = '… Schatz im Acker <span class="kap">13:44</span>';
 $area->{point_in_time} = 1;
 
 $area = $tr_gleichnis_8->area($reich_der_himmel_gleich_kaufmann, $reich_der_himmel_gleich_kaufmann->next_line(20));
