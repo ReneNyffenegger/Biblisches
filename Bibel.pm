@@ -1,3 +1,10 @@
+#
+#    2020-08-16: This modules is used in
+#      - BibelKommentare\create-html.pl
+#      - ?
+#    Probably, it should be merged with Bible_.pm
+#    which is found under github: Bibelkommentare\Bibel_.pm
+#
 package Bibel;
 
 use warnings;
