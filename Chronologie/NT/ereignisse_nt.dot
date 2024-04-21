@@ -182,14 +182,13 @@ digraph ereignisse_nt {
   anschlag [color=black label="{Anschlag auf Paulus|Apg 9,23}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
   viele_tage_vergangen -> anschlag;
 
-  flucht_korb [color=black label="{Paulus flieht\nvia Korb|Apg 9,25}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
+  flucht_korb [ shape=none label=< <table cellspacing="0" border="0"><tr><td bgcolor="#ccccff">Paulus flieht im Korb</td></tr><tr><td bgcolor="#ccccff">Apg 9,25</td></tr><tr><td>2. Kor 11,33</td></tr></table> > ]
+
+ // [color=black label="{Paulus flieht\nvia Korb|Apg 9,25|2. Kor 11,33}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"]
+
   anschlag -> flucht_korb;
 
   aretas [color=black label="{Aretas will Paulus\nverhaften|2. Kor 11,32}" shape=record fontsize=8 fontname=Arial];
-
-  flucht_korb_2kor [color=black label="{Paulus flieht\nvia Korb|2. Kor 11,33}" shape=record fontsize=8 fontname=Arial];
- {rank=same; flucht_korb_2kor flucht_korb}
-  flucht_korb_2kor -> flucht_korb [arrowhead=none];
 
 
   aretas -> flucht_korb_2kor;
@@ -199,7 +198,8 @@ digraph ereignisse_nt {
 
   paulus_im_tempel [color=black label="{Verzückung im Tempel: sieht\nIhn, Er spricht: Eile|Apg 22,17}" shape=record fontsize=8 fontname=Arial];
   paulus_kehrt_nach_jerusalem_zurueck -> paulus_im_tempel;
-  paulus_im_tempel -> flucht_korb_2kor [$INVISIBLE_LINE$];
+//  paulus_im_tempel -> flucht_korb_2kor [$INVISIBLE_LINE$];
+  paulus_im_tempel -> flucht_korb [$INVISIBLE_LINE$];
 
   paulus_flieht_nach_jerusalem [color=black label="{Paulus flieht nach\nJerusalem (Barnabas)|Apg 9,26}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
  {rank=same; paulus_flieht_nach_jerusalem nach_3_jahren_jerusalem}
@@ -226,7 +226,8 @@ digraph ereignisse_nt {
 
 
   heiden_nehmen_wort_gottes_an [color=black label="{Heiden nehmen Wort Gottes an|Apg 11,1}" shape=record fontsize=14 fontname=Arial style=filled fillcolor="#ffcccc"]; 
-  flucht_korb_2kor -> heiden_nehmen_wort_gottes_an [$INVISIBLE_LINE$];
+//flucht_korb_2kor -> heiden_nehmen_wort_gottes_an [$INVISIBLE_LINE$];
+  flucht_korb -> heiden_nehmen_wort_gottes_an [$INVISIBLE_LINE$];
 
   petrus_in_caesarea [color=black label="{Petrus in Cäsarea|Apg 10,24}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"]; 
   petrus_sieht_himmel_geoffnet -> petrus_in_caesarea [weight=10];

@@ -57,7 +57,7 @@ while (my $line = <$in>) {
 close $in;
 close $out;
 
-system "dot -Tpdf -oereignisse_nt.pdf $out_filename";
+system "dot -Tpdf -Nfontsize=8 -oereignisse_nt.pdf $out_filename";
 if ($win) {
   system "ereignisse_nt.pdf";
 }
