@@ -2,6 +2,8 @@
 #
 #   https://github.com/ReneNyffenegger/Biblisches/blob/master/vers.pl
 #
+#   This script should not be used anymore!
+#
 use warnings;
 use strict;
 
