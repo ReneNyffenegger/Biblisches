@@ -710,18 +710,22 @@ digraph ereignisse_nt {
 
   hoert_verteidigung -> brief_phil [label="Phil 1,7 - 1,17" fontsize=8 fontname="Arial"];
 
+
+  paulus_in_kaserne [color=black label="{Paulus zurück in Kaserne\nVerhör unter Geisselhieben|Apg 22,24}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
+
   kaserne_1d [color=black label="{Am folgenden Tag|Apg 22,30}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ffff00"];
   paulus_in_kaserne -> kaserne_1d [weight=10];
 
   paulus_hoher_rat_aelteste [color=black label="{Fesseln abgenommen, Befehl:\nhoher Rat muss kommen|Apg 22,30}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
   kaserne_1d -> paulus_hoher_rat_aelteste [weight=10];
 
-  paulus_in_kaserne [color=black label="{Paulus zurück in Kaserne\nVerhör unter Geisselhieben|Apg 22,24}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
-  paulus_hoher_rat_aelteste -> paulus_antipatris;
+  wie_jerusalem_so_rom [color=black label="{Wie in Jerusalem\nso auch in Rom|Apg 23,11}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
+  paulus_hoher_rat_aelteste -> wie_jerusalem_so_rom
+
+  wie_jerusalem_so_rom -> paulus_antipatris;
  {rank=same;paulus_hoher_rat_aelteste paulus_hoher_rat}
   paulus_hoher_rat_aelteste -> paulus_hoher_rat [arrowhead=none];
 
-  wie_jerusalem_so_rom [color=black label="{Wie in Jerusalem\nso auch in Rom|Apg 23,11}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
   hoert_verteidigung -> paulus_in_kaserne;
 
 
