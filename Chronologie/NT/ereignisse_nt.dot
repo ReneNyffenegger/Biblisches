@@ -40,7 +40,7 @@ digraph ereignisse_nt {
   top_left -> gott_offenbart_paulus_seinen_sohn [$INVISIBLE_LINE$];
   paulus_auf_weg_nach_damaskus -> top_right [$INVISIBLE_LINE$];
 
-  paulus_kehrt_nach_jerusalem_zurueck [color=black label="{Paulus kehrt nach\nJerusalem zurück|Apg 22,17}" shape=record fontsize=8 fontname=Arial];
+  paulus_kehrt_nach_jerusalem_zurueck [color=black label="{Paulus kehrt nach\nJerusalem zurÃ¼ck|Apg 22,17}" shape=record fontsize=8 fontname=Arial];
 
 
   brief_1kor [color=black label="{1. Korintherbrief}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#dddddd"];
@@ -59,9 +59,9 @@ digraph ereignisse_nt {
 
   brief_1thes [color=black label="{1. Thessalonicherbrief}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#dddddd"];
   brief_2thes [color=black label="{2. Thessalonicherbrief}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#dddddd"];
-  brief_phil [color=black label="{Philipperbrief|Kann in Ephesus,\nCäsarea oder\nRom geschrieben\nworden sein.}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#dddddd"];
+  brief_phil [color=black label="{Philipperbrief|Kann in Ephesus,\nCÃ¤sarea oder\nRom geschrieben\nworden sein.}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#dddddd"];
   brief_phim [color=black label="{Philemonbrief}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#dddddd"];
-  brief_hebr [color=black label="{Hebräerbrief}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#dddddd"];
+  brief_hebr [color=black label="{HebrÃ¤erbrief}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#dddddd"];
 
   epaphras_bringt_evangelium_kolossern [color=black label="{Epaphras bringt den\nKolossern das Evangelium|Kol 1,7}" shape=record fontsize=8 fontname=Arial];
   epaphras_berichtet_paulus [color=black label="{Epaphras bringt Paulus\nBericht|Kol 1,8}" shape=record fontsize=8 fontname=Arial];
@@ -75,14 +75,14 @@ digraph ereignisse_nt {
   brief_phil -> paulus_gefesselt_phil [arrowhead=none];
 
  {rank=same;paulus_kol_lao;paulus_gefesselt_kol;brief_kol;paulus_timotheus_kol;markus_vetter_gruesst;lukas_arzt_gruesst;aristarchus_mitgefangener;demas_gruesst;archippus_kol;ordering=out;}
-  paulus_kol_lao     [color=black label="{Kolosser und\nLaodizäer haben\nPaulus nicht gesehen|Kol 2,1}" shape=record fontsize=8 fontname=Arial];
+  paulus_kol_lao     [color=black label="{Kolosser und\nLaodizÃ¤er haben\nPaulus nicht gesehen|Kol 2,1}" shape=record fontsize=8 fontname=Arial];
   paulus_gefesselt_kol [color=black label="{Paulus gefesselt|Kol 4,3 / 4,18}" shape=record fontsize=8 fontname=Arial];
   brief_kol  [color=black label="{Kolosserbrief}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#dddddd"]; 
   paulus_timotheus_kol [color=black label="{Paulus und Timotheus zusammen|Kol 1,1}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#TIMOTHEUS_FC#"];
-  demas_gruesst [color=black label="{Demas grüsst|Kol 4,14}" shape=record fontsize=8 fontname=Arial];
-  lukas_arzt_gruesst [color=black label="{Lukas, der geliebte\nArzt grüsst|Kol 4,14}" shape=record fontsize=8 fontname=Arial];
-  markus_vetter_gruesst [color=black label="{Markus, der Vetter\nBarnabas grüsst|Kol 4,10}" shape=record fontsize=8 fontname=Arial];
-  aristarchus_mitgefangener [color=black label="{Aristarchus, ein Mitgefangener\nvon Paulus grüsst|Kol 4,10}" shape=record fontsize=8 fontname=Arial];
+  demas_gruesst [color=black label="{Demas grÃ¼sst|Kol 4,14}" shape=record fontsize=8 fontname=Arial];
+  lukas_arzt_gruesst [color=black label="{Lukas, der geliebte\nArzt grÃ¼sst|Kol 4,14}" shape=record fontsize=8 fontname=Arial];
+  markus_vetter_gruesst [color=black label="{Markus, der Vetter\nBarnabas grÃ¼sst|Kol 4,10}" shape=record fontsize=8 fontname=Arial];
+  aristarchus_mitgefangener [color=black label="{Aristarchus, ein Mitgefangener\nvon Paulus grÃ¼sst|Kol 4,10}" shape=record fontsize=8 fontname=Arial];
   archippus_kol [color=black label="{Sagt Archippus: habe\nacht auf Dienst|Kol 4,17}" shape=record fontsize=8 fontname=Arial];
 
   paulus_kol_lao -> paulus_gefesselt_kol -> brief_kol -> paulus_timotheus_kol -> markus_vetter_gruesst -> lukas_arzt_gruesst -> aristarchus_mitgefangener -> demas_gruesst -> archippus_kol [arrowhead=none];
@@ -100,7 +100,7 @@ digraph ereignisse_nt {
   brief_2tim -> nur_lukas [arrowhead=none];
 
 
-  demas_verlaesst_paulus [color=black label="{Demas gewinnt Weltzeit lieb\nund verlässt Paulus|2. Tim 4,10}" shape=record fontsize=8 fontname=Arial];
+  demas_verlaesst_paulus [color=black label="{Demas gewinnt Weltzeit lieb\nund verlÃ¤sst Paulus|2. Tim 4,10}" shape=record fontsize=8 fontname=Arial];
   paulus_in_fesseln -> brief_kol [label="Kol 4,18" fontsize=8 fontname=Arial];
 
   demas_gruesst  -> demas_mitarbeiter;
@@ -116,7 +116,7 @@ digraph ereignisse_nt {
   paulus_nach_arabien [color=black label="{Paulus nach Arabien|Gal 1,17}" shape=record fontsize=8 fontname=Arial];
 //Xgott_offenbart_paulus_seinen_sohn -> paulus_nach_arabien;
 
-  paulus_zurueck_in_damaskus [color=black label="{Paulus kehrt nach\nDamaskus zurück|Gal 1,17}" shape=record fontsize=8 fontname=Arial];
+  paulus_zurueck_in_damaskus [color=black label="{Paulus kehrt nach\nDamaskus zurÃ¼ck|Gal 1,17}" shape=record fontsize=8 fontname=Arial];
 
   paulus_nach_arabien -> paulus_zurueck_in_damaskus;
 
@@ -197,7 +197,7 @@ digraph ereignisse_nt {
   paulus_in_damaskus -> paulus_kehrt_nach_jerusalem_zurueck;
   top_left -> paulus_kehrt_nach_jerusalem_zurueck [$INVISIBLE_LINE$];
 
-  paulus_im_tempel [color=black label="{Verzückung im Tempel: sieht\nIhn, Er spricht: Eile|Apg 22,17}" shape=record fontsize=8 fontname=Arial];
+  paulus_im_tempel [color=black label="{VerzÃ¼ckung im Tempel: sieht\nIhn, Er spricht: Eile|Apg 22,17}" shape=record fontsize=8 fontname=Arial];
   paulus_kehrt_nach_jerusalem_zurueck -> paulus_im_tempel;
   paulus_im_tempel -> flucht_korb_2kor [$INVISIBLE_LINE$];
 
@@ -207,7 +207,7 @@ digraph ereignisse_nt {
 
   flucht_korb -> paulus_flieht_nach_jerusalem;
 
-  paulus_caesarea_tarsus [color=black label="{Paulus nach Cäsarea und\nTarsus geschickt|Apg 9,30}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
+  paulus_caesarea_tarsus [color=black label="{Paulus nach CÃ¤sarea und\nTarsus geschickt|Apg 9,30}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
  {rank=same; paulus_caesarea_tarsus paulus_in_syrien_unc_cilicien paulus_judaea_unbekannt}
   paulus_caesarea_tarsus -> paulus_in_syrien_unc_cilicien [arrowhead=none];
 
@@ -221,20 +221,20 @@ digraph ereignisse_nt {
   petrus_joppe [color=black label="{Petrus kommt\nnach Joppe|Apg 9,39}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
   petrus_lydda -> petrus_joppe [weight=10];
 
-  petrus_sieht_himmel_geoffnet [color=black label="{Petrus sieht\nHimmel geöffnet|Apg 10,11}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
+  petrus_sieht_himmel_geoffnet [color=black label="{Petrus sieht\nHimmel geÃ¶ffnet|Apg 10,11}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
   petrus_joppe -> petrus_sieht_himmel_geoffnet [weight=10];
 
 
   heiden_nehmen_wort_gottes_an [color=black label="{Heiden nehmen Wort Gottes an|Apg 11,1}" shape=record fontsize=14 fontname=Arial style=filled fillcolor="#ffcccc"]; 
   flucht_korb_2kor -> heiden_nehmen_wort_gottes_an [$INVISIBLE_LINE$];
 
-  petrus_in_caesarea [color=black label="{Petrus in Cäsarea|Apg 10,24}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"]; 
+  petrus_in_caesarea [color=black label="{Petrus in CÃ¤sarea|Apg 10,24}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"]; 
   petrus_sieht_himmel_geoffnet -> petrus_in_caesarea [weight=10];
 
   petrus_isst_mit_heiden_apg [color=black label="{Petrus isst\nmit Heiden|Apg 11,2-3}" shape=record fontsize=8 fontname=Arial /*style=filled fillcolor="#ccccff"*/]; 
   petrus_in_caesarea -> petrus_isst_mit_heiden_apg [weight=10];
 
-  petrus_in_jerusalem [color=black label="{Petrus in Jerusalem:\nVorwürfe aus der Beschneidung\nwegen 'Essen mit Heiden'|Apg 11,2-3}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"]; 
+  petrus_in_jerusalem [color=black label="{Petrus in Jerusalem:\nVorwÃ¼rfe aus der Beschneidung\nwegen 'Essen mit Heiden'|Apg 11,2-3}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"]; 
   petrus_isst_mit_heiden_apg -> petrus_in_jerusalem [weight=10];
 
   barnabas_nach_antiochia [color=black label="{Barnabas von Jerusalem\nnach Antiochia|Apg 11,22}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"]; 
@@ -261,32 +261,32 @@ digraph ereignisse_nt {
   barnabas_paulus_1_jahr_in_antiochia [color=black label="{Barnabas und Paulus\nein Jahr in Antiochia|Apg 11,26}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ffff00"]; 
   barnabas_mit_paulus_nach_antiochia -> barnabas_paulus_1_jahr_in_antiochia;
 
-  hilfeleistung_nach_judaea [color=black label="{Hilfeleistung werden durch\nBarnabas und Saulus\nnach Judäa gesendet|Apg 11,29-30}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"]; 
+  hilfeleistung_nach_judaea [color=black label="{Hilfeleistung werden durch\nBarnabas und Saulus\nnach JudÃ¤a gesendet|Apg 11,29-30}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"]; 
   barnabas_mit_paulus_nach_antiochia -> hilfeleistung_nach_judaea [weight=10];
 
-  paulus_judaea_unbekannt [color=black label="{Paulus den Gemeinden\nvon Judäa unbekannt|Gal 1,22}" shape=record fontsize=8 fontname=Arial];
+  paulus_judaea_unbekannt [color=black label="{Paulus den Gemeinden\nvon JudÃ¤a unbekannt|Gal 1,22}" shape=record fontsize=8 fontname=Arial];
  {rank=same; hilfeleistung_nach_judaea paulus_barnabas_titus_nach_jerusalem}
   hilfeleistung_nach_judaea -> paulus_barnabas_titus_nach_jerusalem [arrowhead=none];
 
   paulus_in_damaskus -> paulus_nach_arabien;
 
-  jakobus_tot [color=black label="{Jakobus, Bruder des\nJohannes mit Schwert getötet|Apg 12,2}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"]; 
+  jakobus_tot [color=black label="{Jakobus, Bruder des\nJohannes mit Schwert getÃ¶tet|Apg 12,2}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"]; 
   herodes_legt_hand_an -> jakobus_tot [weight=10];
 
   petrus_gefangen [color=black label="{Petrus gefangen|Apg 12,3}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"]; 
   jakobus_tot -> petrus_gefangen [weight=10];
 
-  petrus_gefangen_unges [color=black label="{Tage der ungesäuerten Brote|Apg 12,3}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ffff00"]; 
+  petrus_gefangen_unges [color=black label="{Tage der ungesÃ¤uerten Brote|Apg 12,3}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ffff00"]; 
  {rank=same;petrus_gefangen_unges petrus_gefangen}
   petrus_gefangen_unges -> petrus_gefangen [arrowhead=none];
 
   barnabas_paulus_1_jahr_in_antiochia -> petrus_gefangen_unges [$INVISIBLE_LINE$];
 
-  herodes_caesarea [color=black label="{Herodes geht nach\nCäsarea|Apg 12,19}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
+  herodes_caesarea [color=black label="{Herodes geht nach\nCÃ¤sarea|Apg 12,19}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
   petrus_gefangen -> herodes_caesarea [weight=10];
 
 
-  rueckkehr_antiochia [color=black label="{Barnabas' und Paulus'\nRückkehr von Jerusalem\nnach Antiochien nach\nAusrichtung Hilfeleistung\n(mit Johannes/Markus)|Apg 12,25}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
+  rueckkehr_antiochia [color=black label="{Barnabas' und Paulus'\nRÃ¼ckkehr von Jerusalem\nnach Antiochien nach\nAusrichtung Hilfeleistung\n(mit Johannes/Markus)|Apg 12,25}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
   herodes_caesarea -> rueckkehr_antiochia [weight=10];
   paulus_lernt_petrus_kennen -> paulus_caesarea_tarsus [weight=10];
 
@@ -307,7 +307,7 @@ digraph ereignisse_nt {
   trennung_johannes [color=black label="{Johannes trennt sich in\nPerge in Pamphylien|Apg 13,13}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
   salamis_zypern -> trennung_johannes [weight=10];
 
-  paulus_antiochia_pisidien [color=black label="{Paulus und Gefährten\nin Antiochia in Pisidien|Apg 13,14}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
+  paulus_antiochia_pisidien [color=black label="{Paulus und GefÃ¤hrten\nin Antiochia in Pisidien|Apg 13,14}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
   trennung_johannes -> paulus_antiochia_pisidien [weight=10];
 
   paulus_ikonium [color=black label="{Paulus und Barnabas\nin Ikonium|Apg 13,51}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
@@ -330,11 +330,11 @@ digraph ereignisse_nt {
   paulus_barnabas_derbe      [color=black label="{Paulus und Barnabas\ngehen nach Derbe|Apg 14,20}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
   paulus_steinigung -> paulus_barnabas_derbe [weight=10];
 
-  rueckkehr_lystra_ikonium_antiochia [color=black label="{Paulus und Barnabase kehren nach\nLystra, Ikonium und Antiochia zurück|Apg 14,21}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
+  rueckkehr_lystra_ikonium_antiochia [color=black label="{Paulus und Barnabase kehren nach\nLystra, Ikonium und Antiochia zurÃ¼ck|Apg 14,21}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
   paulus_barnabas_derbe -> rueckkehr_lystra_ikonium_antiochia [weight=10];
 
   paulus_wieder_in_antiochia [color=black label="{Paulus in Antiochia (2)}" shape=record fontsize=14 fontname=Arial style=filled fillcolor="#PAULUS_FC#"]; 
-  segeln_nach_antiochia [color=black label="{Segeln nach Antiochia\nwo sie der Gnade Gottes\nübergeben worden waren|Apg 14,26}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"]; 
+  segeln_nach_antiochia [color=black label="{Segeln nach Antiochia\nwo sie der Gnade Gottes\nÃ¼bergeben worden waren|Apg 14,26}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"]; 
   rueckkehr_lystra_ikonium_antiochia -> segeln_nach_antiochia [weight=10];
   tim_nachgefolgt -> paulus_wieder_in_antiochia [$INVISIBLE_LINE$];
 
@@ -346,9 +346,9 @@ digraph ereignisse_nt {
  {rank=same; paulus_wieder_in_antiochia segeln_nach_antiochia}
   paulus_wieder_in_antiochia -> segeln_nach_antiochia [arrowhead=none];
 
-  nach_mose_beschneiden [color=black label="{Einige aus Judäa\nkommen herab:\nihr müsst beschneiden|Apg 15,1}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"]; 
+  nach_mose_beschneiden [color=black label="{Einige aus JudÃ¤a\nkommen herab:\nihr mÃ¼sst beschneiden|Apg 15,1}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"]; 
   
-  jerusalem_streitfrage [color=black label="{Paulus und Barnabas und\neinige andere in\nJerusalem zur Klärung der\nStreitfrage|Apg 15,2}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
+  jerusalem_streitfrage [color=black label="{Paulus und Barnabas und\neinige andere in\nJerusalem zur KlÃ¤rung der\nStreitfrage|Apg 15,2}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
 
   segeln_nach_antiochia -> nach_mose_beschneiden [weight=10];
   nach_mose_beschneiden -> jerusalem_streitfrage [weight=10];
@@ -365,13 +365,13 @@ digraph ereignisse_nt {
   derbe_lystra_timotheus [color=black label="{Paulus nach Derbe und Lystra\ntrifft Timotheus|Apg 16,1}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#TIMOTHEUS_FC#"]; 
   paulus_silas_syrien_cilicien -> derbe_lystra_timotheus [weight=10];
 
-  timotheus_im_gefaengnis [color=black label="{Timotheus im\nGefängnis}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#TIMOTHEUS_FC#"];
+  timotheus_im_gefaengnis [color=black label="{Timotheus im\nGefÃ¤ngnis}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#TIMOTHEUS_FC#"];
   timotheus_freigelassen [color=black label="{Timotheus freigelassen|Hebr 13,23}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#TIMOTHEUS_FC#"];
   derbe_lystra_timotheus:sw -> timotheus_im_gefaengnis;
   timotheus_im_gefaengnis -> timotheus_freigelassen;
   timotheus_freigelassen -> brief_hebr;
 
-  phrygien_galatien_nicht_asia [color=black label="{Phrygien und Galatien\nVerwehrt in Asia zu verkünden|Apg 16,6}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
+  phrygien_galatien_nicht_asia [color=black label="{Phrygien und Galatien\nVerwehrt in Asia zu verkÃ¼nden|Apg 16,6}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
   derbe_lystra_timotheus:se -> phrygien_galatien_nicht_asia [weight=10];
 
   troas_xxx [color=black label="{Troas|Apg 16,8}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
@@ -380,10 +380,10 @@ digraph ereignisse_nt {
   mazedonien_philippi [color=black label="{Mit Schiff nach\nPhilippi (Mazedonien)|Apg 16,12}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
   troas_xxx -> mazedonien_philippi [weight=10];
 
-  philippi_gefaengnis [color=black label="{Nach vielen Schlägen\nins Gefängnis|Apg 16,23}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
+  philippi_gefaengnis [color=black label="{Nach vielen SchlÃ¤gen\nins GefÃ¤ngnis|Apg 16,23}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
   mazedonien_philippi -> philippi_gefaengnis [weight=10];
 
-//ankunft_in_troas_erste_mal [color=black label="{Erste Ankunft in Troas|Röm 16,3}" shape=record fontsize=8 fontname=Arial];
+//ankunft_in_troas_erste_mal [color=black label="{Erste Ankunft in Troas|RÃ¶m 16,3}" shape=record fontsize=8 fontname=Arial];
   ankunft_in_thessalonich [color=black label="{Ankunft in Thessalonich|Apg 17,1}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
 
   leiden_in_philippi [color=black label="{Paulus, Silvanus\nund Timotheus misshandelt\nund gelitten|1. Thes 2,2}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#TIMOTHEUS_FC#"];
@@ -395,15 +395,15 @@ digraph ereignisse_nt {
   beroea -> satan_hindert_paulus;
 
 
-  bedraengnisse_nach_thessalonich [color=black label="{Werden Bedrängnisse haben|1. Thes 3,4}" shape=record fontsize=8 fontname=Arial];
+  bedraengnisse_nach_thessalonich [color=black label="{Werden BedrÃ¤ngnisse haben|1. Thes 3,4}" shape=record fontsize=8 fontname=Arial];
   ankunft_in_thessalonich:sw -> bedraengnisse_nach_thessalonich;
 
   philippi_gefaengnis -> ankunft_in_thessalonich [weight=10];
 
-  beroea [color=black label="{Paulus und Silas nach Beröa\nWeg von Mazed. - Beg. des Evng? (Phil 4:15)|Apg 17,10}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
+  beroea [color=black label="{Paulus und Silas nach BerÃ¶a\nWeg von Mazed. - Beg. des Evng? (Phil 4:15)|Apg 17,10}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
   ankunft_in_thessalonich -> beroea [weight=10];
 
-  silas_timotheus_bleiben_in_beroea [color=black label="{Silas und Timotheus\nbleiben in Beröa|Apg 17,14}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#TIMOTHEUS_FC#"];
+  silas_timotheus_bleiben_in_beroea [color=black label="{Silas und Timotheus\nbleiben in BerÃ¶a|Apg 17,14}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#TIMOTHEUS_FC#"];
   beroea -> silas_timotheus_bleiben_in_beroea;
 
   silas_timotheus_bleiben_in_beroea -> alleine_in_athen [label="Apg 17,15:\nS. und T. nach Athen" fontsize=8 fontname=Arial];
@@ -414,7 +414,7 @@ digraph ereignisse_nt {
   paulus_wartet_auf_ts [color=black label="{Paulus wartet auf\nTimotheus und Silas|Apg 17,16}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
   ankunft_in_athen -> paulus_wartet_auf_ts [weight=10];
 
-  paulus_von_athen_nach_korinth [color=black label="{Paulus verlässt Athen\nund geht nach Korinth|Apg 18,1}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
+  paulus_von_athen_nach_korinth [color=black label="{Paulus verlÃ¤sst Athen\nund geht nach Korinth|Apg 18,1}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
   timotheus_zurueck_von_thessalonich -> paulus_von_athen_nach_korinth [weight=10];
 
 
@@ -438,7 +438,7 @@ digraph ereignisse_nt {
   ts_ankunft_aus_mazedonen [color=black label="{Timotheus und Silas\nkommen aus Mazedonien an|Apg 18,5}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#TIMOTHEUS_FC#"];
   paulus_findet_aquila_und_priscilla -> ts_ankunft_aus_mazedonen [weight=10];
 
-  krispus_glaeubig [color=black label="{Krispus und viele gläubig,\nliessen sich taufen|Apg 18,8}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
+  krispus_glaeubig [color=black label="{Krispus und viele glÃ¤ubig,\nliessen sich taufen|Apg 18,8}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
   ts_ankunft_aus_mazedonen -> krispus_glaeubig [weight=10];
 
   gajus_getauft [color=black label="{Taufe von Gajus (aus\nDerbe?) und Krispus|1. Kor 1,14}" shape=record fontsize=8 fontname=Arial];
@@ -447,7 +447,7 @@ digraph ereignisse_nt {
 
   apg_18_12_gallion [color=black label="{Gallion war Juli 51 bis\nJuli 52 Prokunsul in Achaja|Apg 18,12}" $AUSSERBIBLISCH$]; 
 
-  kenchrea [color=black label="{Haupt scheren lassen\nin Kenchreä|Apg 18,18}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
+  kenchrea [color=black label="{Haupt scheren lassen\nin KenchreÃ¤|Apg 18,18}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
   krispus_glaeubig -> kenchrea [weight=10];
   
   segeln_nach_syrien [color=black label="{Paulus, Aquila und\nPriscilla segeln nach Syrien (eigtl: Ephesus)|Apg 18,18}" shape=record fontsize=8 fontname=Arial style=filled $AQUILLA_PRISCILLA$];
@@ -461,7 +461,7 @@ digraph ereignisse_nt {
   muss_fest_in_jerusalem_feiern [color=black label="{Paulus muss bevorstehendes\nFest in Jerusalem feiern\nsegelt von Ephesus ab|Apg 18,21}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
   paulus_ohne_aquila_priscilla_nach_ephesus -> muss_fest_in_jerusalem_feiern;
 
-  apg_18_22 [color=black label="{Paulus nach Cäsarea,\nhinauf, hinab, Antiochia|Apg 18,22}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
+  apg_18_22 [color=black label="{Paulus nach CÃ¤sarea,\nhinauf, hinab, Antiochia|Apg 18,22}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
   muss_fest_in_jerusalem_feiern -> apg_18_22;
 
   bevorstehendes_fest [color=black label="{'Bevorstehendes' Fest|Apg 18,21}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ffff00"]; 
@@ -471,7 +471,7 @@ digraph ereignisse_nt {
   einige_zeit_antiochia [color=black label="{Einige Zeit in Antiochia|Apg 18,23}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ffff00"]; 
   apg_18_22 -> einige_zeit_antiochia [color="#ffff00"];
 
-  paulus_durchzieht_galatien_phrygien [color=black label="{Paulus durchzieht Galatien,\nPhrygien und stärkt Jünger|Apg 18,23}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
+  paulus_durchzieht_galatien_phrygien [color=black label="{Paulus durchzieht Galatien,\nPhrygien und stÃ¤rkt JÃ¼nger|Apg 18,23}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
   einige_zeit_antiochia -> paulus_durchzieht_galatien_phrygien [color="#ffff00"];
 
   apollo_nach_ephesus [color=black label="{Apollos kommt nach Ephesus|Apg 18,24}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
@@ -483,7 +483,7 @@ digraph ereignisse_nt {
   apollo_nach_achaja [color=black label="{Apollos nach Achaja|Apg 18,27}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"]; 
   aquila_priscilla_nehmen_apollo -> apollo_nach_achaja;
 
-  paulus_in_ephesus [color=black label="{Paulus in Ephesus\nnachdem höhergelegene\nGebiete durchzogen|Apg 19,1}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
+  paulus_in_ephesus [color=black label="{Paulus in Ephesus\nnachdem hÃ¶hergelegene\nGebiete durchzogen|Apg 19,1}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
   apollo_nach_achaja -> apollos_in_korinth;
 
   onesiphorus_dient [color=black label="{Onesiphorus dient Paulus\nin Ephesus (wie\nTimotheus weiss)|2. Tim 1,16-18}" shape=record fontsize=8 fontname=Arial];
@@ -526,7 +526,7 @@ digraph ereignisse_nt {
 
   timotheus_erastus_gesandt -> timotheus_in_korinth;
 
-  via_korinth_mazedonien_korinth_judaea [color=black label="{Vorsatz, via Korinth,\nMazedonien, Korinth\nnach Judäa|2. Kor 1,15}" shape=record fontsize=8 fontname=Arial];
+  via_korinth_mazedonien_korinth_judaea [color=black label="{Vorsatz, via Korinth,\nMazedonien, Korinth\nnach JudÃ¤a|2. Kor 1,15}" shape=record fontsize=8 fontname=Arial];
  {rank=same via_korinth_mazedonien_korinth_judaea via_mazedonien_achaja_jerusalem_nach_rom rom_spanien}
   via_korinth_mazedonien_korinth_judaea -> via_mazedonien_achaja_jerusalem_nach_rom [arrowhead=none];
   via_mazedonien_achaja_jerusalem_nach_rom -> rom_spanien [arrowhead=none];
@@ -537,14 +537,14 @@ digraph ereignisse_nt {
   noch_nicht_in_korinth -> brief_2kor;
 
   alleine_in_athen [color=black label="{Paulus und Silvanus bleiben\nallein in Athen, schicken\nTimotheus nach Thess.|1. Thes 3,1-2}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#TIMOTHEUS_FC#"];
-  timotheus_zurueck_von_thessalonich [color=black label="{Timotheus kehrt von Thessalonich zurück|1. Thes 3,6}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#TIMOTHEUS_FC#"];
+  timotheus_zurueck_von_thessalonich [color=black label="{Timotheus kehrt von Thessalonich zurÃ¼ck|1. Thes 3,6}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#TIMOTHEUS_FC#"];
 
   paulus_wartet_auf_ts -> alleine_in_athen [weight=10];
   alleine_in_athen -> timotheus_zurueck_von_thessalonich [weight=10];
   timotheus_zurueck_von_thessalonich:se -> brief_1thes;
-  timotheus_zurueck_von_thessalonich -> paulus_in_ephesus; /* oder später?? */
+  timotheus_zurueck_von_thessalonich -> paulus_in_ephesus; /* oder spÃ¤ter?? */
   
-  paulus_nach_mazedonien [color=black label="{Paulus nimmt Abschied\nvon Jüngern, geht\nnach Mazedonien|Apg 20,1}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"]; 
+  paulus_nach_mazedonien [color=black label="{Paulus nimmt Abschied\nvon JÃ¼ngern, geht\nnach Mazedonien|Apg 20,1}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"]; 
   paulus_bis_pfingsten_in_ephesus -> paulus_nach_mazedonien;
 
   bitte_abreise_mazedonien [color=black label="{Timotheus gebeten\nin Ephesus zu bleiben|1. Tim 1,3}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#TIMOTHEUS_FC#"];
@@ -554,18 +554,18 @@ digraph ereignisse_nt {
 
 
  {rank=same ordering=out brief_roem erastus_gruesst paulus_timotheus_roem gajus_beherbergt mitgefangene_roem }
-  brief_roem [color=black label="{Römerbrief}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#dddddd"];
-  erastus_gruesst [color=black label="{Erastus, der\nStadtverwalter grüsst|Röm 16,23}" shape=record fontsize=8 fontname=Arial];
-  paulus_timotheus_roem [color=black label="{Paulus und Timotheus\nzusammen|Röm 16,21}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#TIMOTHEUS_FC#"];
-  gajus_beherbergt [color=black label="{Gajus beherbergt Paulus\nund ganze Gemeinde|Röm 16,23}" shape=record fontsize=8 fontname=Arial];
-  mitgefangene_roem [color=black label="{Gruss an Paulus\nMitefangene|Röm 16,7}" shape=record fontsize=8 fontname=Arial];
+  brief_roem [color=black label="{RÃ¶merbrief}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#dddddd"];
+  erastus_gruesst [color=black label="{Erastus, der\nStadtverwalter grÃ¼sst|RÃ¶m 16,23}" shape=record fontsize=8 fontname=Arial];
+  paulus_timotheus_roem [color=black label="{Paulus und Timotheus\nzusammen|RÃ¶m 16,21}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#TIMOTHEUS_FC#"];
+  gajus_beherbergt [color=black label="{Gajus beherbergt Paulus\nund ganze Gemeinde|RÃ¶m 16,23}" shape=record fontsize=8 fontname=Arial];
+  mitgefangene_roem [color=black label="{Gruss an Paulus\nMitefangene|RÃ¶m 16,7}" shape=record fontsize=8 fontname=Arial];
   gajus_beherbergt -> tychikus_begleitet_paulus;
 
   brief_roem -> erastus_gruesst -> paulus_timotheus_roem ->  gajus_beherbergt -> mitgefangene_roem [arrowhead=none];
 
   paulus_nach_mazedonien -> brief_roem;
 
-  paul_will_rom [color=black label="{Paulus oft vorgenommen\nnach Rom zu kommen\nwurde aber verhindert|Röm 1,13}" shape=record fontsize=8 fontname=Arial];
+  paul_will_rom [color=black label="{Paulus oft vorgenommen\nnach Rom zu kommen\nwurde aber verhindert|RÃ¶m 1,13}" shape=record fontsize=8 fontname=Arial];
   paul_will_rom -> brief_roem;
 
   paulus_drei_monate_in_griechenland [color=black label="{Paulus drei Monate in Griechenland|Apg 20,2-3}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ffff00"];
@@ -576,30 +576,30 @@ digraph ereignisse_nt {
   paulus_nach_korinth_nach_mazedonien -> paulus_drei_monate_in_griechenland [arrowhead=none];
   brief_1kor -> paulus_nach_korinth_nach_mazedonien;
 
-  paulus_dritte_mal_bereit_fuer_korinth [color=black label="{Paulus zum 3. Mal\nbereit, nach Korinth\nzu kommen|2. Kor 12,14|Tatsächlich gemacht?}" shape=record fontsize=8 fontname=Arial];
-  paulus_kommt_zum_dritten_mal_korinth  [color=black label="{Dies ist das 3.\nMal, dass ich komme|2. Kor 13,1|Tatsächlich gemacht?}" shape=record fontsize=8 fontname=Arial];
+  paulus_dritte_mal_bereit_fuer_korinth [color=black label="{Paulus zum 3. Mal\nbereit, nach Korinth\nzu kommen|2. Kor 12,14|TatsÃ¤chlich gemacht?}" shape=record fontsize=8 fontname=Arial];
+  paulus_kommt_zum_dritten_mal_korinth  [color=black label="{Dies ist das 3.\nMal, dass ich komme|2. Kor 13,1|TatsÃ¤chlich gemacht?}" shape=record fontsize=8 fontname=Arial];
   paulus_nach_korinth_nach_mazedonien -> brief_2kor;
   brief_2kor -> paulus_dritte_mal_bereit_fuer_korinth;
   brief_2kor -> paulus_kommt_zum_dritten_mal_korinth;
 
-  uebrieges_anordnen [color=black label="{Paulus ordnet übriges an.\n(sobald er kommt)|1. Kor 11,34}" shape=record fontsize=8 fontname=Arial];
+  uebrieges_anordnen [color=black label="{Paulus ordnet Ã¼briges an.\n(sobald er kommt)|1. Kor 11,34}" shape=record fontsize=8 fontname=Arial];
   paulus_nach_korinth_nach_mazedonien -> uebrieges_anordnen;
 
   liebesgabe_jerusalem [color=black label="{Liebesgabe mit Briefen\nnach Jerusalem|1. Kor 16,3}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ddffff"];
   paulus_nach_korinth_nach_mazedonien -> liebesgabe_jerusalem;
 
-  wenn_noetig [color=black label="{Wenn nötig,\nmit Paulus|1. Kor 16,4}" shape=record fontsize=8 fontname=Arial];
+  wenn_noetig [color=black label="{Wenn nÃ¶tig,\nmit Paulus|1. Kor 16,4}" shape=record fontsize=8 fontname=Arial];
 
-  vielleicht_ueberwintern [color=black label="{Vielleicht in Korinth\nüberwintern|1. Kor 16,6}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ffff00"];
+  vielleicht_ueberwintern [color=black label="{Vielleicht in Korinth\nÃ¼berwintern|1. Kor 16,6}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ffff00"];
   paulus_nach_korinth_nach_mazedonien -> vielleicht_ueberwintern;
   vielleicht_ueberwintern -> via_mazedonien_zurueck;
 
-  via_mazedonien_zurueck [color=black label="{Paulus will nach Syrien. Entschluss:\nüber Mazedonien zurückkehren|Apg 20,3}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
+  via_mazedonien_zurueck [color=black label="{Paulus will nach Syrien. Entschluss:\nÃ¼ber Mazedonien zurÃ¼ckkehren|Apg 20,3}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
   paulus_drei_monate_in_griechenland -> via_mazedonien_zurueck;
 
-  paulus_auf_melite [color=black label="{Paulus wird drei\nMonate auf Melite\nüberwintern|Apg 28,1}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
+  paulus_auf_melite [color=black label="{Paulus wird drei\nMonate auf Melite\nÃ¼berwintern|Apg 28,1}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
 
-  paulus_in_nikopolis_ueberwintern [color=black label="{Paulus überwintert in Nikopolis|Tit 3,12}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
+  paulus_in_nikopolis_ueberwintern [color=black label="{Paulus Ã¼berwintert in Nikopolis|Tit 3,12}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
  {rank=same paulus_auf_melite    paulus_in_nikopolis_ueberwintern;}
             paulus_auf_melite -> paulus_in_nikopolis_ueberwintern [arrowhead=none];
 
@@ -619,7 +619,7 @@ digraph ereignisse_nt {
   wir_von_philippi_nach_troas [color=black label="{Wir fahren von Philippi ab|Apg 20,6}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
   tychikus_begleitet_paulus -> wir_von_philippi_nach_troas;
 
-  philippi_tage_der_ung [color=black label="{Tage der ungesäuerten Brote|Apg 20,6}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ffff00"];
+  philippi_tage_der_ung [color=black label="{Tage der ungesÃ¤uerten Brote|Apg 20,6}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ffff00"];
  {rank=same;philippi_tage_der_ung wir_von_philippi_nach_troas }
   philippi_tage_der_ung -> wir_von_philippi_nach_troas [arrowhead=none];
 
@@ -630,7 +630,7 @@ digraph ereignisse_nt {
   wir_kommen_in_troas_an -> troas_7d;
 
 
-  plus_5d [color=black label="{5 Tage später|Apg 20,6}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ffff00"];
+  plus_5d [color=black label="{5 Tage spÃ¤ter|Apg 20,6}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ffff00"];
  {rank=same;plus_5d wir_kommen_in_troas_an warten_auf_uns_in_troas}
   plus_5d -> wir_kommen_in_troas_an -> warten_auf_uns_in_troas[arrowhead=none];
 
@@ -638,13 +638,13 @@ digraph ereignisse_nt {
   wir_kommen_in_troas_an -> troas_milet;
   troas_7d -> troas_milet;
 
-  fesseln_und_bedraengnis [color=black label="{Fesseln und\nBedrängnis warten|Apg 20,23}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
+  fesseln_und_bedraengnis [color=black label="{Fesseln und\nBedrÃ¤ngnis warten|Apg 20,23}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
   troas_milet -> fesseln_und_bedraengnis;
 
   paulus_in_jerusalem [color=black label="{Paulus in Jerusalem\nmit Freuden aufgenommen|Apg 21,17}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
   fesseln_und_bedraengnis -> paulus_in_jerusalem;
 
-  erfuellung_der_reinigung [color=black label="{Paulus kündigt die\nErüllung der Tage der\nReinigung an|Apg 21,26}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
+  erfuellung_der_reinigung [color=black label="{Paulus kÃ¼ndigt die\nErÃ¼llung der Tage der\nReinigung an|Apg 21,26}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
   paulus_in_jerusalem -> erfuellung_der_reinigung;
 
   tage_zu_ende [color=black label="{7 Tage|Apg 21,27}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ffff00"];
@@ -657,19 +657,19 @@ digraph ereignisse_nt {
   claudius_lysias_befreit [color=black label="{Claudiys Lysias\nbefreit Paulus|Apg 23,27}" shape=record fontsize=8 fontname=Arial];
   asia_juden -> claudius_lysias_befreit;
 
-  paulus_hoher_rat [color=black label="{Paulus vor den Hohen Rat\ngeführt, um Grund der\nAnklage zu ermitteln|Apg 23,28}" shape=record fontsize=8 fontname=Arial];
+  paulus_hoher_rat [color=black label="{Paulus vor den Hohen Rat\ngefÃ¼hrt, um Grund der\nAnklage zu ermitteln|Apg 23,28}" shape=record fontsize=8 fontname=Arial];
   claudius_lysias_befreit -> paulus_hoher_rat;
 
-  paulus_antipatris [color=black label="{Kriegsknechte führen Paulus\nnach Antipatris|Apg 23,31}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
+  paulus_antipatris [color=black label="{Kriegsknechte fÃ¼hren Paulus\nnach Antipatris|Apg 23,31}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
   paulus_hoher_rat -> paulus_antipatris;
 
-  kriegsknechte_zurueck_kaserne [color=black label="{Kriegsknechte kehren in Kaserne\nzurück|Apg 23,32}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
+  kriegsknechte_zurueck_kaserne [color=black label="{Kriegsknechte kehren in Kaserne\nzurÃ¼ck|Apg 23,32}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
   paulus_antipatris -> kriegsknechte_zurueck_kaserne;
 
-  reiter_caesarea [color=black label="{Reiter bringen Paulus nach Cäsarea\ndem Statthalter|Apg 23,33}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
+  reiter_caesarea [color=black label="{Reiter bringen Paulus nach CÃ¤sarea\ndem Statthalter|Apg 23,33}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
   paulus_antipatris -> reiter_caesarea [weight=10];
 
-  praetoritum_herodes [color=black label="{Paulus im Prätoritum\ndes Herodes bewacht|Apg 23,35}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
+  praetoritum_herodes [color=black label="{Paulus im PrÃ¤toritum\ndes Herodes bewacht|Apg 23,35}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
   reiter_caesarea -> praetoritum_herodes;
 
   ananias_5tage [color=black label="{5 Tage|Apg 24,1}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ffff00"];
@@ -682,11 +682,11 @@ digraph ereignisse_nt {
   paulus_verteidigt [color=black label="{Paulus verteidigt\nseine Sache|Apg 24,10}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
   ananias_anklage -> paulus_verteidigt [weight=10];
 
-  almosen_jerusalem [color=black label="{gekommen, um Almosen\nfür mein Volk und Opfer\nzu bringen|Apg 24,17}" shape=record fontsize=8 fontname=Arial /*style=filled fillcolor="#ccccff" */];
+  almosen_jerusalem [color=black label="{gekommen, um Almosen\nfÃ¼r mein Volk und Opfer\nzu bringen|Apg 24,17}" shape=record fontsize=8 fontname=Arial /*style=filled fillcolor="#ccccff" */];
   paulus_2x_ephesus -> almosen_jerusalem [$INVISIBLE_LINE$];
 
   pfingsten_jerusalem [color=black label="{Pfingsten ?|Apg 20,16}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ffff00"];
-  ausrichtung_der_sammlung [color=black label="{Ausrichtung der Sammlung\nin Jerusalem|Röm 15,28}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ddffff"];
+  ausrichtung_der_sammlung [color=black label="{Ausrichtung der Sammlung\nin Jerusalem|RÃ¶m 15,28}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ddffff"];
  {rank=same;paulus_in_jerusalem pfingsten_jerusalem
   liebesgabe_jerusalem wenn_noetig /* 1. Korinther */
   almosen_jerusalem
@@ -702,10 +702,10 @@ digraph ereignisse_nt {
   asia_juden -> paulus_in_2_ketten;
   paulus_in_2_ketten -> paulus_in_ketten [style=dotted];
 
-  paulus_abgefuehrt [color=black label="{Paulus in Kaserne\nabgeführt|Apg 21,34}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
+  paulus_abgefuehrt [color=black label="{Paulus in Kaserne\nabgefÃ¼hrt|Apg 21,34}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
   paulus_in_2_ketten -> paulus_abgefuehrt;
 
-  hoert_verteidigung [color=black label="{Brüder, Hört meine Verteidigung|Apg 22,1}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
+  hoert_verteidigung [color=black label="{BrÃ¼der, HÃ¶rt meine Verteidigung|Apg 22,1}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
   paulus_abgefuehrt -> hoert_verteidigung;
 
   hoert_verteidigung -> brief_phil [label="Phil 1,7 - 1,17" fontsize=8 fontname="Arial"];
@@ -716,7 +716,7 @@ digraph ereignisse_nt {
   paulus_hoher_rat_aelteste [color=black label="{Fesseln abgenommen, Befehl:\nhoher Rat muss kommen|Apg 22,30}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
   kaserne_1d -> paulus_hoher_rat_aelteste [weight=10];
 
-  paulus_in_kaserne [color=black label="{Paulus zurück in Kaserne\nVerhör unter Geisselhieben|Apg 22,24}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
+  paulus_in_kaserne [color=black label="{Paulus zurÃ¼ck in Kaserne\nVerhÃ¶r unter Geisselhieben|Apg 22,24}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
   paulus_hoher_rat_aelteste -> paulus_antipatris;
  {rank=same;paulus_hoher_rat_aelteste paulus_hoher_rat}
   paulus_hoher_rat_aelteste -> paulus_hoher_rat [arrowhead=none];
@@ -727,7 +727,7 @@ digraph ereignisse_nt {
 
   paulus_in_fesseln [color=black label="{Paulus in Fesseln|Apg 26,29}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
 
-  machtwechsel_felix [color=black label="{Machtwechsel Felix\nFrühjahr 59}" $AUSSERBIBLISCH$]; 
+  machtwechsel_felix [color=black label="{Machtwechsel Felix\nFrÃ¼hjahr 59}" $AUSSERBIBLISCH$]; 
   apg_24_27_festus [color=black label="{Festus nachfolger\nvon Felix|Apg 24,27}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
   machtwechsel_felix -> apg_24_27_festus;
   paulus_verteidigt -> apg_24_27_festus [weight=10];
@@ -741,14 +741,14 @@ digraph ereignisse_nt {
 
   fasten [color=black label="{Das Fasten|Apg 27,9}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ffff00"];
 
-  paulus_kreta [color=black label="{Die schönen Häfen\nauf Kreta|Apg 27,8}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
+  paulus_kreta [color=black label="{Die schÃ¶nen HÃ¤fen\nauf Kreta|Apg 27,8}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
   paulus_in_fesseln -> paulus_kreta [weight=10];
   fasten -> paulus_kreta [color="#ffff00"];
 
-  titus_in_kreta_zurueckgelassen [color=black label="{Titus in Kreta zurückgelassen|Tit 1,5}" shape=record fontsize=8 fontname=Arial];
+  titus_in_kreta_zurueckgelassen [color=black label="{Titus in Kreta zurÃ¼ckgelassen|Tit 1,5}" shape=record fontsize=8 fontname=Arial];
   paulus_kreta -> titus_in_kreta_zurueckgelassen;
 
-  paulus_ueberwinterte [color=black label="{Paulus überwinterte\n3 Monate auf Insel|Apg 28,11}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ffff00"];
+  paulus_ueberwinterte [color=black label="{Paulus Ã¼berwinterte\n3 Monate auf Insel|Apg 28,11}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ffff00"];
 
 
 
@@ -770,18 +770,18 @@ digraph ereignisse_nt {
   paulus_in_rom                [color=black label="{Paulus 2 Jahre in Rom|Apg 28,30}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ffff00"];
   ankunft_rom -> paulus_in_rom [color="#ffff00"];
 
-  paulus_in_ketten [color=black label="{Paulus trägt\nKette|Apg 28,20}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
+  paulus_in_ketten [color=black label="{Paulus trÃ¤gt\nKette|Apg 28,20}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
   paulus_in_rom -> paulus_in_ketten;
 
   apg_ende [color=black label="{Apostelgeschichte Ende|Apg 28,31}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ccccff"];
   paulus_in_rom -> apg_ende [color="#ffff00"];
 
 
-  aquila_priscilla_in_rom [color=black label="{Aquila und Priscilla in Rom|Röm 16,3}" shape=record fontsize=8 fontname=Arial style=filled $AQUILLA_PRISCILLA$];
+  aquila_priscilla_in_rom [color=black label="{Aquila und Priscilla in Rom|RÃ¶m 16,3}" shape=record fontsize=8 fontname=Arial style=filled $AQUILLA_PRISCILLA$];
 
 
   tychikus_nach_ephesus_gesandt  [color=black label="{Tychikus nach Ephesus gesandt|2. Tim 4,12 - Eph 6,21}" shape=record fontsize=8 fontname=Arial];
-  tychikus_nach_kolossus_gesandt     [color=black label="{Tychikus (und Onesimus)\nnach Kolossä gesandt|Kol 4,7-9}" shape=record fontsize=8 fontname=Arial];
+  tychikus_nach_kolossus_gesandt     [color=black label="{Tychikus (und Onesimus)\nnach KolossÃ¤ gesandt|Kol 4,7-9}" shape=record fontsize=8 fontname=Arial];
   tychikus_nach_kolossus_gesandt -> brief_kol;
 
 
@@ -789,7 +789,7 @@ digraph ereignisse_nt {
   tychikus_nach_ephesus_gesandt -> brief_eph;
 
 
-  onesiphorus [color=black label="{Onesiphorus besucht Paulus, schämt\nsich seiner Ketten nicht|2. Tim 1,16}" shape=record fontsize=8 fontname=Arial];
+  onesiphorus [color=black label="{Onesiphorus besucht Paulus, schÃ¤mt\nsich seiner Ketten nicht|2. Tim 1,16}" shape=record fontsize=8 fontname=Arial];
   paulus_in_ketten -> onesiphorus;
 
   onesiphorus_zu_tim [color=black label="{Onesiphorus geht\nzu Timotheus|2. Tim 4,19}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#TIMOTHEUS_FC#"];
@@ -799,7 +799,7 @@ digraph ereignisse_nt {
 
   paulus_timotheus_phim -> onesiphorus_zu_tim;
 
-  botschafter_in_ketten  [color=black label="{Paulus ist Botschafer\nin Ketten für\nEvangelium|Eph 6,19-20}" shape=record fontsize=8 fontname=Arial];
+  botschafter_in_ketten  [color=black label="{Paulus ist Botschafer\nin Ketten fÃ¼r\nEvangelium|Eph 6,19-20}" shape=record fontsize=8 fontname=Arial];
   paulus_in_ketten -> botschafter_in_ketten;
 
  {rank=same; brief_eph  botschafter_in_ketten}
@@ -833,7 +833,7 @@ digraph ereignisse_nt {
   bis_ich_komme [color=black label="{Bis ich komme...|1. Tim 4,13}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#TIMOTHEUS_FC#"];
   brief_1tim -> bis_ich_komme;
 
-  wann_kommt_er [color=black label="{Wann kommt Paulus\nnach Ephesus? Verzögert sich\nsein Kommen?|1. Tim 3,14-15}" shape=record fontsize=8 fontname=Arial style=filled fillcolor=red];
+  wann_kommt_er [color=black label="{Wann kommt Paulus\nnach Ephesus? VerzÃ¶gert sich\nsein Kommen?|1. Tim 3,14-15}" shape=record fontsize=8 fontname=Arial style=filled fillcolor=red];
   bis_ich_komme -> wann_kommt_er;
 
   erastus_blieb_in_korinth [color=black label="{Erastus blieb in Korinth|2. Tim 4,20}" shape=record fontsize=8 fontname=Arial];
@@ -841,7 +841,7 @@ digraph ereignisse_nt {
   timotheus_erastus_gesandt -> erastus_blieb_in_korinth;
   erastus_blieb_in_korinth -> brief_2tim [color="#cccccc"];
 
-  trophimus_in_milet_gelassen [color=black label="{Trophimus krank in\nMilet zurückgelassen|2. Tim 4,20}" shape=record fontsize=8 fontname=Arial];
+  trophimus_in_milet_gelassen [color=black label="{Trophimus krank in\nMilet zurÃ¼ckgelassen|2. Tim 4,20}" shape=record fontsize=8 fontname=Arial];
  {rank=same;troas_milet trophimus_in_milet_gelassen}
   troas_milet -> trophimus_in_milet_gelassen [arrowhead=none];
 
@@ -853,21 +853,21 @@ digraph ereignisse_nt {
   apollo_wird_nach_korinth_kommen [color=black label="{Apollos wird nach\nKorinth kommen|1. Kor 16,12}" shape=record fontsize=8 fontname=Arial];
 
   brief_1kor -> apollo_wird_nach_korinth_kommen;
-  aquilla_priscilla_gruessen_1kor [color=black label="{Aquila und Priscilla grüssen,\nsamt Gemeinde in ihrem Haus|1. Kor 16,19}" shape=record fontsize=8 fontname=Arial style=filled $AQUILLA_PRISCILLA$];
+  aquilla_priscilla_gruessen_1kor [color=black label="{Aquila und Priscilla grÃ¼ssen,\nsamt Gemeinde in ihrem Haus|1. Kor 16,19}" shape=record fontsize=8 fontname=Arial style=filled $AQUILLA_PRISCILLA$];
  {rank=same;brief_1kor aquilla_priscilla_gruessen_1kor}
   brief_1kor -> aquilla_priscilla_gruessen_1kor [arrowhead=none];
  
   aquilla_priscilla_gruessen_1kor -> aquila_priscilla_in_rom [color="#AQUILLA_PRISCILLA_FC#"];
 
-  vierzehn_jahre_vor_2kor [color=black label="{Entrückung in 3. Himmel\n14 Jahre vor\n2. Korintherbrief|2. Kor 12,2}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ffff00"];
+  vierzehn_jahre_vor_2kor [color=black label="{EntrÃ¼ckung in 3. Himmel\n14 Jahre vor\n2. Korintherbrief|2. Kor 12,2}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ffff00"];
   vierzehn_jahre_vor_2kor -> brief_2kor [color="#ffff00"];
 
-  pruefung_der_gemeinden_mazedoniens [color=black label="{Prüfung der Gemeinden\nMazedoniens|2. Kor 8,2}" shape=record fontsize=8 fontname=Arial];
+  pruefung_der_gemeinden_mazedoniens [color=black label="{PrÃ¼fung der Gemeinden\nMazedoniens|2. Kor 8,2}" shape=record fontsize=8 fontname=Arial];
   liebeswerk_titus [color=black label="{Titus soll angefangenes\nLiebeswerk bei Korinthern beenden|2. Kor 8,6}" shape=record fontsize=8 fontname=Arial];
   pruefung_der_gemeinden_mazedoniens -> liebeswerk_titus;
   liebeswerk_titus -> brief_2kor;
 
-  nach_thessalonich [color=black label="{Nach Thessalonich 2 Mal\netwas zur Deckung von\nPaulus Bedürfnissen zugesandt|Phil 4,16}" shape=record fontsize=8 fontname=Arial];
+  nach_thessalonich [color=black label="{Nach Thessalonich 2 Mal\netwas zur Deckung von\nPaulus BedÃ¼rfnissen zugesandt|Phil 4,16}" shape=record fontsize=8 fontname=Arial];
 //{rank=same;nach_thessalonich ankunft_in_thessalonich}
 //nach_thessalonich -> ankunft_in_thessalonich [arrowhead=none];
 
@@ -895,7 +895,7 @@ digraph ereignisse_nt {
   brief_1kor -> paulus_bis_pfingsten_in_ephesus;
   paulus_in_ephesus -> paulus_bis_pfingsten_in_ephesus [color="#ffff00"];
 
-  geoeffnete_tuer_eph [color=black label="{Geöffnete Tür, weit\nund vielversprechend,\nviele Widersacher\ndarum:...|1. Kor 16,9}" shape=record fontsize=8 fontname=Arial];
+  geoeffnete_tuer_eph [color=black label="{GeÃ¶ffnete TÃ¼r, weit\nund vielversprechend,\nviele Widersacher\ndarum:...|1. Kor 16,9}" shape=record fontsize=8 fontname=Arial];
   geoeffnete_tuer_eph -> paulus_bis_pfingsten_in_ephesus;
 
   korinther_schreiben_paulus_brief [color=black label="{Korinther schreiben dem\nPaulus einen Brief|1. Kor 7,1}" shape=record fontsize=8 fontname=Arial];
@@ -908,18 +908,18 @@ digraph ereignisse_nt {
   timotheus_in_korinth [color=black label="{Timotheus in Korinth\n('Wenn T. kommt')|1. Kor 16,10}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#TIMOTHEUS_FC#"];
   brief_1kor -> timotheus_in_korinth;
 
-  anordnung_sammlung [color=black label="{Anordnung einer\nSammlung in Galatien\nfür Jerusalem|1. Kor 16,1}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ddffff"];
+  anordnung_sammlung [color=black label="{Anordnung einer\nSammlung in Galatien\nfÃ¼r Jerusalem|1. Kor 16,1}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ddffff"];
   anordnung_sammlung -> brief_1kor;
 
   beiseite_legen [color=black label="{Jeder lege beiseiten, damit\nnicht Sammlung, wenn ich komme|1. Kor 16,2}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ddffff"];
   brief_1kor -> beiseite_legen;
 
-  bis_illyrien [color=black label="{Paulus hat Ev.\nvon Jerusalem bis\nIllyrien verk.|Röm 15,19}" shape=record fontsize=8 fontname=Arial];
+  bis_illyrien [color=black label="{Paulus hat Ev.\nvon Jerusalem bis\nIllyrien verk.|RÃ¶m 15,19}" shape=record fontsize=8 fontname=Arial];
   bis_illyrien -> brief_roem;
 
 
-  rom_spanien [color=black label="{Paulus will nach\nRom, dann\nSpanien|Röm 15,28}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ddffff"];
-  jetzt_nach_jerusalem [color=black label="{Jetzt Reise nach\nJerusalem im\nDienst für die Heiligen|Röm 15,25}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ddffff"];
+  rom_spanien [color=black label="{Paulus will nach\nRom, dann\nSpanien|RÃ¶m 15,28}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ddffff"];
+  jetzt_nach_jerusalem [color=black label="{Jetzt Reise nach\nJerusalem im\nDienst fÃ¼r die Heiligen|RÃ¶m 15,25}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#ddffff"];
 
   jetzt_nach_jerusalem -> brief_roem;
 
@@ -928,7 +928,7 @@ digraph ereignisse_nt {
   zitat_lk [color=black label="{Zitat Lukas Evangelium}" shape=record fontsize=8 fontname=Arial];
   zitat_lk -> brief_1tim [label="1. Tim 5,18\nLk 10,7" fontsize=8 fontname=Arial];
 
-  uebermaessige_bedraengnis_in_asia [color=black label="{Übermässige\nBedrängnis in Asia|2. Kor 1,8}" shape=record fontsize=8 fontname=Arial];
+  uebermaessige_bedraengnis_in_asia [color=black label="{ÃœbermÃ¤ssige\nBedrÃ¤ngnis in Asia|2. Kor 1,8}" shape=record fontsize=8 fontname=Arial];
   brief_1kor -> uebermaessige_bedraengnis_in_asia -> brief_2kor;
 
   timotheus_nach_philippi_senden [color=black label="{Paulus hofft, Timotheus\nnach Philippi zu senden|Phil 2,19}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#TIMOTHEUS_FC#"];
@@ -947,15 +947,15 @@ digraph ereignisse_nt {
   onesimus_gezeugt -> brief_phim;
   onesimus_gezeugt -> tychikus_nach_kolossus_gesandt;
 
-  demas_mitarbeiter [color=black label="{Demas, ein Mitarbeiter\nvon Paulus grüsst|Phim 24}" shape=record fontsize=8 fontname=Arial];
+  demas_mitarbeiter [color=black label="{Demas, ein Mitarbeiter\nvon Paulus grÃ¼sst|Phim 24}" shape=record fontsize=8 fontname=Arial];
   demas_mitarbeiter -> demas_verlaesst_paulus;
 
-  nimm_markus [color=black label="{Nimm Markus,\nbring ihn zurück,\nweil nüztlich zum Dienst|2. Tim 4,11}" shape=record fontsize=8 fontname=Arial];
+  nimm_markus [color=black label="{Nimm Markus,\nbring ihn zurÃ¼ck,\nweil nÃ¼ztlich zum Dienst|2. Tim 4,11}" shape=record fontsize=8 fontname=Arial];
   markus_mitarbeiter_gruesst -> nimm_markus -> brief_2tim;
 
 
-  markus_mitarbeiter_gruesst [color=black label="{Markus, ein Mitarbeiter\nvon Paulus grüsst|Phim 24}" shape=record fontsize=8 fontname=Arial];
-  aristarchus_mitarbeiter_gruesst [color=black label="{Aristarchus, ein Mitarbeiter\nvon Paulus grüsst|Phim 24}" shape=record fontsize=8 fontname=Arial];
+  markus_mitarbeiter_gruesst [color=black label="{Markus, ein Mitarbeiter\nvon Paulus grÃ¼sst|Phim 24}" shape=record fontsize=8 fontname=Arial];
+  aristarchus_mitarbeiter_gruesst [color=black label="{Aristarchus, ein Mitarbeiter\nvon Paulus grÃ¼sst|Phim 24}" shape=record fontsize=8 fontname=Arial];
   an_archippus_phim [color=black label="{An Archippus\nunseren Mitstreiter|Phim 2}" shape=record fontsize=8 fontname=Arial];
   paulus_timotheus_phim [color=black label="{Paulus und Timotheus\nzusammen|Phim 1}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#TIMOTHEUS_FC#"];
  {rank=same;brief_phim paulus_timotheus_phim markus_mitarbeiter_gruesst aristarchus_mitarbeiter_gruesst demas_mitarbeiter an_archippus_phim}
@@ -966,7 +966,7 @@ digraph ereignisse_nt {
   
   aristarchus_mitgefangener -> aristarchus_mitarbeiter_gruesst;
 
-  paulus_will_zu_philemon [color=black label="{Paulus möchte\neine Herberge|Phim 1:22}" shape=record fontsize=8 fontname=Arial];
+  paulus_will_zu_philemon [color=black label="{Paulus mÃ¶chte\neine Herberge|Phim 1:22}" shape=record fontsize=8 fontname=Arial];
   brief_phim -> paulus_will_zu_philemon;
 
   paulus_timotheus_2kor [color=black label="{Paulus und Timotheus,\nder Bruder, zusammen|2. Kor 1,1}" shape=record fontsize=8 fontname=Arial style=filled fillcolor="#TIMOTHEUS_FC#"];
